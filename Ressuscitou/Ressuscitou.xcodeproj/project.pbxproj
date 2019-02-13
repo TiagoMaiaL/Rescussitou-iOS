@@ -17,6 +17,7 @@
 		470CE6402214AA2A005E321F /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE63F2214AA2A005E321F /* SongViewController.swift */; };
 		470CE6432214AAAC005E321F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470CE6422214AAAB005E321F /* CoreData.framework */; };
 		470CE6452214AAB1005E321F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470CE6442214AAB1005E321F /* WebKit.framework */; };
+		470CE6472214C659005E321F /* SongMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE6462214C659005E321F /* SongMO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		470CE63F2214AA2A005E321F /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		470CE6422214AAAB005E321F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		470CE6442214AAB1005E321F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		470CE6462214C659005E321F /* SongMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				470CE61C22149F11005E321F /* Ressuscitou.xcdatamodeld */,
+				470CE6462214C659005E321F /* SongMO.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				470CE6402214AA2A005E321F /* SongViewController.swift in Sources */,
 				470CE61622149F11005E321F /* AppDelegate.swift in Sources */,
+				470CE6472214C659005E321F /* SongMO.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
