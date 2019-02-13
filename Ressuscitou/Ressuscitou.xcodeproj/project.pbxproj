@@ -14,6 +14,7 @@
 		470CE62022149F13005E321F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 470CE61F22149F13005E321F /* Assets.xcassets */; };
 		470CE62322149F13005E321F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470CE62122149F13005E321F /* LaunchScreen.storyboard */; };
 		470CE62E22149F14005E321F /* RessuscitouTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE62D22149F14005E321F /* RessuscitouTests.swift */; };
+		470CE63E2214A1A2005E321F /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 470CE63D2214A1A2005E321F /* songs.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		470CE62922149F14005E321F /* RessuscitouTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RessuscitouTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		470CE62D22149F14005E321F /* RessuscitouTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RessuscitouTests.swift; sourceTree = "<group>"; };
 		470CE62F22149F14005E321F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		470CE63D2214A1A2005E321F /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +126,20 @@
 		470CE63B22149F63005E321F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				470CE63C2214A0EE005E321F /* Resources */,
 				470CE61522149F11005E321F /* AppDelegate.swift */,
 				470CE61F22149F13005E321F /* Assets.xcassets */,
 				470CE62122149F13005E321F /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		470CE63C2214A0EE005E321F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				470CE63D2214A1A2005E321F /* songs.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470CE63E2214A1A2005E321F /* songs.json in Resources */,
 				470CE62322149F13005E321F /* LaunchScreen.storyboard in Resources */,
 				470CE62022149F13005E321F /* Assets.xcassets in Resources */,
 				470CE61B22149F11005E321F /* Main.storyboard in Resources */,
