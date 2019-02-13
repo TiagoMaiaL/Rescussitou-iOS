@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		470CE61622149F11005E321F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE61522149F11005E321F /* AppDelegate.swift */; };
-		470CE61822149F11005E321F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE61722149F11005E321F /* ViewController.swift */; };
 		470CE61B22149F11005E321F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470CE61922149F11005E321F /* Main.storyboard */; };
 		470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 470CE61C22149F11005E321F /* Ressuscitou.xcdatamodeld */; };
 		470CE62022149F13005E321F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 470CE61F22149F13005E321F /* Assets.xcassets */; };
 		470CE62322149F13005E321F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470CE62122149F13005E321F /* LaunchScreen.storyboard */; };
 		470CE62E22149F14005E321F /* RessuscitouTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE62D22149F14005E321F /* RessuscitouTests.swift */; };
 		470CE63E2214A1A2005E321F /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = 470CE63D2214A1A2005E321F /* songs.json */; };
+		470CE6402214AA2A005E321F /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE63F2214AA2A005E321F /* SongViewController.swift */; };
+		470CE6432214AAAC005E321F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470CE6422214AAAB005E321F /* CoreData.framework */; };
+		470CE6452214AAB1005E321F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470CE6442214AAB1005E321F /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,6 @@
 /* Begin PBXFileReference section */
 		470CE61222149F11005E321F /* Ressuscitou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ressuscitou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		470CE61522149F11005E321F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		470CE61722149F11005E321F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		470CE61A22149F11005E321F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		470CE61D22149F11005E321F /* Ressuscitou.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ressuscitou.xcdatamodel; sourceTree = "<group>"; };
 		470CE61F22149F13005E321F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +41,9 @@
 		470CE62D22149F14005E321F /* RessuscitouTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RessuscitouTests.swift; sourceTree = "<group>"; };
 		470CE62F22149F14005E321F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		470CE63D2214A1A2005E321F /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = songs.json; sourceTree = "<group>"; };
+		470CE63F2214AA2A005E321F /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		470CE6422214AAAB005E321F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		470CE6442214AAB1005E321F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470CE6452214AAB1005E321F /* WebKit.framework in Frameworks */,
+				470CE6432214AAAC005E321F /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +72,7 @@
 				470CE61422149F11005E321F /* Ressuscitou */,
 				470CE62C22149F14005E321F /* RessuscitouTests */,
 				470CE61322149F11005E321F /* Products */,
+				470CE6412214AAAB005E321F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,7 +109,7 @@
 		470CE63822149F41005E321F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				470CE61722149F11005E321F /* ViewController.swift */,
+				470CE63F2214AA2A005E321F /* SongViewController.swift */,
 				470CE61922149F11005E321F /* Main.storyboard */,
 			);
 			path = Controllers;
@@ -140,6 +147,15 @@
 				470CE63D2214A1A2005E321F /* songs.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		470CE6412214AAAB005E321F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				470CE6442214AAB1005E321F /* WebKit.framework */,
+				470CE6422214AAAB005E321F /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				470CE61822149F11005E321F /* ViewController.swift in Sources */,
+				470CE6402214AA2A005E321F /* SongViewController.swift in Sources */,
 				470CE61622149F11005E321F /* AppDelegate.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
 			);
