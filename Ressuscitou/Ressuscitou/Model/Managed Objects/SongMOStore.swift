@@ -13,9 +13,41 @@ struct SongsMOStore: SongMOStoreProtocol {
 
     // MARK: Imperatives
 
-    func createSongsManagedObjects(fromJSONSongs songs: Songs,
+    func createSongsManagedObjects(fromJSONSongs songs: [Song],
                                    usingContext context: NSManagedObjectContext) -> [SongMO] {
-        // TODO: Implement routing to create and save the managed objects.
-        return []
+        return songs.map { createSongManagedObject(fromJSONSong: $0, usingContext: context) }
+    }
+
+    /// Creates a song managed object from the passed song struct.
+    /// - Parameters:
+    ///     - song: the song struct to be persisted.
+    ///     - context: the managed object context in which the new managed object will be added.
+    /// - Returns: the added song managed object.
+    private func createSongManagedObject(fromJSONSong song: Song,
+                                         usingContext context: NSManagedObjectContext) -> SongMO {
+        let songManagedObject = SongMO(context: context)
+
+        songManagedObject.title = song.title
+        songManagedObject.category = Int16(song.category)
+        if let number = Int16(song.number) {
+            songManagedObject.number = number
+        }
+        songManagedObject.base64HTML = song.base64Html
+
+        songManagedObject.isForFinal = song.isForFinal
+        songManagedObject.isForAdvent = song.isForAdvent
+        songManagedObject.isForBreadFraction = song.isForBreadFraction
+        songManagedObject.isForChildren = song.isForChildren
+        songManagedObject.isForChristmas = song.isForChristmas
+        songManagedObject.isForCommunion = song.isForCommunion
+        songManagedObject.isForEaster = song.isForEaster
+        songManagedObject.isForEntrance = song.isForEntrance
+        songManagedObject.isForLaudsOrEve = song.isForLaudsOrEve
+        songManagedObject.isForLent = song.isForLent
+        songManagedObject.isForPeace = song.isForPeace
+        songManagedObject.isForPentecost = song.isForPentecost
+        songManagedObject.isForVirginMary = song.isForVirginMary
+
+        return songManagedObject
     }
 }

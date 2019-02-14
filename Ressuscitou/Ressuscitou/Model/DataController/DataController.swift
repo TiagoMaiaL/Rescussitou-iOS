@@ -15,22 +15,22 @@ class DataController: DataControllerProtocol {
     // MARK: Properties
 
     /// The container holding the core data stack.
-    private let container: NSPersistentContainer
+    let dataContainer: NSPersistentContainer
 
     var viewContext: NSManagedObjectContext!
 
     // MARK: Initializers
 
     required init(modelName: String) {
-        container = NSPersistentContainer(name: modelName)
+        dataContainer = NSPersistentContainer(name: modelName)
     }
 
     // MARK: Imperatives
 
     func load(completionHandler handler: @escaping (NSPersistentStoreDescription?, Error?) -> Void) {
-        container.loadPersistentStores { description, error in
+        dataContainer.loadPersistentStores { description, error in
             if error == nil {
-                self.viewContext = self.container.viewContext
+                self.viewContext = self.dataContainer.viewContext
             }
 
             handler(description, error)

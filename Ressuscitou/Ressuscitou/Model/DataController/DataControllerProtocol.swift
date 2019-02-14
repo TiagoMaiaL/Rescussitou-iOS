@@ -14,6 +14,8 @@ protocol DataControllerProtocol {
 
     // MARK: Properties
 
+    var dataContainer: NSPersistentContainer { get }
+
     /// The view context associated to the core data stack.
     var viewContext: NSManagedObjectContext! { get }
 

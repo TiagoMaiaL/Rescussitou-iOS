@@ -19,6 +19,6 @@ protocol SongMOStoreProtocol {
     ///     - songs: the songs to be persisted.
     ///     - context: the managed object context in which the new managed objects will be added.
     /// - Returns: an array with the added song managed objects.
-    func createSongsManagedObjects(fromJSONSongs songs: Songs,
+    func createSongsManagedObjects(fromJSONSongs songs: [Song],
                                    usingContext context: NSManagedObjectContext) -> [SongMO]
 }

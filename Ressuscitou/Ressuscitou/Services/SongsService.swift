@@ -30,7 +30,10 @@ class SongsService: SongsServiceProtocol {
 
         do {
             let songs = try decoder.decode([Song].self, from: jsonData)
-            // TODO: Persist the songs using the store.
+            self.dataController.dataContainer.performBackgroundTask { context in
+                let mos = self.songsStore.createSongsManagedObjects(fromJSONSongs: songs, usingContext: context)
+                print(mos)
+            }
         } catch {
             // Call handler with an error.
             print("error")
