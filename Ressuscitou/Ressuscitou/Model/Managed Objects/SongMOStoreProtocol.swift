@@ -13,4 +13,12 @@ import CoreData
 protocol SongMOStoreProtocol {
 
     // MARK: Imperatives
+
+    /// Persists the received songs into core data.
+    /// - Parameters:
+    ///     - songs: the songs to be persisted.
+    ///     - context: the managed object context in which the new managed objects will be added.
+    /// - Returns: an array with the added song managed objects.
+    func createSongsManagedObjects(fromJSONSongs songs: Songs,
+                                   usingContext context: NSManagedObjectContext) -> [SongMO]
 }

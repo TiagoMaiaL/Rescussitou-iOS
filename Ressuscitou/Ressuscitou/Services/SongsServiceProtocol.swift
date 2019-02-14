@@ -14,11 +14,14 @@ protocol SongsServiceProtocol {
     // MARK: Properties
 
     /// The data controller used to persist the parsed json songs.
-    var dataController: DataController { get }
+    var dataController: DataControllerProtocol { get }
+
+    /// The store used to persist the songs parsed from the json data.
+    var songsStore: SongMOStoreProtocol { get }
 
     // MARK: Initializers
 
-    init(dataController: DataController)
+    init(dataController: DataControllerProtocol, songsStore: SongMOStoreProtocol)
 
     // MARK: Imperatives
 

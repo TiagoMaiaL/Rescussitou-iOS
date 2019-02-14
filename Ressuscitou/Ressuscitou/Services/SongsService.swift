@@ -7,3 +7,32 @@
 //
 
 import Foundation
+
+class SongsService: SongsServiceProtocol {
+
+    // MARK: Properties
+
+    var dataController: DataControllerProtocol
+    var songsStore: SongMOStoreProtocol
+
+    // MARK: Initializers
+
+    required init(dataController: DataControllerProtocol, songsStore: SongMOStoreProtocol) {
+        self.dataController = dataController
+        self.songsStore = songsStore
+    }
+
+    // MARK: Imperatives
+
+    func handleSongsJson(_ jsonData: Data, withCompletionHandler: (Error?) -> Void) {
+        // Turn the data into the temporary representation songs struct, then persist them.
+        let decoder = JSONDecoder()
+
+        do {
+            let songs = try decoder.decode(Songs.self, from: jsonData)
+            print(songs)
+        } catch {
+            // Call handler with an error.
+        }
+    }
+}

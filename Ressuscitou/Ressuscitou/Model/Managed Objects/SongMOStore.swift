@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import CoreData
+
+struct SongsMOStore: SongMOStoreProtocol {
+
+    // MARK: Imperatives
+
+    func createSongsManagedObjects(fromJSONSongs songs: Songs,
+                                   usingContext context: NSManagedObjectContext) -> [SongMO] {
+        // TODO: Implement routing to create and save the managed objects.
+        return []
+    }
+}

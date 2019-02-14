@@ -16,12 +16,16 @@ class SplashViewController: UIViewController {
     /// The data controller in charge of managing the core data stack.
     var dataController: DataControllerProtocol!
 
+    /// The songs service in charge of parsing and persisting the bundle songs json file.
+    var songsService: SongsServiceProtocol!
+
     // MARK: Life cycle
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         precondition(dataController != nil)
+        precondition(songsService != nil)
 
         dataController.load { description, error in
             guard error == nil else {
