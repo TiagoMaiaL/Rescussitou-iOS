@@ -34,11 +34,13 @@ class SplashViewController: UIViewController {
                 return
             }
 
-            self.seedSongsFromJsonFile()
-
-//            DispatchQueue.main.async {
-//                self.performSegue(withIdentifier: SegueIdentifiers.initialControllerSegue, sender: self)
-//            }
+            if !UserDefaults.wereSongsSeeded {
+                self.seedSongsFromJsonFile()
+            } else {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifiers.initialControllerSegue, sender: self)
+                }
+            }
         }
     }
 
@@ -56,6 +58,21 @@ class SplashViewController: UIViewController {
                 // TODO: Alert users about the error.
                 return
             }
+        }
+    }
+}
+
+extension UserDefaults {
+
+    // MARK: Properties
+
+    /// A flag indicating whether the songs were added into core data or not.
+    static var wereSongsSeeded: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: Keys.wereSongsSeeded)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.wereSongsSeeded)
         }
     }
 }

@@ -25,6 +25,8 @@ class SongsService: SongsServiceProtocol {
     // MARK: Imperatives
 
     func handleSongsJson(_ jsonData: Data, withCompletionHandler: (Error?) -> Void) {
+        
+
         // Turn the data into the temporary representation songs struct, then persist them.
         let decoder = JSONDecoder()
 
@@ -35,7 +37,7 @@ class SongsService: SongsServiceProtocol {
                 print(mos)
             }
         } catch {
-            // Call handler with an error.
+            // TODO: Call handler with an error.
             print("error")
         }
     }
