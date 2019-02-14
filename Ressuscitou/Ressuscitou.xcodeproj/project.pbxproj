@@ -18,6 +18,10 @@
 		470CE6432214AAAC005E321F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470CE6422214AAAB005E321F /* CoreData.framework */; };
 		470CE6452214AAB1005E321F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 470CE6442214AAB1005E321F /* WebKit.framework */; };
 		470CE6472214C659005E321F /* SongMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE6462214C659005E321F /* SongMO.swift */; };
+		470CE6492214F20F005E321F /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE6482214F20F005E321F /* SplashViewController.swift */; };
+		470CE64B2214F3B6005E321F /* ViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE64A2214F3B6005E321F /* ViewController+Constants.swift */; };
+		470CE64D2214F589005E321F /* DataControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE64C2214F589005E321F /* DataControllerProtocol.swift */; };
+		470CE64F2214F594005E321F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE64E2214F594005E321F /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		470CE6422214AAAB005E321F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		470CE6442214AAB1005E321F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		470CE6462214C659005E321F /* SongMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMO.swift; sourceTree = "<group>"; };
+		470CE6482214F20F005E321F /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		470CE64A2214F3B6005E321F /* ViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Constants.swift"; sourceTree = "<group>"; };
+		470CE64C2214F589005E321F /* DataControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataControllerProtocol.swift; sourceTree = "<group>"; };
+		470CE64E2214F594005E321F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +119,10 @@
 		470CE63822149F41005E321F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				470CE63F2214AA2A005E321F /* SongViewController.swift */,
 				470CE61922149F11005E321F /* Main.storyboard */,
+				470CE64A2214F3B6005E321F /* ViewController+Constants.swift */,
+				470CE6482214F20F005E321F /* SplashViewController.swift */,
+				470CE63F2214AA2A005E321F /* SongViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -122,6 +132,7 @@
 			children = (
 				470CE61C22149F11005E321F /* Ressuscitou.xcdatamodeld */,
 				470CE6462214C659005E321F /* SongMO.swift */,
+				470CE6502214F59A005E321F /* DataController */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +170,15 @@
 				470CE6422214AAAB005E321F /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		470CE6502214F59A005E321F /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				470CE64C2214F589005E321F /* DataControllerProtocol.swift */,
+				470CE64E2214F594005E321F /* DataController.swift */,
+			);
+			path = DataController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +287,10 @@
 				470CE61622149F11005E321F /* AppDelegate.swift in Sources */,
 				470CE6472214C659005E321F /* SongMO.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
+				470CE64B2214F3B6005E321F /* ViewController+Constants.swift in Sources */,
+				470CE64F2214F594005E321F /* DataController.swift in Sources */,
+				470CE6492214F20F005E321F /* SplashViewController.swift in Sources */,
+				470CE64D2214F589005E321F /* DataControllerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
