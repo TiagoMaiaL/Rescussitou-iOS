@@ -29,5 +29,5 @@ protocol SongsServiceProtocol {
     /// - Parameters:
     ///     - jsonData: the json data to be handled.
     ///     - completionHandler: the completion handler called when finished parsing and storing the songs.
-    func handleSongsJson(_ jsonData: Data, withCompletionHandler: (Error?) -> Void)
+    func handleSongsJson(_ jsonData: Data, withCompletionHandler handler: @escaping (Error?) -> Void)
 }

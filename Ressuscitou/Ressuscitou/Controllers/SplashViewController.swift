@@ -29,17 +29,15 @@ class SplashViewController: UIViewController {
 
         dataController.load { description, error in
             guard error == nil else {
-                // TODO: Display error to user.
-                print("Error")
+                // TODO: Alert error to user.
+                print("Error while loading the store.")
                 return
             }
 
             if !UserDefaults.wereSongsSeeded {
                 self.seedSongsFromJsonFile()
             } else {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: SegueIdentifiers.initialControllerSegue, sender: self)
-                }
+                self.displayMainController()
             }
         }
     }
@@ -58,6 +56,16 @@ class SplashViewController: UIViewController {
                 // TODO: Alert users about the error.
                 return
             }
+
+            UserDefaults.wereSongsSeeded = true
+            self.displayMainController()
+        }
+    }
+
+    /// Continues with the app flow.
+    private func displayMainController() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: SegueIdentifiers.initialControllerSegue, sender: self)
         }
     }
 }

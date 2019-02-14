@@ -24,21 +24,25 @@ class SongsService: SongsServiceProtocol {
 
     // MARK: Imperatives
 
-    func handleSongsJson(_ jsonData: Data, withCompletionHandler: (Error?) -> Void) {
-        
-
-        // Turn the data into the temporary representation songs struct, then persist them.
+    func handleSongsJson(_ jsonData: Data, withCompletionHandler handler: @escaping (Error?) -> Void) {
+        // Turn the data into the temporary songs structs, then persist them using the store.
         let decoder = JSONDecoder()
 
         do {
             let songs = try decoder.decode([Song].self, from: jsonData)
             self.dataController.dataContainer.performBackgroundTask { context in
-                let mos = self.songsStore.createSongsManagedObjects(fromJSONSongs: songs, usingContext: context)
-                print(mos)
+                _ = self.songsStore.createSongsManagedObjects(fromJSONSongs: songs, usingContext: context)
+                do {
+                    try context.save()
+                    handler(nil)
+                } catch {
+                    print("Error while saving context.")
+                    handler(error)
+                }
             }
         } catch {
-            // TODO: Call handler with an error.
-            print("error")
+            print("Error while decoding json.")
+            handler(error)
         }
     }
 }
