@@ -22,6 +22,11 @@
 		470CE64B2214F3B6005E321F /* ViewController+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE64A2214F3B6005E321F /* ViewController+Constants.swift */; };
 		470CE64D2214F589005E321F /* DataControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE64C2214F589005E321F /* DataControllerProtocol.swift */; };
 		470CE64F2214F594005E321F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE64E2214F594005E321F /* DataController.swift */; };
+		470CE6532215CB8F005E321F /* SongsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE6522215CB8F005E321F /* SongsServiceProtocol.swift */; };
+		470CE65722160081005E321F /* SongMOStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE65622160081005E321F /* SongMOStoreProtocol.swift */; };
+		470CE6592216008C005E321F /* SongMOStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE6582216008C005E321F /* SongMOStore.swift */; };
+		470CE65B221600A8005E321F /* SongsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE65A221600A8005E321F /* SongsService.swift */; };
+		470CE65D2216021C005E321F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE65C2216021C005E321F /* Song.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,11 @@
 		470CE64A2214F3B6005E321F /* ViewController+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Constants.swift"; sourceTree = "<group>"; };
 		470CE64C2214F589005E321F /* DataControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataControllerProtocol.swift; sourceTree = "<group>"; };
 		470CE64E2214F594005E321F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		470CE6522215CB8F005E321F /* SongsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsServiceProtocol.swift; sourceTree = "<group>"; };
+		470CE65622160081005E321F /* SongMOStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMOStoreProtocol.swift; sourceTree = "<group>"; };
+		470CE6582216008C005E321F /* SongMOStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMOStore.swift; sourceTree = "<group>"; };
+		470CE65A221600A8005E321F /* SongsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsService.swift; sourceTree = "<group>"; };
+		470CE65C2216021C005E321F /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +108,7 @@
 		470CE61422149F11005E321F /* Ressuscitou */ = {
 			isa = PBXGroup;
 			children = (
+				470CE6512215CB7E005E321F /* Services */,
 				470CE63922149F48005E321F /* Model */,
 				470CE63A22149F50005E321F /* Views */,
 				470CE63822149F41005E321F /* Controllers */,
@@ -130,9 +141,9 @@
 		470CE63922149F48005E321F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				470CE61C22149F11005E321F /* Ressuscitou.xcdatamodeld */,
-				470CE6462214C659005E321F /* SongMO.swift */,
 				470CE6502214F59A005E321F /* DataController */,
+				470CE61C22149F11005E321F /* Ressuscitou.xcdatamodeld */,
+				470CE65422160035005E321F /* Managed Objects */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +190,26 @@
 				470CE64E2214F594005E321F /* DataController.swift */,
 			);
 			path = DataController;
+			sourceTree = "<group>";
+		};
+		470CE6512215CB7E005E321F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				470CE6522215CB8F005E321F /* SongsServiceProtocol.swift */,
+				470CE65A221600A8005E321F /* SongsService.swift */,
+				470CE65C2216021C005E321F /* Song.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		470CE65422160035005E321F /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				470CE6462214C659005E321F /* SongMO.swift */,
+				470CE65622160081005E321F /* SongMOStoreProtocol.swift */,
+				470CE6582216008C005E321F /* SongMOStore.swift */,
+			);
+			path = "Managed Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,13 +314,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470CE65B221600A8005E321F /* SongsService.swift in Sources */,
 				470CE6402214AA2A005E321F /* SongViewController.swift in Sources */,
 				470CE61622149F11005E321F /* AppDelegate.swift in Sources */,
 				470CE6472214C659005E321F /* SongMO.swift in Sources */,
+				470CE6532215CB8F005E321F /* SongsServiceProtocol.swift in Sources */,
+				470CE65722160081005E321F /* SongMOStoreProtocol.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
+				470CE6592216008C005E321F /* SongMOStore.swift in Sources */,
 				470CE64B2214F3B6005E321F /* ViewController+Constants.swift in Sources */,
 				470CE64F2214F594005E321F /* DataController.swift in Sources */,
 				470CE6492214F20F005E321F /* SplashViewController.swift in Sources */,
+				470CE65D2216021C005E321F /* Song.swift in Sources */,
 				470CE64D2214F589005E321F /* DataControllerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
