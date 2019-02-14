@@ -34,8 +34,27 @@ class SplashViewController: UIViewController {
                 return
             }
 
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: SegueIdentifiers.initialControllerSegue, sender: self)
+            self.seedSongsFromJsonFile()
+
+//            DispatchQueue.main.async {
+//                self.performSegue(withIdentifier: SegueIdentifiers.initialControllerSegue, sender: self)
+//            }
+        }
+    }
+
+    // MARK: Imperatives
+
+    /// Gets the json file and seeds the data store with its content.
+    private func seedSongsFromJsonFile() {
+        guard let songsJsonURL = Bundle.main.url(forResource: "songs", withExtension: "json"),
+            let songsJsonData = try? Data(contentsOf: songsJsonURL) else {
+                preconditionFailure("Couldn't retrieve the songs json data.")
+        }
+
+        songsService.handleSongsJson(songsJsonData) { error in
+            guard error == nil else {
+                // TODO: Alert users about the error.
+                return
             }
         }
     }

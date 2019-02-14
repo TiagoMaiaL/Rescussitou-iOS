@@ -17,7 +17,7 @@ struct Song: Codable {
 
     // The basic properties of a song.
     let title: String
-    let number: Int
+    let number: String
     let category: Int
     let base64Html: String
 
@@ -55,14 +55,4 @@ struct Song: Codable {
         case isForPentecost = "pent"
         case isForVirginMary = "virg"
     }
-}
-
-/// A temporary songs container object parsed from a json and used by persistence routines.
-/// - Note: Although this type could be used in controllers, its not meant to be persisted, but to be an internal
-///         representation for the store routines, that use core data.
-struct Songs: Codable {
-
-    // MARK: Properties
-
-    let songs: [Song]
 }

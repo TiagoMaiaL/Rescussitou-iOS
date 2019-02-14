@@ -29,10 +29,11 @@ class SongsService: SongsServiceProtocol {
         let decoder = JSONDecoder()
 
         do {
-            let songs = try decoder.decode(Songs.self, from: jsonData)
-            print(songs)
+            let songs = try decoder.decode([Song].self, from: jsonData)
+            // TODO: Persist the songs using the store.
         } catch {
             // Call handler with an error.
+            print("error")
         }
     }
 }
