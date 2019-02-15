@@ -13,6 +13,22 @@ struct SongsMOStore: SongMOStoreProtocol {
 
     // MARK: Imperatives
 
+    func makeFetchedResultsControllerForAllSongs(
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO> {
+
+        let request: NSFetchRequest<SongMO> = SongMO.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "title", ascending: true)
+        ]
+
+        let frc = NSFetchedResultsController(fetchRequest: request,
+                                             managedObjectContext: context,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: "all")
+        return frc
+    }
+
     func createSongsManagedObjects(fromJSONSongs songs: [Song],
                                    usingContext context: NSManagedObjectContext) -> [SongMO] {
         return songs.map { createSongManagedObject(fromJSONSong: $0, usingContext: context) }

@@ -17,29 +17,27 @@ class SongViewController: UIViewController {
     /// The web view displaying the html associated to the song.
     @IBOutlet weak var songWebView: WKWebView!
 
+    /// The song to be displayed.
+    var song: SongMO!
+
     // MARK: Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let songsJsonURL = Bundle.main.url(forResource: "songs", withExtension: "json"),
-            let songsJsonData = try? Data(contentsOf: songsJsonURL) else {
-                preconditionFailure("Couldn't retrieve the songs json data.")
-        }
+        precondition(song != nil)
 
-        guard let jsonObject = try? JSONSerialization.jsonObject(
-            with: songsJsonData,
-            options: .allowFragments
-        ), let songs = jsonObject as? [[String: Any]] else {
-                preconditionFailure("Couldn't parse the songs json.")
-        }
+        title = song.title
+    }
 
-        let firstSong = songs.first!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        guard let encodedSongHtml = firstSong["html_base64"] as? String else {
-            return
+        // Display the song html.
+        if let encodedHtml = song.base64HTML,
+            let decodedHtml = Data(base64Encoded: encodedHtml),
+            let html = String(data: decodedHtml, encoding: .utf8) {
+            songWebView.loadHTMLString(html, baseURL: nil)
         }
-        let decodedSongData = Data(base64Encoded: encodedSongHtml)!
-        songWebView.loadHTMLString(String(data: decodedSongData, encoding: .utf8)!, baseURL: nil)
     }
 }

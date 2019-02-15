@@ -42,6 +42,20 @@ class SplashViewController: UIViewController {
         }
     }
 
+    // MARK: Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifiers.initialControllerSegue {
+            if let navigationController = segue.destination as? UINavigationController,
+                let songsListController = navigationController.topViewController as? SongsTableViewController {
+                songsListController.songsFetchedResultsController =
+                    songsService.songsStore.makeFetchedResultsControllerForAllSongs(
+                        usingContext: dataController.viewContext
+                )
+            }
+        }
+    }
+
     // MARK: Imperatives
 
     /// Gets the json file and seeds the data store with its content.

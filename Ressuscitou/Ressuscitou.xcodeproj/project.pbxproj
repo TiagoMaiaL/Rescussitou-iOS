@@ -28,6 +28,7 @@
 		470CE65B221600A8005E321F /* SongsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE65A221600A8005E321F /* SongsService.swift */; };
 		470CE65D2216021C005E321F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE65C2216021C005E321F /* Song.swift */; };
 		470CE66122162423005E321F /* UserDefaults+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE66022162423005E321F /* UserDefaults+Constants.swift */; };
+		470CE66322162D60005E321F /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE66222162D60005E321F /* SongsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		470CE65A221600A8005E321F /* SongsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsService.swift; sourceTree = "<group>"; };
 		470CE65C2216021C005E321F /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		470CE66022162423005E321F /* UserDefaults+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Constants.swift"; sourceTree = "<group>"; };
+		470CE66222162D60005E321F /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				470CE64A2214F3B6005E321F /* ViewController+Constants.swift */,
 				470CE6482214F20F005E321F /* SplashViewController.swift */,
 				470CE63F2214AA2A005E321F /* SongViewController.swift */,
+				470CE66222162D60005E321F /* SongsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				470CE65B221600A8005E321F /* SongsService.swift in Sources */,
 				470CE6402214AA2A005E321F /* SongViewController.swift in Sources */,
 				470CE66122162423005E321F /* UserDefaults+Constants.swift in Sources */,
+				470CE66322162D60005E321F /* SongsTableViewController.swift in Sources */,
 				470CE61622149F11005E321F /* AppDelegate.swift in Sources */,
 				470CE6472214C659005E321F /* SongMO.swift in Sources */,
 				470CE6532215CB8F005E321F /* SongsServiceProtocol.swift in Sources */,
@@ -511,6 +515,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79964U8894;
 				INFOPLIST_FILE = Ressuscitou/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,6 +534,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79964U8894;
 				INFOPLIST_FILE = Ressuscitou/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

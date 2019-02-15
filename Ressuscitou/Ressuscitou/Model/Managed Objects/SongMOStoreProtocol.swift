@@ -14,6 +14,12 @@ protocol SongMOStoreProtocol {
 
     // MARK: Imperatives
 
+    /// Makes a fetched results controller configured to get all songs from A to Z.
+    /// - Returns: the configured fetched results controller for all songs.
+    func makeFetchedResultsControllerForAllSongs(
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO>
+
     /// Persists the received songs into core data.
     /// - Parameters:
     ///     - songs: the songs to be persisted.
