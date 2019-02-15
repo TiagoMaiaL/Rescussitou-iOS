@@ -115,7 +115,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MMt-gw-7lL"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="MMt-gw-7lL"/>
                     <connections>
                         <outlet property="songWebView" destination="SKG-MC-Dpp" id="n2m-r0-3qP"/>
                     </connections>

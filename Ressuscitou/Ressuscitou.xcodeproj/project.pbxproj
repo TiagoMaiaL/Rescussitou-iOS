@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5B04E04497F51827442F73 /* Pods_RessuscitouTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F361EB724010C6E1304AF7B /* Pods_RessuscitouTests.framework */; };
 		470CE61622149F11005E321F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE61522149F11005E321F /* AppDelegate.swift */; };
 		470CE61B22149F11005E321F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470CE61922149F11005E321F /* Main.storyboard */; };
 		470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 470CE61C22149F11005E321F /* Ressuscitou.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 		470CE67A22173312005E321F /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67622173312005E321F /* LeagueGothic-Italic.otf */; };
 		470CE67B22173312005E321F /* LeagueGothic-CondensedItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */; };
 		470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */; };
+		669ADB8C7C44D5B8C1D1B7BE /* Pods_Ressuscitou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09442EAB2321808F28094FCB /* Pods-Ressuscitou.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ressuscitou.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou.release.xcconfig"; sourceTree = "<group>"; };
+		0F361EB724010C6E1304AF7B /* Pods_RessuscitouTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RessuscitouTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		470CE61222149F11005E321F /* Ressuscitou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ressuscitou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		470CE61522149F11005E321F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		470CE61A22149F11005E321F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +88,10 @@
 		470CE67622173312005E321F /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.otf"; sourceTree = "<group>"; };
 		470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.otf"; sourceTree = "<group>"; };
+		754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ressuscitou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA7AF7721A30EF51C8E26C1 /* Pods-RessuscitouTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RessuscitouTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RessuscitouTests/Pods-RessuscitouTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8962BD4473F74066C5DAD95 /* Pods-Ressuscitou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ressuscitou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou.debug.xcconfig"; sourceTree = "<group>"; };
+		CCF85C86E11E5BE3F15EA0CB /* Pods-RessuscitouTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RessuscitouTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RessuscitouTests/Pods-RessuscitouTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,7 @@
 			files = (
 				470CE6452214AAB1005E321F /* WebKit.framework in Frameworks */,
 				470CE6432214AAAC005E321F /* CoreData.framework in Frameworks */,
+				669ADB8C7C44D5B8C1D1B7BE /* Pods_Ressuscitou.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5B04E04497F51827442F73 /* Pods_RessuscitouTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +123,7 @@
 				470CE62C22149F14005E321F /* RessuscitouTests */,
 				470CE61322149F11005E321F /* Products */,
 				470CE6412214AAAB005E321F /* Frameworks */,
+				AB0A7008CB5015ACF7DD9271 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +213,8 @@
 			children = (
 				470CE6442214AAB1005E321F /* WebKit.framework */,
 				470CE6422214AAAB005E321F /* CoreData.framework */,
+				754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */,
+				0F361EB724010C6E1304AF7B /* Pods_RessuscitouTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -290,6 +303,17 @@
 			path = LeagueGothic;
 			sourceTree = "<group>";
 		};
+		AB0A7008CB5015ACF7DD9271 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B8962BD4473F74066C5DAD95 /* Pods-Ressuscitou.debug.xcconfig */,
+				09442EAB2321808F28094FCB /* Pods-Ressuscitou.release.xcconfig */,
+				ABA7AF7721A30EF51C8E26C1 /* Pods-RessuscitouTests.debug.xcconfig */,
+				CCF85C86E11E5BE3F15EA0CB /* Pods-RessuscitouTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,9 +321,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 470CE63222149F14005E321F /* Build configuration list for PBXNativeTarget "Ressuscitou" */;
 			buildPhases = (
+				72331BA808C71A97D312E63D /* [CP] Check Pods Manifest.lock */,
 				470CE60E22149F11005E321F /* Sources */,
 				470CE60F22149F11005E321F /* Frameworks */,
 				470CE61022149F11005E321F /* Resources */,
+				272B137697522C8A8987E078 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -314,6 +340,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 470CE63522149F14005E321F /* Build configuration list for PBXNativeTarget "RessuscitouTests" */;
 			buildPhases = (
+				D484E70920210004AC1E7F6D /* [CP] Check Pods Manifest.lock */,
 				470CE62522149F14005E321F /* Sources */,
 				470CE62622149F14005E321F /* Frameworks */,
 				470CE62722149F14005E321F /* Resources */,
@@ -394,6 +421,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		272B137697522C8A8987E078 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72331BA808C71A97D312E63D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ressuscitou-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D484E70920210004AC1E7F6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RessuscitouTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		470CE60E22149F11005E321F /* Sources */ = {
@@ -574,6 +658,7 @@
 		};
 		470CE63322149F14005E321F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8962BD4473F74066C5DAD95 /* Pods-Ressuscitou.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -593,6 +678,7 @@
 		};
 		470CE63422149F14005E321F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09442EAB2321808F28094FCB /* Pods-Ressuscitou.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -612,6 +698,7 @@
 		};
 		470CE63622149F14005E321F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABA7AF7721A30EF51C8E26C1 /* Pods-RessuscitouTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -633,6 +720,7 @@
 		};
 		470CE63722149F14005E321F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCF85C86E11E5BE3F15EA0CB /* Pods-RessuscitouTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
