@@ -29,6 +29,10 @@
 		470CE65D2216021C005E321F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE65C2216021C005E321F /* Song.swift */; };
 		470CE66122162423005E321F /* UserDefaults+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE66022162423005E321F /* UserDefaults+Constants.swift */; };
 		470CE66322162D60005E321F /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CE66222162D60005E321F /* SongsTableViewController.swift */; };
+		470CE66E22173042005E321F /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE66A22173041005E321F /* Quicksand-Regular.ttf */; };
+		470CE66F22173042005E321F /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE66B22173041005E321F /* Quicksand-Bold.ttf */; };
+		470CE67022173042005E321F /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE66C22173041005E321F /* Quicksand-Light.ttf */; };
+		470CE67122173042005E321F /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE66D22173042005E321F /* Quicksand-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,10 @@
 		470CE65C2216021C005E321F /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		470CE66022162423005E321F /* UserDefaults+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Constants.swift"; sourceTree = "<group>"; };
 		470CE66222162D60005E321F /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
+		470CE66A22173041005E321F /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		470CE66B22173041005E321F /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		470CE66C22173041005E321F /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		470CE66D22173042005E321F /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +183,8 @@
 		470CE63C2214A0EE005E321F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				470CE63D2214A1A2005E321F /* songs.json */,
+				470CE66522172F82005E321F /* Songs */,
+				470CE66422172F79005E321F /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -232,6 +241,25 @@
 				470CE66022162423005E321F /* UserDefaults+Constants.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		470CE66422172F79005E321F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				470CE66B22173041005E321F /* Quicksand-Bold.ttf */,
+				470CE66C22173041005E321F /* Quicksand-Light.ttf */,
+				470CE66D22173042005E321F /* Quicksand-Medium.ttf */,
+				470CE66A22173041005E321F /* Quicksand-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		470CE66522172F82005E321F /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				470CE63D2214A1A2005E321F /* songs.json */,
+			);
+			path = Songs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,9 +344,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				470CE63E2214A1A2005E321F /* songs.json in Resources */,
+				470CE67122173042005E321F /* Quicksand-Medium.ttf in Resources */,
+				470CE66F22173042005E321F /* Quicksand-Bold.ttf in Resources */,
 				470CE62322149F13005E321F /* LaunchScreen.storyboard in Resources */,
+				470CE67022173042005E321F /* Quicksand-Light.ttf in Resources */,
 				470CE62022149F13005E321F /* Assets.xcassets in Resources */,
 				470CE61B22149F11005E321F /* Main.storyboard in Resources */,
+				470CE66E22173042005E321F /* Quicksand-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
