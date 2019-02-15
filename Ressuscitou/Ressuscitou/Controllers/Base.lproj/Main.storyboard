@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LeagueGothic-Regular.otf">
+            <string>LeagueGothic-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Splash View Controller-->
         <scene sceneID="2Ee-B1-EyN">
@@ -17,14 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ressuscitou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0S-Zi-Ang">
-                                <rect key="frame" x="114.5" y="317" width="146.5" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESSUSCITOU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0S-Zi-Ang">
+                                <rect key="frame" x="60.5" y="291.5" width="254.5" height="84"/>
+                                <fontDescription key="fontDescription" name="LeagueGothic-Regular" family="League Gothic" pointSize="70"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.0" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="P0S-Zi-Ang" firstAttribute="centerX" secondItem="fF6-7x-yGo" secondAttribute="centerX" id="Az5-ri-Kg1"/>
                             <constraint firstItem="P0S-Zi-Ang" firstAttribute="centerY" secondItem="fF6-7x-yGo" secondAttribute="centerY" id="M9R-dV-q04"/>
@@ -39,7 +44,7 @@
             </objects>
             <point key="canvasLocation" x="-746" y="27"/>
         </scene>
-        <!--Songs Table View Controller-->
+        <!--RESSUSCITOU-->
         <scene sceneID="IyX-F3-PVn">
             <objects>
                 <tableViewController id="LdX-E2-nCg" customClass="SongsTableViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,7 +79,7 @@
                             <outlet property="delegate" destination="LdX-E2-nCg" id="f2z-4P-kb7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="y94-R0-Kcc"/>
+                    <navigationItem key="navigationItem" title="RESSUSCITOU" id="y94-R0-Kcc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R31-37-Uc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,6 +129,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Od-H1-ULw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.94509803921568625" green="0.0" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="LeagueGothic-Regular" family="League Gothic" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="LeagueGothic-Regular" family="League Gothic" pointSize="40"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

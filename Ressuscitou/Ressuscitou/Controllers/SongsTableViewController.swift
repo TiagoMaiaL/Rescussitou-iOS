@@ -27,6 +27,7 @@ class SongsTableViewController: UITableViewController {
 
         precondition(songsFetchedResultsController != nil)
 
+        navigationController?.navigationBar.prefersLargeTitles = true
         try! songsFetchedResultsController.performFetch()
     }
 

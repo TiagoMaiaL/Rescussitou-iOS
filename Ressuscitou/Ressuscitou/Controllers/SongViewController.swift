@@ -28,6 +28,7 @@ class SongViewController: UIViewController {
         precondition(song != nil)
 
         title = song.title
+        navigationItem.largeTitleDisplayMode = .never
     }
 
     override func viewWillAppear(_ animated: Bool) {
