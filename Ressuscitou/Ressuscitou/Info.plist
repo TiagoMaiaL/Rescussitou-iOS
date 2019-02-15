@@ -8,6 +8,10 @@
 		<string>Quicksand-Light.ttf</string>
 		<string>Quicksand-Medium.ttf</string>
 		<string>Quicksand-Regular.ttf</string>
+		<string>LeagueGothic-CondensedItalic.otf</string>
+		<string>LeagueGothic-CondensedRegular.otf</string>
+		<string>LeagueGothic-Italic.otf</string>
+		<string>LeagueGothic-Regular.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

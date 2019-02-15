@@ -33,6 +33,10 @@
 		470CE66F22173042005E321F /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE66B22173041005E321F /* Quicksand-Bold.ttf */; };
 		470CE67022173042005E321F /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE66C22173041005E321F /* Quicksand-Light.ttf */; };
 		470CE67122173042005E321F /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE66D22173042005E321F /* Quicksand-Medium.ttf */; };
+		470CE67922173312005E321F /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67522173312005E321F /* LeagueGothic-Regular.otf */; };
+		470CE67A22173312005E321F /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67622173312005E321F /* LeagueGothic-Italic.otf */; };
+		470CE67B22173312005E321F /* LeagueGothic-CondensedItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */; };
+		470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		470CE66B22173041005E321F /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		470CE66C22173041005E321F /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		470CE66D22173042005E321F /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		470CE67522173312005E321F /* LeagueGothic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.otf"; sourceTree = "<group>"; };
+		470CE67622173312005E321F /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
+		470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.otf"; sourceTree = "<group>"; };
+		470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,10 +254,8 @@
 		470CE66422172F79005E321F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				470CE66B22173041005E321F /* Quicksand-Bold.ttf */,
-				470CE66C22173041005E321F /* Quicksand-Light.ttf */,
-				470CE66D22173042005E321F /* Quicksand-Medium.ttf */,
-				470CE66A22173041005E321F /* Quicksand-Regular.ttf */,
+				470CE674221732F7005E321F /* LeagueGothic */,
+				470CE673221732EE005E321F /* Quicksand */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -260,6 +266,28 @@
 				470CE63D2214A1A2005E321F /* songs.json */,
 			);
 			path = Songs;
+			sourceTree = "<group>";
+		};
+		470CE673221732EE005E321F /* Quicksand */ = {
+			isa = PBXGroup;
+			children = (
+				470CE66B22173041005E321F /* Quicksand-Bold.ttf */,
+				470CE66C22173041005E321F /* Quicksand-Light.ttf */,
+				470CE66D22173042005E321F /* Quicksand-Medium.ttf */,
+				470CE66A22173041005E321F /* Quicksand-Regular.ttf */,
+			);
+			path = Quicksand;
+			sourceTree = "<group>";
+		};
+		470CE674221732F7005E321F /* LeagueGothic */ = {
+			isa = PBXGroup;
+			children = (
+				470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */,
+				470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */,
+				470CE67622173312005E321F /* LeagueGothic-Italic.otf */,
+				470CE67522173312005E321F /* LeagueGothic-Regular.otf */,
+			);
+			path = LeagueGothic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,7 +373,11 @@
 			files = (
 				470CE63E2214A1A2005E321F /* songs.json in Resources */,
 				470CE67122173042005E321F /* Quicksand-Medium.ttf in Resources */,
+				470CE67922173312005E321F /* LeagueGothic-Regular.otf in Resources */,
 				470CE66F22173042005E321F /* Quicksand-Bold.ttf in Resources */,
+				470CE67A22173312005E321F /* LeagueGothic-Italic.otf in Resources */,
+				470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */,
+				470CE67B22173312005E321F /* LeagueGothic-CondensedItalic.otf in Resources */,
 				470CE62322149F13005E321F /* LaunchScreen.storyboard in Resources */,
 				470CE67022173042005E321F /* Quicksand-Light.ttf in Resources */,
 				470CE62022149F13005E321F /* Assets.xcassets in Resources */,
