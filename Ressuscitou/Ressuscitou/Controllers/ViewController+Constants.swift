@@ -16,5 +16,9 @@ extension UIViewController {
         static let menuControllerSegue = "Show menu"
         static let songControllerSegue = "Show song"
     }
+
+    enum Colors {
+        static let baseRed = UIColor(red: 241/255, green: 0, blue: 17/255, alpha: 1)
+    }
 }
 

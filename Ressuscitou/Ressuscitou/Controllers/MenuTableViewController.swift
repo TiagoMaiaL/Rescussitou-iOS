@@ -53,6 +53,8 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
+
+        UIApplication.shared.statusBarView?.backgroundColor = Colors.baseRed
     }
 
     // MARK: Table view data source
