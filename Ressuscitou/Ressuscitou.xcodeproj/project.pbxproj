@@ -38,6 +38,7 @@
 		470CE67A22173312005E321F /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67622173312005E321F /* LeagueGothic-Italic.otf */; };
 		470CE67B22173312005E321F /* LeagueGothic-CondensedItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */; };
 		470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */; };
+		4741BF67221B388B0089C658 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF66221B388B0089C658 /* MenuTableViewController.swift */; };
 		669ADB8C7C44D5B8C1D1B7BE /* Pods_Ressuscitou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		470CE67622173312005E321F /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.otf"; sourceTree = "<group>"; };
 		470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.otf"; sourceTree = "<group>"; };
+		4741BF66221B388B0089C658 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ressuscitou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA7AF7721A30EF51C8E26C1 /* Pods-RessuscitouTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RessuscitouTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RessuscitouTests/Pods-RessuscitouTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8962BD4473F74066C5DAD95 /* Pods-Ressuscitou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ressuscitou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				470CE6482214F20F005E321F /* SplashViewController.swift */,
 				470CE63F2214AA2A005E321F /* SongViewController.swift */,
 				470CE66222162D60005E321F /* SongsTableViewController.swift */,
+				4741BF66221B388B0089C658 /* MenuTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				470CE6402214AA2A005E321F /* SongViewController.swift in Sources */,
 				470CE66122162423005E321F /* UserDefaults+Constants.swift in Sources */,
 				470CE66322162D60005E321F /* SongsTableViewController.swift in Sources */,
+				4741BF67221B388B0089C658 /* MenuTableViewController.swift in Sources */,
 				470CE61622149F11005E321F /* AppDelegate.swift in Sources */,
 				470CE6472214C659005E321F /* SongMO.swift in Sources */,
 				470CE6532215CB8F005E321F /* SongsServiceProtocol.swift in Sources */,

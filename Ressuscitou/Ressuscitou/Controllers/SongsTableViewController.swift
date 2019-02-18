@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SideMenu
 
 /// A controller displaying a list of songs.
 class SongsTableViewController: UITableViewController {
@@ -38,6 +39,16 @@ class SongsTableViewController: UITableViewController {
             let songController = segue.destination as? SongViewController,
             let selectedIndex = tableView.indexPathForSelectedRow {
             songController.song = songsFetchedResultsController.object(at: selectedIndex)
+
+        } else if segue.identifier == SegueIdentifiers.menuControllerSegue,
+            let menuNavigationController = segue.destination as? UISideMenuNavigationController {
+            // Configure the menu presentation style.
+            menuNavigationController.menuWidth = view.frame.width * 0.8
+            menuNavigationController.sideMenuManager.menuPresentMode = .menuSlideIn
+            menuNavigationController.sideMenuManager.menuAnimationFadeStrength = 0.5
+            // TODO: Figure out how to add corner radius to the controller's views.
+
+            // Inject the dependencies to the menu.
         }
     }
 
