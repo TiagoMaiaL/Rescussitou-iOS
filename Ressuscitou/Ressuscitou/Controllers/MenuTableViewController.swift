@@ -32,9 +32,9 @@ class MenuTableViewController: UITableViewController {
         var numberOfRows: Int {
             switch self {
             case .stages:
-                return 4
+                return SongMO.StageCategory.allCases.count
             case .liturgicalTime:
-                return 5
+                return SongMO.LiturgicalTimeCategory.allCases.count
             }
         }
     }
@@ -67,14 +67,34 @@ class MenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
+        guard let section = Section(rawValue: indexPath.section) else { preconditionFailure("Couldn't get section.") }
 
-        cell.textLabel?.text = "XXX"
+        var text: String!
+
+        switch section {
+        case .stages:
+            guard let currentStage = SongMO.StageCategory(rawValue: indexPath.row) else {
+                preconditionFailure("Couln't get the stage category.")
+            }
+
+            text = currentStage.title
+            break
+        case .liturgicalTime:
+            guard let currentTime = SongMO.LiturgicalTimeCategory(rawValue: indexPath.row) else {
+                preconditionFailure("Couln't get the time category.")
+            }
+
+            text = currentTime.title
+            break
+        }
+
+        cell.textLabel?.text = text
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 40
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
