@@ -93,22 +93,24 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerReuseIdentifier),
-            let section = Section(rawValue: section) else {
-                preconditionFailure("Couldn't dequeue the header view.")
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let section = Section(rawValue: section) else {
+            preconditionFailure("Couldn't dequeue the header view.")
         }
 
-        headerView.textLabel?.text = section.title.uppercased()
-        headerView.textLabel?.textColor = .black
-        // TODO: Why is the label not reading the size of the font?
-        headerView.textLabel?.font = UIFont(name: "Quicksand-Bold", size: 11)
-        headerView.contentView.backgroundColor = .white
+        return section.title.uppercased()
+    }
 
-        return headerView
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let headerView = view as? UITableViewHeaderFooterView else {
+            preconditionFailure()
+        }
+
+        headerView.textLabel?.font = UIFont(name: "Quicksand-Bold", size: 11)
+        headerView.textLabel?.textColor = .black
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
 }
