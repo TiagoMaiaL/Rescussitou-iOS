@@ -25,13 +25,13 @@ class SongMO: NSManagedObject {
         var title: String {
             switch self {
             case .preCathecumenate:
-                return "Pré-catecumenato"
+                return NSLocalizedString("Pré-catecumenato", comment: "One of the stage categories.")
             case .liturgicalSongs:
-                return "Cantos litúrgicos"
+                return NSLocalizedString("Cantos litúrgicos", comment: "One of the stage categories.")
             case .cathecumenate:
-                return "Catecumenato"
+                return NSLocalizedString("Catecumenato", comment: "One of the stage categories.")
             case .election:
-                return "Eleição"
+                return NSLocalizedString("Eleição", comment: "One of the stage categories.")
             }
         }
     }
@@ -48,15 +48,15 @@ class SongMO: NSManagedObject {
         var title: String {
             switch self {
             case .advent:
-                return "Advento"
+                return NSLocalizedString("Advento", comment: "One of the liturgical time categories.")
             case .christmas:
-                return "Natal"
+                return NSLocalizedString("Natal", comment: "One of the liturgical time categories.")
             case .lent:
-                return "Quaresma"
+                return NSLocalizedString("Quaresma", comment: "One of the liturgical time categories.")
             case .easter:
-                return "Páscoa"
+                return NSLocalizedString("Páscoa", comment: "One of the liturgical time categories.")
             case .pentecost:
-                return "Pentecostes"
+                return NSLocalizedString("Pentecostes", comment: "One of the liturgical time categories.")
             }
         }
     }

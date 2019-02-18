@@ -22,9 +22,9 @@ class MenuTableViewController: UITableViewController {
         var title: String {
             switch self {
             case .stages:
-                return "Etapa"
+                return NSLocalizedString("Etapa", comment: "The name of the first menu section.")
             case .liturgicalTime:
-                return "Tempo Litúrgico"
+                return NSLocalizedString("Tempo Litúrgico", comment: "The name of the second menu section.")
             }
         }
 
