@@ -41,4 +41,10 @@ class SongViewController: UIViewController {
             songWebView.loadHTMLString(html, baseURL: nil)
         }
     }
+
+    // MARK: Actions
+
+    @IBAction func dismiss(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
 }
