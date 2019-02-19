@@ -21,12 +21,16 @@ class SongsTableViewController: UITableViewController {
     /// The fetched results controller of the selected category of songs.
     var songsFetchedResultsController: NSFetchedResultsController<SongMO>!
 
+    /// The store used to fetch and filter the songs.
+    var songStore: SongMOStoreProtocol!
+
     // MARK: Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         precondition(songsFetchedResultsController != nil)
+        precondition(songStore != nil)
 
         navigationController?.navigationBar.prefersLargeTitles = true
         try! songsFetchedResultsController.performFetch()
@@ -49,6 +53,11 @@ class SongsTableViewController: UITableViewController {
             // TODO: Figure out how to add corner radius to the controller's views.
 
             // Inject the dependencies to the menu.
+            guard let menuController = menuNavigationController.visibleViewController as? MenuTableViewController else {
+                preconditionFailure("The menu controller must be set.")
+            }
+            menuController.songStore = songStore
+            menuController.viewContext = songsFetchedResultsController.managedObjectContext
         }
     }
 

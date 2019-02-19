@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 /// The controller showing the menu with the filter options.
 class MenuTableViewController: UITableViewController {
@@ -47,10 +48,19 @@ class MenuTableViewController: UITableViewController {
     /// The reuse identifier of the header views.
     private let headerReuseIdentifier = "header_reuse_identifier"
 
+    /// The song store used to send the selected fetched results controller for filtering.
+    var songStore: SongMOStoreProtocol!
+
+    /// The view context used to create the fetched results controllers to filter.
+    var viewContext: NSManagedObjectContext!
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        precondition(songStore != nil)
+        precondition(viewContext != nil)
 
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
 

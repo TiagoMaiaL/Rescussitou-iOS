@@ -52,6 +52,7 @@ class SplashViewController: UIViewController {
                     songsService.songsStore.makeFetchedResultsControllerForAllSongs(
                         usingContext: dataController.viewContext
                 )
+                songsListController.songStore = songsService.songsStore
             }
         }
     }
