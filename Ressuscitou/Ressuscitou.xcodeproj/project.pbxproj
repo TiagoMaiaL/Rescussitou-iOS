@@ -40,6 +40,7 @@
 		470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */; };
 		4741BF67221B388B0089C658 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF66221B388B0089C658 /* MenuTableViewController.swift */; };
 		4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */; };
+		4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6A221B815B0089C658 /* Notification+Constants.swift */; };
 		669ADB8C7C44D5B8C1D1B7BE /* Pods_Ressuscitou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.otf"; sourceTree = "<group>"; };
 		4741BF66221B388B0089C658 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helpers.swift"; sourceTree = "<group>"; };
+		4741BF6A221B815B0089C658 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
 		754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ressuscitou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA7AF7721A30EF51C8E26C1 /* Pods-RessuscitouTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RessuscitouTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RessuscitouTests/Pods-RessuscitouTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8962BD4473F74066C5DAD95 /* Pods-Ressuscitou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ressuscitou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou.debug.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				470CE66022162423005E321F /* UserDefaults+Constants.swift */,
+				4741BF6A221B815B0089C658 /* Notification+Constants.swift */,
 				4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */,
 			);
 			path = Extensions;
@@ -502,6 +505,7 @@
 				4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
 				470CE6592216008C005E321F /* SongMOStore.swift in Sources */,
+				4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */,
 				470CE64B2214F3B6005E321F /* ViewController+Constants.swift in Sources */,
 				470CE64F2214F594005E321F /* DataController.swift in Sources */,
 				470CE6492214F20F005E321F /* SplashViewController.swift in Sources */,
