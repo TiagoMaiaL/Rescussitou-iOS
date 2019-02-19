@@ -69,6 +69,7 @@ struct SongsMOStore: SongMOStoreProtocol {
         let songManagedObject = SongMO(context: context)
 
         songManagedObject.title = song.title.capitalizingFirstLetterOnly()
+        songManagedObject.content = song.content
         songManagedObject.category = Int16(song.category)
         if let number = Int16(song.number) {
             songManagedObject.number = number

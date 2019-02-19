@@ -17,6 +17,7 @@ struct Song: Codable {
 
     // The basic properties of a song.
     let title: String
+    let content: String
     let number: String
     let category: Int
     let base64Html: String
@@ -38,6 +39,7 @@ struct Song: Codable {
 
     enum CodingKeys: String, CodingKey {
         case title = "titulo"
+        case content = "conteudo"
         case number = "numero"
         case category = "categoria"
         case base64Html = "html_base64"
