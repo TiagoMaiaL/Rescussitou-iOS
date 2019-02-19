@@ -16,17 +16,42 @@ struct SongsMOStore: SongMOStoreProtocol {
     func makeFetchedResultsControllerForAllSongs(
         usingContext context: NSManagedObjectContext
         ) -> NSFetchedResultsController<SongMO> {
+        return makeFetchedResultsController(filterPredicate: nil, context: context)
+    }
 
-        let request: NSFetchRequest<SongMO> = SongMO.fetchRequest()
-        request.sortDescriptors = [
-            NSSortDescriptor(key: "title", ascending: true)
-        ]
+    func makeFetchedResultsControllerForStageCategory(
+        _ stage: SongMO.StageCategory,
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO> {
+        return makeFetchedResultsController(
+            filterPredicate: NSPredicate(format: "category = %@", stage.rawValue + 1),
+            context: context
+        )
+    }
 
-        let frc = NSFetchedResultsController(fetchRequest: request,
-                                             managedObjectContext: context,
-                                             sectionNameKeyPath: nil,
-                                             cacheName: "all")
-        return frc
+    func makeFetchedResultsControllerForLiturgicalTimeCategory(
+        _ liturgicalTime: SongMO.LiturgicalTimeCategory,
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO> {
+        var text: String!
+
+        switch liturgicalTime {
+        case .advent:
+            text = "isForAdvent = %@"
+        case .christmas:
+            text = "isForChristmas = %@"
+        case .lent:
+            text = "isForLent = %@"
+        case .easter:
+            text = "isForEaster = %@"
+        case .pentecost:
+            text = "isForPentecost = %@"
+        }
+
+        return makeFetchedResultsController(
+            filterPredicate: NSPredicate(format: text, true),
+            context: context
+        )
     }
 
     func createSongsManagedObjects(fromJSONSongs songs: [Song],
@@ -65,5 +90,25 @@ struct SongsMOStore: SongMOStoreProtocol {
         songManagedObject.isForVirginMary = song.isForVirginMary
 
         return songManagedObject
+    }
+
+    /// Makes a fetched results controller using the filter predicate.
+    /// - Parameters:
+    ///     - predicate: the filter predicate associated to the fetch request.
+    ///     - context: the context to be used for the fetch.
+    /// - Returns: the configured fetched results controller.
+    private func makeFetchedResultsController(filterPredicate: NSPredicate?,
+                                              context: NSManagedObjectContext) -> NSFetchedResultsController<SongMO> {
+        let request: NSFetchRequest<SongMO> = SongMO.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "title", ascending: true)
+        ]
+        request.predicate = filterPredicate
+
+        let frc = NSFetchedResultsController(fetchRequest: request,
+                                             managedObjectContext: context,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: "all")
+        return frc
     }
 }

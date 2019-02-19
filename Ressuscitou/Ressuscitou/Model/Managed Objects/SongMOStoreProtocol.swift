@@ -20,6 +20,20 @@ protocol SongMOStoreProtocol {
         usingContext context: NSManagedObjectContext
         ) -> NSFetchedResultsController<SongMO>
 
+    /// Makes a fetched results controller for the passed song stage category.
+    /// - Returns: the configured fetched results controller for the specific stage category.
+    func makeFetchedResultsControllerForStageCategory(
+        _ stage: SongMO.StageCategory,
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO>
+
+    /// Makes a fetched results controller for the passed song liturgical time.
+    /// - Returns: the configured fetched results controller for the specific liturgical time.
+    func makeFetchedResultsControllerForLiturgicalTimeCategory(
+        _ liturgicalTime: SongMO.LiturgicalTimeCategory,
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO>
+
     /// Persists the received songs into core data.
     /// - Parameters:
     ///     - songs: the songs to be persisted.
