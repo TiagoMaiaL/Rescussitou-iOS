@@ -12,7 +12,8 @@ extension UIViewController {
 
     /// The segue identifiers used throughout the code.
     enum SegueIdentifiers {
-        static let InitialControllerSegue = "Show initial controller"
+        static let WarningControllerSegue = "Show warning controller"
+        static let SongsControllerSegue = "Show songs controller"
         static let MenuControllerSegue = "Show menu"
         static let SongControllerSegue = "Show song"
     }

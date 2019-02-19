@@ -13,6 +13,9 @@
         <array key="LeagueGothic-Regular.otf">
             <string>LeagueGothic-Regular</string>
         </array>
+        <array key="Quicksand-Bold.ttf">
+            <string>Quicksand-Bold</string>
+        </array>
         <array key="Quicksand-Regular.ttf">
             <string>Quicksand-Regular</string>
         </array>
@@ -41,12 +44,13 @@
                         <viewLayoutGuide key="safeArea" id="gJ6-HA-ZwY"/>
                     </view>
                     <connections>
-                        <segue destination="R8d-RU-tgK" kind="show" identifier="Show initial controller" id="tuU-VI-DaU"/>
+                        <segue destination="9Qi-Fx-Lvi" kind="show" identifier="Show warning controller" id="Ilj-jv-G80"/>
+                        <segue destination="R8d-RU-tgK" kind="show" identifier="Show songs controller" id="6AQ-Vn-HeX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEh-a5-a41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-746" y="27"/>
+            <point key="canvasLocation" x="-782" y="27"/>
         </scene>
         <!--RESSUSCITOU-->
         <scene sceneID="IyX-F3-PVn">
@@ -195,12 +199,82 @@
             </objects>
             <point key="canvasLocation" x="908" y="463"/>
         </scene>
+        <!--Warning View Controller-->
+        <scene sceneID="1i9-b7-W2k">
+            <objects>
+                <viewController id="9Qi-Fx-Lvi" customClass="WarningViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9HN-cC-w9u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-2Z-3dN" userLabel="Content stack view">
+                                <rect key="frame" x="32" y="240" width="311" height="187.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPORTANTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-h7-3S8">
+                                        <rect key="frame" x="99" y="0.0" width="113" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9q0-6B-kdJ">
+                                        <rect key="frame" x="2.5" y="42.5" width="306.5" height="90"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Irmãos, esse aplicativo ">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="18" name="Quicksand-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="não ">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="18" name="Quicksand-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="deve ser usado em celebrações. Deve servir apenas como apoio aos salmistas em ensaios e preparações.">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="18" name="Quicksand-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONb-b8-jmt">
+                                        <rect key="frame" x="120.5" y="152.5" width="70" height="35"/>
+                                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
+                                        <state key="normal" title="Entendi!">
+                                            <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissWarning:" destination="9Qi-Fx-Lvi" eventType="touchUpInside" id="GlO-jK-5i9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DnP-2Z-3dN" firstAttribute="centerY" secondItem="9HN-cC-w9u" secondAttribute="centerY" id="6xr-gT-wUB"/>
+                            <constraint firstItem="DnP-2Z-3dN" firstAttribute="width" secondItem="9HN-cC-w9u" secondAttribute="width" multiplier="0.83" id="fXY-N9-Puw"/>
+                            <constraint firstItem="DnP-2Z-3dN" firstAttribute="centerX" secondItem="9HN-cC-w9u" secondAttribute="centerX" id="k6n-9h-h7F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aHX-23-ZqO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAl-CO-7F6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-782" y="770"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yjI-GZ-JCb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R8d-RU-tgK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="nav-back-icon" id="8Od-H1-ULw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorImage="nav-back-icon" backIndicatorTransitionMaskImage="nav-back-icon" id="8Od-H1-ULw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94509803920000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

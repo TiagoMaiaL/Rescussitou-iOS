@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
 
+        window?.backgroundColor = .white
+
         dataController = DataController(modelName: "Ressuscitou")
 
         guard let splashController = window?.rootViewController as? SplashViewController else {

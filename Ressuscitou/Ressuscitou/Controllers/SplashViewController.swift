@@ -45,7 +45,7 @@ class SplashViewController: UIViewController {
     // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifiers.InitialControllerSegue {
+        if segue.identifier == SegueIdentifiers.SongsControllerSegue {
             if let navigationController = segue.destination as? UINavigationController,
                 let songsListController = navigationController.topViewController as? SongsTableViewController {
                 songsListController.songStore = songsService.songsStore
@@ -80,22 +80,14 @@ class SplashViewController: UIViewController {
     /// Continues with the app flow.
     private func displayMainController() {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: SegueIdentifiers.InitialControllerSegue, sender: self)
-        }
-    }
-}
+            if UserDefaults.isFirstLaunch {
+                // Display the warning controller before.
+                self.performSegue(withIdentifier: SegueIdentifiers.WarningControllerSegue, sender: self)
+            } else {
+                // Display the main controller.
+                self.performSegue(withIdentifier: SegueIdentifiers.SongsControllerSegue, sender: self)
 
-extension UserDefaults {
-
-    // MARK: Properties
-
-    /// A flag indicating whether the songs were added into core data or not.
-    static var wereSongsSeeded: Bool {
-        get {
-            return UserDefaults.standard.bool(forKey: Keys.wereSongsSeeded)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Keys.wereSongsSeeded)
+            }
         }
     }
 }
