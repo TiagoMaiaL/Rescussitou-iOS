@@ -24,7 +24,7 @@ struct SongsMOStore: SongMOStoreProtocol {
         usingContext context: NSManagedObjectContext
         ) -> NSFetchedResultsController<SongMO> {
         return makeFetchedResultsController(
-            filterPredicate: NSPredicate(format: "category = %@", stage.rawValue + 1),
+            filterPredicate: NSPredicate(format: "category = %d", stage.rawValue + 1),
             context: context
         )
     }
@@ -37,15 +37,15 @@ struct SongsMOStore: SongMOStoreProtocol {
 
         switch liturgicalTime {
         case .advent:
-            text = "isForAdvent = %@"
+            text = "isForAdvent = %d"
         case .christmas:
-            text = "isForChristmas = %@"
+            text = "isForChristmas = %d"
         case .lent:
-            text = "isForLent = %@"
+            text = "isForLent = %d"
         case .easter:
-            text = "isForEaster = %@"
+            text = "isForEaster = %d"
         case .pentecost:
-            text = "isForPentecost = %@"
+            text = "isForPentecost = %d"
         }
 
         return makeFetchedResultsController(

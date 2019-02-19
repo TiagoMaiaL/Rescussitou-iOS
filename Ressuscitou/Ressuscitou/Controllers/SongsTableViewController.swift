@@ -19,12 +19,27 @@ class SongsTableViewController: UITableViewController {
     private let reuseIdentifier = "song_cell"
 
     /// The fetched results controller of the selected category of songs.
-    var songsFetchedResultsController: NSFetchedResultsController<SongMO>!
+    var songsFetchedResultsController: NSFetchedResultsController<SongMO>! {
+        didSet {
+            if songsFetchedResultsController != nil, tableView != nil {
+                do {
+                    try songsFetchedResultsController.performFetch()
+                    tableView.reloadData()
+                } catch {
+                    // TODO: Display error to the user.
+                }
+            }
+        }
+    }
 
     /// The store used to fetch and filter the songs.
     var songStore: SongMOStoreProtocol!
 
     // MARK: Life cycle
+
+    deinit {
+        unsubscribeFromAllNotifications()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +47,13 @@ class SongsTableViewController: UITableViewController {
         precondition(songsFetchedResultsController != nil)
         precondition(songStore != nil)
 
+        subscribeToNotification(named: .FilterSongs, usingSelector: #selector(filterSongs(_:)))
+
         navigationController?.navigationBar.prefersLargeTitles = true
         try! songsFetchedResultsController.performFetch()
     }
 
-    // MARK: - Navigation
+    // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifiers.songControllerSegue,
@@ -61,7 +78,21 @@ class SongsTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: Actions
+
+    /// Filters the songs to display.
+    @objc private func filterSongs(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any],
+            let filterFetchedResultsController: NSFetchedResultsController<SongMO> =
+            userInfo[notification.name.rawValue] as? NSFetchedResultsController else {
+                preconditionFailure("The filter frc must be set.")
+        }
+
+        // Update the listing by replacing the fetched results controller.
+        songsFetchedResultsController = filterFetchedResultsController
+    }
+
+    // MARK: Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return songsFetchedResultsController.sections?.count ?? 0

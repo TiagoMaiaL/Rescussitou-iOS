@@ -48,11 +48,11 @@ class SplashViewController: UIViewController {
         if segue.identifier == SegueIdentifiers.initialControllerSegue {
             if let navigationController = segue.destination as? UINavigationController,
                 let songsListController = navigationController.topViewController as? SongsTableViewController {
+                songsListController.songStore = songsService.songsStore
                 songsListController.songsFetchedResultsController =
                     songsService.songsStore.makeFetchedResultsControllerForAllSongs(
                         usingContext: dataController.viewContext
                 )
-                songsListController.songStore = songsService.songsStore
             }
         }
     }

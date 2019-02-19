@@ -125,4 +125,39 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let section = Section(rawValue: indexPath.section) else {
+            preconditionFailure("Couldn't get the section.")
+        }
+
+        var fetchedResultsControllerForFilter: NSFetchedResultsController<SongMO>!
+
+        switch section {
+        case .stages:
+            guard let stage = SongMO.StageCategory(rawValue: indexPath.row) else {
+                preconditionFailure("Couldn't get the stage.")
+            }
+            fetchedResultsControllerForFilter = songStore.makeFetchedResultsControllerForStageCategory(
+                stage,
+                usingContext: viewContext
+            )
+        case .liturgicalTime:
+            guard let liturgicalTime = SongMO.LiturgicalTimeCategory(rawValue: indexPath.row) else {
+                preconditionFailure("Couldn't get the stage.")
+            }
+            fetchedResultsControllerForFilter = songStore.makeFetchedResultsControllerForLiturgicalTimeCategory(
+                liturgicalTime,
+                usingContext: viewContext
+            )
+        }
+
+        NotificationCenter.default.post(
+            name: .FilterSongs,
+            object: self,
+            userInfo: [Notification.Name.FilterSongs.rawValue: fetchedResultsControllerForFilter]
+        )
+
+        dismiss(animated: true, completion: nil)
+    }
 }
