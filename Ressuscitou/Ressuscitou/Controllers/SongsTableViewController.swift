@@ -18,6 +18,9 @@ class SongsTableViewController: UITableViewController {
     /// The cell reuse identifier.
     private let reuseIdentifier = "song_cell"
 
+    /// The currently selected filter category.
+    var selectedCategory: IndexPath?
+
     /// The fetched results controller of the selected category of songs.
     var songsFetchedResultsController: NSFetchedResultsController<SongMO>! {
         didSet {
@@ -56,12 +59,12 @@ class SongsTableViewController: UITableViewController {
     // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifiers.songControllerSegue,
+        if segue.identifier == SegueIdentifiers.SongControllerSegue,
             let songController = segue.destination as? SongViewController,
             let selectedIndex = tableView.indexPathForSelectedRow {
             songController.song = songsFetchedResultsController.object(at: selectedIndex)
 
-        } else if segue.identifier == SegueIdentifiers.menuControllerSegue,
+        } else if segue.identifier == SegueIdentifiers.MenuControllerSegue,
             let menuNavigationController = segue.destination as? UISideMenuNavigationController {
             // Configure the menu presentation style.
             menuNavigationController.menuWidth = view.frame.width * 0.8
@@ -75,6 +78,7 @@ class SongsTableViewController: UITableViewController {
             }
             menuController.songStore = songStore
             menuController.viewContext = songsFetchedResultsController.managedObjectContext
+            menuController.selectedCategory = selectedCategory
         }
     }
 
@@ -84,12 +88,14 @@ class SongsTableViewController: UITableViewController {
     @objc private func filterSongs(_ notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any],
             let filterFetchedResultsController: NSFetchedResultsController<SongMO> =
-            userInfo[notification.name.rawValue] as? NSFetchedResultsController else {
+            userInfo[UserInfoKeys.Filter] as? NSFetchedResultsController,
+            let selectedCategory = userInfo[UserInfoKeys.SelectedCategory] as? IndexPath else {
                 preconditionFailure("The filter frc must be set.")
         }
 
         // Update the listing by replacing the fetched results controller.
         songsFetchedResultsController = filterFetchedResultsController
+        self.selectedCategory = selectedCategory
     }
 
     // MARK: Table view data source

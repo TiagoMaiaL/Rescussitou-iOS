@@ -45,7 +45,7 @@ class SplashViewController: UIViewController {
     // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifiers.initialControllerSegue {
+        if segue.identifier == SegueIdentifiers.InitialControllerSegue {
             if let navigationController = segue.destination as? UINavigationController,
                 let songsListController = navigationController.topViewController as? SongsTableViewController {
                 songsListController.songStore = songsService.songsStore
@@ -80,7 +80,7 @@ class SplashViewController: UIViewController {
     /// Continues with the app flow.
     private func displayMainController() {
         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: SegueIdentifiers.initialControllerSegue, sender: self)
+            self.performSegue(withIdentifier: SegueIdentifiers.InitialControllerSegue, sender: self)
         }
     }
 }

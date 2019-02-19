@@ -48,6 +48,9 @@ class MenuTableViewController: UITableViewController {
     /// The reuse identifier of the header views.
     private let headerReuseIdentifier = "header_reuse_identifier"
 
+    /// The index path of the selected category.
+    var selectedCategory: IndexPath?
+
     /// The song store used to send the selected fetched results controller for filtering.
     var songStore: SongMOStoreProtocol!
 
@@ -64,7 +67,15 @@ class MenuTableViewController: UITableViewController {
 
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
 
-        UIApplication.shared.statusBarView?.backgroundColor = Colors.baseRed
+        UIApplication.shared.statusBarView?.backgroundColor = Colors.BaseRed
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let selectedCategory = selectedCategory {
+            tableView.selectRow(at: selectedCategory, animated: true, scrollPosition: .middle)
+        }
     }
 
     // MARK: Table view data source
@@ -155,7 +166,8 @@ class MenuTableViewController: UITableViewController {
         NotificationCenter.default.post(
             name: .FilterSongs,
             object: self,
-            userInfo: [Notification.Name.FilterSongs.rawValue: fetchedResultsControllerForFilter]
+            userInfo: [UserInfoKeys.Filter: fetchedResultsControllerForFilter,
+                       UserInfoKeys.SelectedCategory: indexPath]
         )
 
         dismiss(animated: true, completion: nil)

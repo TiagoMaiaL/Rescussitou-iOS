@@ -12,13 +12,20 @@ extension UIViewController {
 
     /// The segue identifiers used throughout the code.
     enum SegueIdentifiers {
-        static let initialControllerSegue = "Show initial controller"
-        static let menuControllerSegue = "Show menu"
-        static let songControllerSegue = "Show song"
+        static let InitialControllerSegue = "Show initial controller"
+        static let MenuControllerSegue = "Show menu"
+        static let SongControllerSegue = "Show song"
     }
 
+    /// The theme colors used in the application.
     enum Colors {
-        static let baseRed = UIColor(red: 241/255, green: 0, blue: 17/255, alpha: 1)
+        static let BaseRed = UIColor(red: 241/255, green: 0, blue: 17/255, alpha: 1)
+    }
+
+    /// The user info keys used in the controllers observing notification events.
+    enum UserInfoKeys {
+        static let Filter = "filter"
+        static let SelectedCategory = "selected category"
     }
 }
 
