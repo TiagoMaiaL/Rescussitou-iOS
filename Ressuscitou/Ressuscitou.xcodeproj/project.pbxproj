@@ -43,6 +43,7 @@
 		4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6A221B815B0089C658 /* Notification+Constants.swift */; };
 		4741BF6D221C410D0089C658 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6C221C410D0089C658 /* String+Helpers.swift */; };
 		4741BF6F221C60AC0089C658 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6E221C60AC0089C658 /* WarningViewController.swift */; };
+		47D9262E221D73A70002A59B /* TransitioningHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D9262D221D73A70002A59B /* TransitioningHandler.swift */; };
 		669ADB8C7C44D5B8C1D1B7BE /* Pods_Ressuscitou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		4741BF6A221B815B0089C658 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
 		4741BF6C221C410D0089C658 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		4741BF6E221C60AC0089C658 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
+		47D9262D221D73A70002A59B /* TransitioningHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitioningHandler.swift; sourceTree = "<group>"; };
 		754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ressuscitou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA7AF7721A30EF51C8E26C1 /* Pods-RessuscitouTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RessuscitouTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RessuscitouTests/Pods-RessuscitouTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8962BD4473F74066C5DAD95 /* Pods-Ressuscitou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ressuscitou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				470CE61922149F11005E321F /* Main.storyboard */,
 				470CE64A2214F3B6005E321F /* ViewController+Constants.swift */,
+				47D9262D221D73A70002A59B /* TransitioningHandler.swift */,
 				470CE6482214F20F005E321F /* SplashViewController.swift */,
 				4741BF6E221C60AC0089C658 /* WarningViewController.swift */,
 				470CE66222162D60005E321F /* SongsTableViewController.swift */,
@@ -513,6 +516,7 @@
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
 				470CE6592216008C005E321F /* SongMOStore.swift in Sources */,
 				4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */,
+				47D9262E221D73A70002A59B /* TransitioningHandler.swift in Sources */,
 				470CE64B2214F3B6005E321F /* ViewController+Constants.swift in Sources */,
 				470CE64F2214F594005E321F /* DataController.swift in Sources */,
 				470CE6492214F20F005E321F /* SplashViewController.swift in Sources */,

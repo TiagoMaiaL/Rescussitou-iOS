@@ -19,6 +19,9 @@ class SplashViewController: UIViewController {
     /// The songs service in charge of parsing and persisting the bundle songs json file.
     var songsService: SongsServiceProtocol!
 
+    /// The transitioning delegate used to present other view controllers.
+    private let alphaTransitioningDelegate = AlphaTransitioningDelegate()
+
     // MARK: Life cycle
 
     override func viewDidAppear(_ animated: Bool) {
@@ -45,14 +48,19 @@ class SplashViewController: UIViewController {
     // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifiers.SongsControllerSegue {
+        segue.destination.modalPresentationStyle = .custom
+        segue.destination.transitioningDelegate = alphaTransitioningDelegate
+
+        if segue.identifier == SegueIdentifiers.WarningControllerSegue,
+            let warningController = segue.destination as? WarningViewController {
+            warningController.songsControllerPreparationHandler = { songsController in
+                self.prepareSongsController(songsController)
+            }
+
+        } else if segue.identifier == SegueIdentifiers.SongsControllerSegue {
             if let navigationController = segue.destination as? UINavigationController,
                 let songsListController = navigationController.topViewController as? SongsTableViewController {
-                songsListController.songStore = songsService.songsStore
-                songsListController.songsFetchedResultsController =
-                    songsService.songsStore.makeFetchedResultsControllerForAllSongs(
-                        usingContext: dataController.viewContext
-                )
+                prepareSongsController(songsListController)
             }
         }
     }
@@ -86,8 +94,16 @@ class SplashViewController: UIViewController {
             } else {
                 // Display the main controller.
                 self.performSegue(withIdentifier: SegueIdentifiers.SongsControllerSegue, sender: self)
-
             }
         }
+    }
+
+    /// Prepares the songs controller to display by injecting its dependencies.
+    private func prepareSongsController(_ songsController: SongsTableViewController) {
+        songsController.songStore = songsService.songsStore
+        songsController.songsFetchedResultsController =
+            songsService.songsStore.makeFetchedResultsControllerForAllSongs(
+                usingContext: dataController.viewContext
+        )
     }
 }
