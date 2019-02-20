@@ -18,13 +18,23 @@ class WarningViewController: UIViewController {
     var songsControllerPreparationHandler: ((SongsTableViewController) -> Void)!
 
     /// The alpha transitioning delegate used to present the songs controller.
-    private let alphaTransitioningDelegate = AlphaTransitioningDelegate()
+    private let alphaTransitioningDelegate = AlphaTransitioningDelegate(transitionDuration: 0.3)
 
     // MARK: Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         precondition(songsControllerPreparationHandler != nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // TODO: Animate the displayal.
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // TODO: Animate the dismissal.
     }
 
     // MARK: Actions

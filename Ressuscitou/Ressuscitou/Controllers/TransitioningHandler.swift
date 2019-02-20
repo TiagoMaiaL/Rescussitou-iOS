@@ -11,12 +11,24 @@ import UIKit
 /// The transitoning delegate used to perform an alpha animation between the controllers.
 class AlphaTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
 
+    // MARK: Properties
+
+    /// The duration of the alpha transition.
+    private let transitionDuration: Double
+
+    // MARK: Initializers
+
+    init(transitionDuration: Double) {
+        self.transitionDuration = transitionDuration
+        super.init()
+    }
+
     // MARK: UIViewControllerTransitioningDelegate methods
 
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AlphaPresentationAnimator(transitionDuration: 0.3)
+        return AlphaPresentationAnimator(transitionDuration: transitionDuration)
     }
 
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -74,11 +86,11 @@ class AlphaPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning
 class AlphaPresentationController: UIPresentationController {
 
     override func presentationTransitionWillBegin() {
-        presentingViewController.view.superview?.sendSubviewToBack(presentingViewController.view)
+        presentingViewController.beginAppearanceTransition(false, animated: true)
     }
 
     override func presentationTransitionDidEnd(_ completed: Bool) {
+        presentingViewController.endAppearanceTransition()
         presentingViewController.view.isHidden = true
-        presentingViewController.view.removeFromSuperview()
     }
 }

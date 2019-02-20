@@ -20,7 +20,7 @@ class SplashViewController: UIViewController {
     var songsService: SongsServiceProtocol!
 
     /// The transitioning delegate used to present other view controllers.
-    private let alphaTransitioningDelegate = AlphaTransitioningDelegate()
+    private let alphaTransitioningDelegate = AlphaTransitioningDelegate(transitionDuration: 0.5)
 
     // MARK: Life cycle
 
@@ -43,6 +43,11 @@ class SplashViewController: UIViewController {
                 self.displayMainController()
             }
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // TODO: Display the dismissal
     }
 
     // MARK: Navigation
