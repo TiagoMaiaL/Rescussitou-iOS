@@ -1,5 +1,5 @@
 //
-//  SongsTableViewController.swift
+//  SongsListingViewController.swift
 //  Ressuscitou
 //
 //  Created by Tiago Maia Lopes on 14/02/19.
@@ -11,7 +11,7 @@ import CoreData
 import SideMenu
 
 /// A controller displaying a list of songs.
-class SongsTableViewController: UITableViewController {
+class SongsListingViewController: UIViewController {
 
     // MARK: Properties
 
@@ -20,6 +20,9 @@ class SongsTableViewController: UITableViewController {
 
     /// The currently selected filter category.
     var selectedCategory: IndexPath?
+
+    /// The table view displaying the songs.
+    @IBOutlet weak var tableView: UITableView!
 
     /// The fetched results controller of the selected category of songs.
     var songsFetchedResultsController: NSFetchedResultsController<SongMO>! {
@@ -54,6 +57,11 @@ class SongsTableViewController: UITableViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
         try! songsFetchedResultsController.performFetch()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     // MARK: Navigation
@@ -97,18 +105,21 @@ class SongsTableViewController: UITableViewController {
         songsFetchedResultsController = filterFetchedResultsController
         self.selectedCategory = selectedCategory
     }
+}
+
+extension SongsListingViewController: UITableViewDataSource, UITableViewDelegate {
 
     // MARK: Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return songsFetchedResultsController.sections?.count ?? 0
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return songsFetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
 
         let song = songsFetchedResultsController.object(at: indexPath)

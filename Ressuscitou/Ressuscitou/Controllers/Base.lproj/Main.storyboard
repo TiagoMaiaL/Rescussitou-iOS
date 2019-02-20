@@ -54,54 +54,6 @@
             </objects>
             <point key="canvasLocation" x="-782" y="27"/>
         </scene>
-        <!--RESSUSCITOU-->
-        <scene sceneID="IyX-F3-PVn">
-            <objects>
-                <tableViewController id="LdX-E2-nCg" customClass="SongsTableViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mdL-L9-hpH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="song_cell" textLabel="lrl-2y-g3q" style="IBUITableViewCellStyleDefault" id="qHB-un-yPh">
-                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qHB-un-yPh" id="KgQ-4O-iMD">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lrl-2y-g3q">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="59.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Show song" id="RpY-oM-FUw"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="LdX-E2-nCg" id="CdO-xG-P7k"/>
-                            <outlet property="delegate" destination="LdX-E2-nCg" id="f2z-4P-kb7"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="RESSUSCITOU" id="y94-R0-Kcc">
-                        <barButtonItem key="leftBarButtonItem" image="nav-menu-icon" id="r5H-Dm-rHD">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="EfO-jT-1M3" kind="show" identifier="Show menu" id="sNk-Ze-XSn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R31-37-Uc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="908" y="-367"/>
-        </scene>
         <!--Song View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -322,13 +274,80 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="navigationBarHidden" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="LdX-E2-nCg" kind="relationship" relationship="rootViewController" id="XNd-U7-lBZ"/>
+                        <segue destination="Jlc-3x-beM" kind="relationship" relationship="rootViewController" id="VFt-NM-LoR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46V-y3-Zvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="79" y="27"/>
+        </scene>
+        <!--Ressuscitou-->
+        <scene sceneID="H2A-Ob-18V">
+            <objects>
+                <viewController id="Jlc-3x-beM" customClass="SongsListingViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="33y-X1-wkl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ci1-SY-jp4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="song_cell" textLabel="B1h-xP-hZJ" style="IBUITableViewCellStyleDefault" id="k1F-iG-UxA">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k1F-iG-UxA" id="iFf-EM-zcc">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B1h-xP-hZJ">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="59.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Show song" id="rzP-no-KvE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jlc-3x-beM" id="Vca-FV-K9e"/>
+                                    <outlet property="delegate" destination="Jlc-3x-beM" id="Cy4-HM-tYL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ci1-SY-jp4" firstAttribute="top" secondItem="BOD-D6-NUD" secondAttribute="top" id="KOM-pY-Qgw"/>
+                            <constraint firstItem="BOD-D6-NUD" firstAttribute="bottom" secondItem="Ci1-SY-jp4" secondAttribute="bottom" id="gJi-Il-Bvv"/>
+                            <constraint firstItem="Ci1-SY-jp4" firstAttribute="leading" secondItem="BOD-D6-NUD" secondAttribute="leading" id="nWR-Zr-qG7"/>
+                            <constraint firstItem="BOD-D6-NUD" firstAttribute="trailing" secondItem="Ci1-SY-jp4" secondAttribute="trailing" id="tP9-8C-vnX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BOD-D6-NUD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ressuscitou" id="Xdu-be-Lda">
+                        <barButtonItem key="leftBarButtonItem" image="nav-menu-icon" id="AHZ-CM-ba4">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="EfO-jT-1M3" kind="show" identifier="Show menu" id="ePM-ea-c6h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Ci1-SY-jp4" id="XAy-5H-k1G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFY-Yw-eyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="-367"/>
         </scene>
     </scenes>
     <resources>

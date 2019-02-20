@@ -15,7 +15,7 @@ class WarningViewController: UIViewController {
 
     /// The closure to be called with the porpuse of configuring the songs controller for display.
     /// - Note: the configuration involves injecting any dependencies the songs controller needs.
-    var songsControllerPreparationHandler: ((SongsTableViewController) -> Void)!
+    var songsControllerPreparationHandler: ((SongsListingViewController) -> Void)!
 
     /// The alpha transitioning delegate used to present the songs controller.
     private let alphaTransitioningDelegate = AlphaTransitioningDelegate(transitionDuration: 0.3)
@@ -69,7 +69,7 @@ class WarningViewController: UIViewController {
 
         if segue.identifier == SegueIdentifiers.SongsControllerSegue,
             let navigationController = segue.destination as? UINavigationController,
-            let songsController = navigationController.viewControllers.first as? SongsTableViewController {
+            let songsController = navigationController.viewControllers.first as? SongsListingViewController {
             // Configure the songs controller by using the handler.
             songsControllerPreparationHandler(songsController)
         }

@@ -77,7 +77,7 @@ class SplashViewController: UIViewController {
 
         } else if segue.identifier == SegueIdentifiers.SongsControllerSegue {
             if let navigationController = segue.destination as? UINavigationController,
-                let songsListController = navigationController.topViewController as? SongsTableViewController {
+                let songsListController = navigationController.topViewController as? SongsListingViewController {
                 prepareSongsController(songsListController)
             }
         }
@@ -117,7 +117,7 @@ class SplashViewController: UIViewController {
     }
 
     /// Prepares the songs controller to display by injecting its dependencies.
-    private func prepareSongsController(_ songsController: SongsTableViewController) {
+    private func prepareSongsController(_ songsController: SongsListingViewController) {
         songsController.songStore = songsService.songsStore
         songsController.songsFetchedResultsController =
             songsService.songsStore.makeFetchedResultsControllerForAllSongs(
