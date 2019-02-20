@@ -318,6 +318,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="Jlc-3x-beM" id="Vca-FV-K9e"/>
                                     <outlet property="delegate" destination="Jlc-3x-beM" id="Cy4-HM-tYL"/>
@@ -326,7 +331,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ci1-SY-jp4" firstAttribute="top" secondItem="BOD-D6-NUD" secondAttribute="top" id="KOM-pY-Qgw"/>
+                            <constraint firstItem="Ci1-SY-jp4" firstAttribute="top" secondItem="BOD-D6-NUD" secondAttribute="top" id="KOM-pY-Qgw">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="constant">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="BOD-D6-NUD" firstAttribute="bottom" secondItem="Ci1-SY-jp4" secondAttribute="bottom" id="gJi-Il-Bvv"/>
                             <constraint firstItem="Ci1-SY-jp4" firstAttribute="leading" secondItem="BOD-D6-NUD" secondAttribute="leading" id="nWR-Zr-qG7"/>
                             <constraint firstItem="BOD-D6-NUD" firstAttribute="trailing" secondItem="Ci1-SY-jp4" secondAttribute="trailing" id="tP9-8C-vnX"/>
@@ -343,6 +354,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ci1-SY-jp4" id="XAy-5H-k1G"/>
+                        <outlet property="tableViewTopConstraint" destination="KOM-pY-Qgw" id="KTw-Ta-jAG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFY-Yw-eyr" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -24,6 +24,9 @@ class SongsListingViewController: UIViewController {
     /// The table view displaying the songs.
     @IBOutlet weak var tableView: UITableView!
 
+    /// The top constraint of the tableView related to its super view.
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
+
     /// The fetched results controller of the selected category of songs.
     var songsFetchedResultsController: NSFetchedResultsController<SongMO>! {
         didSet {
@@ -61,7 +64,9 @@ class SongsListingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+
         navigationController?.setNavigationBarHidden(false, animated: true)
+        animateTableViewDisplayal()
     }
 
     // MARK: Navigation
@@ -101,9 +106,37 @@ class SongsListingViewController: UIViewController {
                 preconditionFailure("The filter frc must be set.")
         }
 
-        // Update the listing by replacing the fetched results controller.
-        songsFetchedResultsController = filterFetchedResultsController
-        self.selectedCategory = selectedCategory
+        // Animate the table view out.
+        animateTableViewDismissal { _ in
+            // Update the listing by replacing the fetched results controller.
+            self.songsFetchedResultsController = filterFetchedResultsController
+            self.selectedCategory = selectedCategory
+
+            // Animate the table view in.
+            self.animateTableViewDisplayal { _ in
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .middle, animated: true)
+            }
+        }
+    }
+
+    /// Animates the table view in.
+    /// - Parameter completionHandler: closure called when the animation completes.
+    private func animateTableViewDisplayal(_ completionHandler: ((Bool) -> Void)? = nil) {
+        tableViewTopConstraint.constant = 0
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+            self.tableView.alpha = 1
+        }, completion: completionHandler)
+    }
+
+    /// Animates the table view out.
+    /// - Parameter completionHandler: closure called when the animation completes.
+    private func animateTableViewDismissal(_ completionHandler: ((Bool) -> Void)? = nil) {
+        tableViewTopConstraint.constant = 50
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+            self.tableView.alpha = 0
+        }, completion: completionHandler)
     }
 }
 
