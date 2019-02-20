@@ -44,6 +44,8 @@
                         <viewLayoutGuide key="safeArea" id="gJ6-HA-ZwY"/>
                     </view>
                     <connections>
+                        <outlet property="appTitleLabel" destination="P0S-Zi-Ang" id="e55-ob-pcf"/>
+                        <outlet property="titleVerticalConstraint" destination="M9R-dV-q04" id="2e7-z4-6dW"/>
                         <segue destination="9Qi-Fx-Lvi" kind="show" identifier="Show warning controller" id="Ilj-jv-G80"/>
                         <segue destination="R8d-RU-tgK" kind="show" identifier="Show songs controller" id="6AQ-Vn-HeX"/>
                     </connections>

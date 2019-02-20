@@ -22,6 +22,12 @@ class SplashViewController: UIViewController {
     /// The transitioning delegate used to present other view controllers.
     private let alphaTransitioningDelegate = AlphaTransitioningDelegate(transitionDuration: 0.5)
 
+    /// The label displaying the app's name.
+    @IBOutlet weak var appTitleLabel: UILabel!
+
+    /// The vertical constraint of the title label.
+    @IBOutlet weak var titleVerticalConstraint: NSLayoutConstraint!
+
     // MARK: Life cycle
 
     override func viewDidAppear(_ animated: Bool) {
@@ -40,14 +46,21 @@ class SplashViewController: UIViewController {
             if !UserDefaults.wereSongsSeeded {
                 self.seedSongsFromJsonFile()
             } else {
-                self.displayMainController()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    self.displayNextController()
+                })
             }
         }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // TODO: Display the dismissal
+
+        self.titleVerticalConstraint.constant -= 100
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+
+        }
     }
 
     // MARK: Navigation
@@ -86,12 +99,12 @@ class SplashViewController: UIViewController {
             }
 
             UserDefaults.wereSongsSeeded = true
-            self.displayMainController()
+            self.displayNextController()
         }
     }
 
     /// Continues with the app flow.
-    private func displayMainController() {
+    private func displayNextController() {
         DispatchQueue.main.async {
             if UserDefaults.isFirstLaunch {
                 // Display the warning controller before.
