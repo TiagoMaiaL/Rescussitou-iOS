@@ -209,7 +209,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Zs-DH-IGK">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Zs-DH-IGK" userLabel="Main stack view">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-guitar-image" translatesAutoresizingMaskIntoConstraints="NO" id="OHi-DV-dVc">
@@ -218,7 +218,7 @@
                                             <constraint firstAttribute="width" secondItem="OHi-DV-dVc" secondAttribute="height" multiplier="1:1" id="0uX-Kg-qYM"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-2Z-3dN" userLabel="Content stack view">
+                                    <stackView opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-2Z-3dN" userLabel="Information stack view">
                                         <rect key="frame" x="19" y="385" width="337.5" height="262"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPORTANTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-h7-3S8">
@@ -228,7 +228,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="9q0-6B-kdJ">
-                                                <rect key="frame" x="9" y="42.5" width="319" height="90"/>
+                                                <rect key="frame" x="9" y="32.5" width="319" height="90"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Irmãos, esse aplicativo ">
                                                         <attributes>
@@ -255,7 +255,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONb-b8-jmt">
-                                                <rect key="frame" x="133.5" y="152.5" width="70" height="109.5"/>
+                                                <rect key="frame" x="133.5" y="132.5" width="70" height="129.5"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
                                                 <state key="normal" title="Entendi!">
                                                     <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -265,12 +265,22 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="DnP-2Z-3dN" firstAttribute="width" secondItem="6Zs-DH-IGK" secondAttribute="width" multiplier="0.9" id="LEx-43-XcT"/>
                                     <constraint firstItem="OHi-DV-dVc" firstAttribute="width" secondItem="6Zs-DH-IGK" secondAttribute="width" id="seb-oJ-jOW"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -283,6 +293,9 @@
                         <viewLayoutGuide key="safeArea" id="aHX-23-ZqO"/>
                     </view>
                     <connections>
+                        <outlet property="guitarImageView" destination="OHi-DV-dVc" id="MG5-4z-3mn"/>
+                        <outlet property="informationStackView" destination="DnP-2Z-3dN" id="BSD-a0-5Le"/>
+                        <outlet property="mainStackView" destination="6Zs-DH-IGK" id="cot-fP-ODr"/>
                         <segue destination="R8d-RU-tgK" kind="show" identifier="Show songs controller" id="Miq-fo-9cG"/>
                     </connections>
                 </viewController>
@@ -324,6 +337,6 @@
         <image name="nav-menu-icon" width="20" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6AQ-Vn-HeX"/>
+        <segue reference="Miq-fo-9cG"/>
     </inferredMetricsTieBreakers>
 </document>

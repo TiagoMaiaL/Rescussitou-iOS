@@ -20,6 +20,15 @@ class WarningViewController: UIViewController {
     /// The alpha transitioning delegate used to present the songs controller.
     private let alphaTransitioningDelegate = AlphaTransitioningDelegate(transitionDuration: 0.3)
 
+    /// The stack view holding the sub views of the controller.
+    @IBOutlet weak var mainStackView: UIStackView!
+
+    /// The stack view containing the labels of the warning.
+    @IBOutlet weak var informationStackView: UIStackView!
+
+    /// The image view displaying the guitar image.
+    @IBOutlet weak var guitarImageView: UIImageView!
+
     // MARK: Life cycle
 
     override func viewDidLoad() {
@@ -27,14 +36,22 @@ class WarningViewController: UIViewController {
         precondition(songsControllerPreparationHandler != nil)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // TODO: Animate the displayal.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        UIView.animate(withDuration: 0.1) {
+             self.informationStackView.alpha = 1
+        }
+        UIView.animate(withDuration: 0.2) {
+            self.mainStackView.spacing = 10
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // TODO: Animate the dismissal.
+        UIView.animate(withDuration: 0.2) {
+            self.guitarImageView.frame.origin.x -= 20
+        }
     }
 
     // MARK: Actions
