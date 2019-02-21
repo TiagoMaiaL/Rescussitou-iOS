@@ -102,7 +102,12 @@ class MenuTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: cellReuseIdentifier,
+            for: indexPath
+            ) as? MenuTableViewCell else {
+                preconditionFailure("The menu cell must be set.")
+        }
         guard let section = Section(rawValue: indexPath.section) else { preconditionFailure("Couldn't get section.") }
 
         var text: String!
@@ -112,7 +117,8 @@ class MenuTableViewController: UITableViewController {
             guard let currentStage = SongMO.StageCategory(rawValue: indexPath.row) else {
                 preconditionFailure("Couldn't get the stage category.")
             }
-            // TODO: Display the color of the song.
+            cell.dotView.backgroundColor = currentStage.color
+            cell.dotView.isHidden = false
             text = currentStage.title
 
         case .liturgicalTime:
@@ -128,7 +134,7 @@ class MenuTableViewController: UITableViewController {
             text = currentEucaristPart.title
         }
 
-        cell.textLabel?.text = text
+        cell.titleLabel.text = text
 
         return cell
     }

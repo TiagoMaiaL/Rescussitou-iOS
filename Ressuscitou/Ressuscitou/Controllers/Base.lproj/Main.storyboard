@@ -106,22 +106,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell_identifier" textLabel="20h-6P-X2c" style="IBUITableViewCellStyleDefault" id="Zjg-uy-Ct6">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell_identifier" id="Zjg-uy-Ct6" customClass="MenuTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zjg-uy-Ct6" id="T40-BO-AOS">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Pré-catecumenato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="20h-6P-X2c">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jAU-Px-ujQ">
+                                            <rect key="frame" x="16" y="14" width="343" height="22.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6M-uP-o5Z" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="5" width="12" height="12"/>
+                                                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="12" id="Abx-TR-iwO"/>
+                                                        <constraint firstAttribute="width" secondItem="i6M-uP-o5Z" secondAttribute="height" multiplier="1:1" id="IFp-SW-u1X"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Pré-catecumenato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjz-dK-vLx">
+                                                    <rect key="frame" x="22" y="0.0" width="321" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jAU-Px-ujQ" secondAttribute="trailing" id="1pf-bP-r6m"/>
+                                        <constraint firstItem="jAU-Px-ujQ" firstAttribute="centerY" secondItem="T40-BO-AOS" secondAttribute="centerY" id="9Qr-U5-auJ"/>
+                                        <constraint firstItem="jAU-Px-ujQ" firstAttribute="leading" secondItem="T40-BO-AOS" secondAttribute="leadingMargin" id="QEh-2e-piM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dotView" destination="i6M-uP-o5Z" id="vDE-YZ-4Vz"/>
+                                    <outlet property="titleLabel" destination="hjz-dK-vLx" id="tHL-cp-Xas"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -368,6 +394,6 @@
         <image name="nav-menu-icon" width="20" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Miq-fo-9cG"/>
+        <segue reference="6AQ-Vn-HeX"/>
     </inferredMetricsTieBreakers>
 </document>
