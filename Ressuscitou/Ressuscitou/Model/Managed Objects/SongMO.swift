@@ -84,4 +84,11 @@ class SongMO: NSManagedObject {
             }
         }
     }
+
+    // MARK: Properties
+
+    /// The category of the song.
+    var stageCategory: StageCategory? {
+        return StageCategory(rawValue: (Int(category) - 1))
+    }
 }

@@ -206,26 +206,3 @@ class MenuTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
 }
-
-/// Adds the colors associated with each category.
-extension SongMO.StageCategory {
-
-    // MARK: Properties
-
-    /// The color associated to the category.
-    var color: UIColor {
-        switch self {
-        case .preCathecumenate:
-            return UIViewController.Colors.PreCathecumenateColor
-
-        case .liturgicalSongs:
-            return UIViewController.Colors.LiturgicalColor
-
-        case .cathecumenate:
-            return UIViewController.Colors.CathecumenateColor
-
-        case .election:
-            return UIViewController.Colors.ElectionColor
-        }
-    }
-}
