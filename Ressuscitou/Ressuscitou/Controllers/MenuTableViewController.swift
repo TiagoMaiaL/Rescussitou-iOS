@@ -15,7 +15,7 @@ class MenuTableViewController: UITableViewController {
     // MARK: Types
 
     /// The sections of the menu.
-    private enum Section: Int, CaseIterable {
+    enum Section: Int, CaseIterable {
         case all = 0
         case stages
         case liturgicalTime
@@ -176,12 +176,14 @@ class MenuTableViewController: UITableViewController {
         }
 
         var fetchedResultsControllerForFilter: NSFetchedResultsController<SongMO>!
+        var categoryTitle: String!
 
         switch section {
         case .all:
             fetchedResultsControllerForFilter = songStore.makeFetchedResultsControllerForAllSongs(
                 usingContext: viewContext
             )
+            categoryTitle = section.title
 
         case .stages:
             guard let stage = SongMO.StageCategory(rawValue: indexPath.row) else {
@@ -191,6 +193,7 @@ class MenuTableViewController: UITableViewController {
                 stage,
                 usingContext: viewContext
             )
+            categoryTitle = stage.title
 
         case .liturgicalTime:
             guard let liturgicalTime = SongMO.LiturgicalTimeCategory(rawValue: indexPath.row) else {
@@ -200,6 +203,7 @@ class MenuTableViewController: UITableViewController {
                 liturgicalTime,
                 usingContext: viewContext
             )
+            categoryTitle = liturgicalTime.title
 
         case .eucarist:
             guard let eucaristPart = SongMO.EucaristCategory(rawValue: indexPath.row) else {
@@ -209,13 +213,15 @@ class MenuTableViewController: UITableViewController {
                 eucaristPart,
                 usingContext: viewContext
             )
+            categoryTitle = eucaristPart.title
         }
 
         NotificationCenter.default.post(
             name: .FilterSongs,
             object: self,
             userInfo: [UserInfoKeys.Filter: fetchedResultsControllerForFilter,
-                       UserInfoKeys.SelectedCategory: indexPath]
+                       UserInfoKeys.SelectedCategoryIndexPath: indexPath,
+                       UserInfoKeys.SelectedCategoryTitle: categoryTitle]
         )
 
         dismiss(animated: true, completion: nil)

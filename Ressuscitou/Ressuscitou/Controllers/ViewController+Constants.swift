@@ -30,7 +30,8 @@ extension UIViewController {
     /// The user info keys used in the controllers observing notification events.
     enum UserInfoKeys {
         static let Filter = "filter"
-        static let SelectedCategory = "selected category"
+        static let SelectedCategoryIndexPath = "selected category"
+        static let SelectedCategoryTitle = "selected category title"
     }
 }
 

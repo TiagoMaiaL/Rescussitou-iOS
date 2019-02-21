@@ -47,6 +47,8 @@
 		47D92630221E3EB40002A59B /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D9262F221E3EB40002A59B /* MenuTableViewCell.swift */; };
 		47D92632221E3EEE0002A59B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92631221E3EEE0002A59B /* RoundedView.swift */; };
 		47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92633221E486C0002A59B /* SongTableViewCell.swift */; };
+		47D92636221ECFF70002A59B /* SongTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92635221ECFF70002A59B /* SongTableHeaderView.swift */; };
+		47D92638221ED0430002A59B /* SongTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D92637221ED0430002A59B /* SongTableHeaderView.xib */; };
 		669ADB8C7C44D5B8C1D1B7BE /* Pods_Ressuscitou.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,8 @@
 		47D9262F221E3EB40002A59B /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		47D92631221E3EEE0002A59B /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		47D92633221E486C0002A59B /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		47D92635221ECFF70002A59B /* SongTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableHeaderView.swift; sourceTree = "<group>"; };
+		47D92637221ED0430002A59B /* SongTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongTableHeaderView.xib; sourceTree = "<group>"; };
 		754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ressuscitou.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA7AF7721A30EF51C8E26C1 /* Pods-RessuscitouTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RessuscitouTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RessuscitouTests/Pods-RessuscitouTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8962BD4473F74066C5DAD95 /* Pods-Ressuscitou.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ressuscitou.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ressuscitou/Pods-Ressuscitou.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				47D9262F221E3EB40002A59B /* MenuTableViewCell.swift */,
 				47D92633221E486C0002A59B /* SongTableViewCell.swift */,
 				47D92631221E3EEE0002A59B /* RoundedView.swift */,
+				47D92639221ED04B0002A59B /* SongTableHeaderView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +335,15 @@
 			path = LeagueGothic;
 			sourceTree = "<group>";
 		};
+		47D92639221ED04B0002A59B /* SongTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				47D92635221ECFF70002A59B /* SongTableHeaderView.swift */,
+				47D92637221ED0430002A59B /* SongTableHeaderView.xib */,
+			);
+			path = SongTableHeaderView;
+			sourceTree = "<group>";
+		};
 		AB0A7008CB5015ACF7DD9271 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +451,7 @@
 				470CE62022149F13005E321F /* Assets.xcassets in Resources */,
 				470CE61B22149F11005E321F /* Main.storyboard in Resources */,
 				470CE66E22173042005E321F /* Quicksand-Regular.ttf in Resources */,
+				47D92638221ED0430002A59B /* SongTableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +538,7 @@
 				470CE6532215CB8F005E321F /* SongsServiceProtocol.swift in Sources */,
 				470CE65722160081005E321F /* SongMOStoreProtocol.swift in Sources */,
 				47D92630221E3EB40002A59B /* MenuTableViewCell.swift in Sources */,
+				47D92636221ECFF70002A59B /* SongTableHeaderView.swift in Sources */,
 				47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */,
 				4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,

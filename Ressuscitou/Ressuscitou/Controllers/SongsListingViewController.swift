@@ -18,8 +18,8 @@ class SongsListingViewController: UIViewController {
     /// The cell reuse identifier.
     private let reuseIdentifier = "song_cell"
 
-    /// The currently selected filter category.
-    var selectedCategory: IndexPath?
+    /// The reuse identifier of the header view.
+    private let headerViewReuseIdentifier = "header_view"
 
     /// The table view displaying the songs.
     @IBOutlet weak var tableView: UITableView!
@@ -40,6 +40,12 @@ class SongsListingViewController: UIViewController {
             }
         }
     }
+
+    /// The currently selected filter category.
+    var selectedCategory: IndexPath?
+
+    /// The currently selected category title.
+    var selectedCategoryTitle = MenuTableViewController.Section.all.title
 
     /// The store used to fetch and filter the songs.
     var songStore: SongMOStoreProtocol!
@@ -99,10 +105,13 @@ class SongsListingViewController: UIViewController {
 
     /// Filters the songs to display.
     @objc private func filterSongs(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: Any],
-            let filterFetchedResultsController: NSFetchedResultsController<SongMO> =
-            userInfo[UserInfoKeys.Filter] as? NSFetchedResultsController,
-            let selectedCategory = userInfo[UserInfoKeys.SelectedCategory] as? IndexPath else {
+        guard
+            let userInfo = notification.userInfo as? [String: Any],
+            let filterFetchedResultsController: NSFetchedResultsController<SongMO> = userInfo[UserInfoKeys.Filter]
+                as? NSFetchedResultsController,
+            let selectedCategory = userInfo[UserInfoKeys.SelectedCategoryIndexPath] as? IndexPath,
+            let selectedCategoryTitle = userInfo[UserInfoKeys.SelectedCategoryTitle] as? String
+            else {
                 preconditionFailure("The filter frc must be set.")
         }
 
@@ -111,6 +120,7 @@ class SongsListingViewController: UIViewController {
             // Update the listing by replacing the fetched results controller.
             self.songsFetchedResultsController = filterFetchedResultsController
             self.selectedCategory = selectedCategory
+            self.selectedCategoryTitle = selectedCategoryTitle
 
             // Animate the table view in.
             self.animateTableViewDisplayal { _ in
@@ -169,5 +179,21 @@ extension SongsListingViewController: UITableViewDataSource, UITableViewDelegate
         }
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = Bundle.main.loadNibNamed("SongTableHeaderView",
+                                                        owner: self,
+                                                        options: nil)?.first as? SongTableHeaderView else {
+                                                            preconditionFailure("The header view must be set.")
+        }
+
+        headerView.titleLabel.text = selectedCategoryTitle
+
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
     }
 }
