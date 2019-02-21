@@ -21,6 +21,9 @@ class SongsListingViewController: UIViewController {
     /// The reuse identifier of the header view.
     private let headerViewReuseIdentifier = "header_view"
 
+    /// The search controller in charge of handling the user's search.
+    private var searchController: UISearchController!
+
     /// The table view displaying the songs.
     @IBOutlet weak var tableView: UITableView!
 
@@ -42,7 +45,7 @@ class SongsListingViewController: UIViewController {
     }
 
     /// The currently selected filter category.
-    var selectedCategory: IndexPath?
+    var selectedCategory = IndexPath(row: 0, section: 0)
 
     /// The currently selected category title.
     var selectedCategoryTitle = MenuTableViewController.Section.all.title
@@ -62,10 +65,20 @@ class SongsListingViewController: UIViewController {
         precondition(songsFetchedResultsController != nil)
         precondition(songStore != nil)
 
+        configureSearchController()
+
         subscribeToNotification(named: .FilterSongs, usingSelector: #selector(filterSongs(_:)))
 
         navigationController?.navigationBar.prefersLargeTitles = true
         try! songsFetchedResultsController.performFetch()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let selectedIntexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIntexPath, animated: true)
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -128,6 +141,12 @@ class SongsListingViewController: UIViewController {
             }
         }
     }
+    @IBAction func search(_ sender: UIBarButtonItem) {
+        searchController.searchBar.becomeFirstResponder()
+        searchController.isActive = true
+    }
+
+    // MARK: Imperatives
 
     /// Animates the table view in.
     /// - Parameter completionHandler: closure called when the animation completes.
@@ -147,6 +166,32 @@ class SongsListingViewController: UIViewController {
             self.view.layoutIfNeeded()
             self.tableView.alpha = 0
         }, completion: completionHandler)
+    }
+
+    /// Configures the search controller associated with the listing.
+    private func configureSearchController() {
+        // TODO: Write the search controller.
+        let searchTableViewController = UITableViewController(style: .plain)
+
+        searchController = UISearchController(searchResultsController: searchTableViewController)
+        searchController.searchBar.placeholder = NSLocalizedString(
+            "Persquisar",
+            comment: "Placeholder text of the search bar."
+        )
+        searchController.searchBar.tintColor = .white
+
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.tintColor = .lightGray
+            textField.font = UIFont(name: "Quicksand-Regular", size: 16)
+
+            if let backgroundView = textField.subviews.first {
+                backgroundView.backgroundColor = .white
+                backgroundView.layer.cornerRadius = 10
+            }
+        }
+
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
     }
 }
 

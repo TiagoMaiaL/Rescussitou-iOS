@@ -406,13 +406,28 @@
                                 <segue destination="EfO-jT-1M3" kind="show" identifier="Show menu" id="ePM-ea-c6h"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="nav-search-icon" id="O8T-Rw-4ZV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="search:" destination="Jlc-3x-beM" id="3hJ-lx-PHm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchDisplayController" destination="7Z1-q5-OvW" id="eIz-N1-7nu"/>
                         <outlet property="tableView" destination="Ci1-SY-jp4" id="XAy-5H-k1G"/>
                         <outlet property="tableViewTopConstraint" destination="KOM-pY-Qgw" id="KTw-Ta-jAG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFY-Yw-eyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7Z1-q5-OvW">
+                    <connections>
+                        <outlet property="delegate" destination="Jlc-3x-beM" id="KBN-y0-5ml"/>
+                        <outlet property="searchContentsController" destination="Jlc-3x-beM" id="cdK-Kx-2r6"/>
+                        <outlet property="searchResultsDataSource" destination="Jlc-3x-beM" id="YH1-8v-O83"/>
+                        <outlet property="searchResultsDelegate" destination="Jlc-3x-beM" id="o4Q-kN-60H"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="908" y="-367"/>
         </scene>
@@ -421,8 +436,9 @@
         <image name="content-guitar-image" width="355" height="324"/>
         <image name="nav-back-icon" width="20" height="20"/>
         <image name="nav-menu-icon" width="20" height="14"/>
+        <image name="nav-search-icon" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6AQ-Vn-HeX"/>
+        <segue reference="Miq-fo-9cG"/>
     </inferredMetricsTieBreakers>
 </document>
