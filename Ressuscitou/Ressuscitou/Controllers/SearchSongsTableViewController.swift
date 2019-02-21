@@ -69,6 +69,23 @@ class SearchSongsTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let sectionHeader = Bundle.main.loadNibNamed(
+            "SongTableHeaderView",
+            owner: self,
+            options: nil
+            )?.first as? SongTableHeaderView else {
+                preconditionFailure("The section header must be set.")
+        }
+        // TODO: Use a strings dict to handle plurals.
+        sectionHeader.titleLabel.text = "\(searchResults.count) resultado\(searchResults.count == 1 ? "" : "s")"
+        return sectionHeader
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return searchResults.count > 0 ? 80 : 0
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectionHandler(searchResults[indexPath.row])
     }

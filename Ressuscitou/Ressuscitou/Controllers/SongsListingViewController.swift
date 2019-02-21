@@ -138,7 +138,7 @@ class SongsListingViewController: UIViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+
         searchController.searchBar.resignFirstResponder()
         searchController.isActive = false
     }
