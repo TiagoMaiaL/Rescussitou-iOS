@@ -79,7 +79,15 @@ class MenuTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         if let selectedCategory = selectedCategory {
-            tableView.selectRow(at: selectedCategory, animated: true, scrollPosition: .middle)
+            tableView.selectRow(at: selectedCategory, animated: false, scrollPosition: .middle)
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let selectedCategory = selectedCategory {
+            tableView.scrollToRow(at: selectedCategory, at: .middle, animated: true)
         }
     }
 
@@ -190,5 +198,28 @@ class MenuTableViewController: UITableViewController {
         )
 
         dismiss(animated: true, completion: nil)
+    }
+}
+
+/// Adds the colors associated with each category.
+extension SongMO.StageCategory {
+
+    // MARK: Properties
+
+    /// The color associated to the category.
+    var color: UIColor {
+        switch self {
+        case .preCathecumenate:
+            return UIViewController.Colors.PreCathecumenateColor
+
+        case .liturgicalSongs:
+            return UIViewController.Colors.LiturgicalColor
+
+        case .cathecumenate:
+            return UIViewController.Colors.CathecumenateColor
+
+        case .election:
+            return UIViewController.Colors.ElectionColor
+        }
     }
 }
