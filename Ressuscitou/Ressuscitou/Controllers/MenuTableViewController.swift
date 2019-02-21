@@ -16,25 +16,30 @@ class MenuTableViewController: UITableViewController {
 
     /// The sections of the menu.
     private enum Section: Int, CaseIterable {
-        case stages = 0
+        case all = 0
+        case stages
         case liturgicalTime
         case eucarist
 
         /// The title assciated with the section.
         var title: String {
             switch self {
+            case .all:
+                return NSLocalizedString("Ver todos (A-Z)", comment: "The name of one of the menu sections.")
             case .stages:
-                return NSLocalizedString("Etapa", comment: "The name of the first menu section.")
+                return NSLocalizedString("Etapa", comment: "The name of one of the menu sections.")
             case .liturgicalTime:
-                return NSLocalizedString("Tempo Litúrgico", comment: "The name of the second menu section.")
+                return NSLocalizedString("Tempo Litúrgico", comment: "The name of one of the menu sections.")
             case .eucarist:
-                return NSLocalizedString("Eucaristia", comment: "The name of the third menu section.")
+                return NSLocalizedString("Eucaristia", comment: "The name of one of the menu sections.")
             }
         }
 
         /// The number of rows contained in each section.
         var numberOfRows: Int {
             switch self {
+            case .all:
+                return 1
             case .stages:
                 return SongMO.StageCategory.allCases.count
             case .liturgicalTime:
@@ -113,6 +118,11 @@ class MenuTableViewController: UITableViewController {
         var text: String!
 
         switch section {
+        case .all:
+            text = section.title
+            cell.titleLabel.font = UIFont(name: "Quicksand-Bold", size: 18)
+            break
+
         case .stages:
             guard let currentStage = SongMO.StageCategory(rawValue: indexPath.row) else {
                 preconditionFailure("Couldn't get the stage category.")
@@ -157,7 +167,7 @@ class MenuTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return Section(rawValue: section) == .all ? 0 : 40
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -168,6 +178,11 @@ class MenuTableViewController: UITableViewController {
         var fetchedResultsControllerForFilter: NSFetchedResultsController<SongMO>!
 
         switch section {
+        case .all:
+            fetchedResultsControllerForFilter = songStore.makeFetchedResultsControllerForAllSongs(
+                usingContext: viewContext
+            )
+
         case .stages:
             guard let stage = SongMO.StageCategory(rawValue: indexPath.row) else {
                 preconditionFailure("Couldn't get the stage.")

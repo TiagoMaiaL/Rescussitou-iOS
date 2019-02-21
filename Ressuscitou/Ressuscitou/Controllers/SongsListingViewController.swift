@@ -167,7 +167,7 @@ extension SongsListingViewController: UITableViewDataSource, UITableViewDelegate
             cell.dotView.isHidden = false
             cell.dotView.backgroundColor = songColor
         }
-        
+
         return cell
     }
 }

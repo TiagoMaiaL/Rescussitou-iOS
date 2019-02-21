@@ -31,5 +31,6 @@ class MenuTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         dotView.isHidden = true
+        titleLabel.font = UIFont(name: "Quicksand-Regular", size: 18)
     }
 }
