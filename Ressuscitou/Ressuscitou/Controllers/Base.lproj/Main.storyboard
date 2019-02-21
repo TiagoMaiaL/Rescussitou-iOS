@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="-367"/>
+            <point key="canvasLocation" x="1713" y="-313"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="FNK-Wa-prk">
@@ -159,7 +159,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wvd-JR-MGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="375"/>
+            <point key="canvasLocation" x="2500" y="369"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="iZh-pS-wit">
@@ -177,7 +177,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNV-j3-oUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="375"/>
+            <point key="canvasLocation" x="1713" y="370"/>
         </scene>
         <!--Warning View Controller-->
         <scene sceneID="1i9-b7-W2k">
@@ -311,6 +311,82 @@
             </objects>
             <point key="canvasLocation" x="79" y="27"/>
         </scene>
+        <!--Search Results Controller-->
+        <scene sceneID="hgb-Mf-fak">
+            <objects>
+                <tableViewController storyboardIdentifier="SearchSongsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P8f-qE-C7B" customClass="SearchSongsTableViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nsM-yw-Wep">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="song_cell" id="sEg-0Z-dPX" customClass="SongTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sEg-0Z-dPX" id="qEf-43-h9U">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Yk-Gtv">
+                                            <rect key="frame" x="16" y="10.5" width="343" height="22.5"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvN-kN-lik" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="5.5" width="12" height="12"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="12" id="Ldb-Cd-4gP"/>
+                                                        <constraint firstAttribute="width" secondItem="xvN-kN-lik" secondAttribute="height" multiplier="1:1" id="fXM-9O-EC1"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-jF-EVh">
+                                                    <rect key="frame" x="22" y="0.0" width="321" height="22.5"/>
+                                                    <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xvN-kN-lik" firstAttribute="width" secondItem="xvN-kN-lik" secondAttribute="height" multiplier="1:1" id="mFx-rP-MwL"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PtM-Yk-Gtv" secondAttribute="trailing" id="YYJ-y0-bi2"/>
+                                        <constraint firstItem="PtM-Yk-Gtv" firstAttribute="leading" secondItem="qEf-43-h9U" secondAttribute="leadingMargin" id="bGm-O5-z75"/>
+                                        <constraint firstItem="PtM-Yk-Gtv" firstAttribute="centerY" secondItem="qEf-43-h9U" secondAttribute="centerY" id="bJT-jT-NeY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dotView" destination="xvN-kN-lik" id="pta-dd-Pz4"/>
+                                    <outlet property="titleLabel" destination="tj7-jF-EVh" id="B5D-BD-XhI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="P8f-qE-C7B" id="QIH-SJ-FuQ"/>
+                            <outlet property="delegate" destination="P8f-qE-C7B" id="tvu-qy-TvE"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Search Results Controller" id="zIe-DY-GDq">
+                        <barButtonItem key="leftBarButtonItem" image="nav-back-icon" id="eOv-7h-5jm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="dismiss:" destination="BYZ-38-t0r" id="CsW-wV-0bC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkj-au-UiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="766"/>
+        </scene>
         <!--Ressuscitou-->
         <scene sceneID="H2A-Ob-18V">
             <objects>
@@ -417,6 +493,7 @@
                         <outlet property="searchDisplayController" destination="7Z1-q5-OvW" id="eIz-N1-7nu"/>
                         <outlet property="tableView" destination="Ci1-SY-jp4" id="XAy-5H-k1G"/>
                         <outlet property="tableViewTopConstraint" destination="KOM-pY-Qgw" id="KTw-Ta-jAG"/>
+                        <segue destination="P8f-qE-C7B" kind="show" identifier="Search" id="wuC-jn-3px"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFY-Yw-eyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,7 +506,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="908" y="-367"/>
+            <point key="canvasLocation" x="908" y="27"/>
         </scene>
     </scenes>
     <resources>

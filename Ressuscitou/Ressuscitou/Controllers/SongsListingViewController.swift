@@ -21,8 +21,48 @@ class SongsListingViewController: UIViewController {
     /// The reuse identifier of the header view.
     private let headerViewReuseIdentifier = "header_view"
 
+    /// The search results controller.
+    private lazy var searchResultsController: SearchSongsTableViewController! = {
+        guard let searchTableViewController = storyboard?.instantiateViewController(
+            withIdentifier: "SearchSongsTableViewController"
+            ) as? SearchSongsTableViewController else {
+                preconditionFailure("The controller to search for songs must be set.")
+        }
+        searchTableViewController.selectionHandler = { selectedSong in
+            self.selectedSearchSong = selectedSong
+            self.performSegue(withIdentifier: SegueIdentifiers.SongControllerSegue, sender: self)
+        }
+
+        return searchTableViewController
+    }()
+
     /// The search controller in charge of handling the user's search.
-    private var searchController: UISearchController!
+    private lazy var searchController: UISearchController! = {
+        let searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.searchResultsUpdater = searchResultsController
+
+        // Configure the search bar.
+        searchController.searchBar.placeholder = NSLocalizedString(
+            "Pesquisar",
+            comment: "Placeholder text of the search bar."
+        )
+        searchController.searchBar.tintColor = .white
+
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.tintColor = .lightGray
+            textField.font = UIFont(name: "Quicksand-Regular", size: 16)
+
+            if let backgroundView = textField.subviews.first {
+                backgroundView.backgroundColor = .white
+                backgroundView.layer.cornerRadius = 10
+            }
+        }
+
+        return searchController
+    }()
+
+    /// The song selected from the user's search.
+    private var selectedSearchSong: SongMO?
 
     /// The table view displaying the songs.
     @IBOutlet weak var tableView: UITableView!
@@ -34,8 +74,10 @@ class SongsListingViewController: UIViewController {
     var songsFetchedResultsController: NSFetchedResultsController<SongMO>! {
         didSet {
             if songsFetchedResultsController != nil, tableView != nil {
+                // Try to fetch the new FRC and display the results.
                 do {
                     try songsFetchedResultsController.performFetch()
+                    searchResultsController.songsToBeSearched = songsFetchedResultsController.fetchedObjects ?? []
                     tableView.reloadData()
                 } catch {
                     // TODO: Display error to the user.
@@ -65,12 +107,18 @@ class SongsListingViewController: UIViewController {
         precondition(songsFetchedResultsController != nil)
         precondition(songStore != nil)
 
-        configureSearchController()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
 
         subscribeToNotification(named: .FilterSongs, usingSelector: #selector(filterSongs(_:)))
 
-        navigationController?.navigationBar.prefersLargeTitles = true
-        try! songsFetchedResultsController.performFetch()
+        do {
+            try songsFetchedResultsController.performFetch()
+            searchResultsController.songsToBeSearched = songsFetchedResultsController.fetchedObjects ?? []
+        } catch {
+            // TODO: Display any errors to the user.
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -88,13 +136,31 @@ class SongsListingViewController: UIViewController {
         animateTableViewDisplayal()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        searchController.searchBar.resignFirstResponder()
+        searchController.isActive = false
+    }
+
     // MARK: Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifiers.SongControllerSegue,
-            let songController = segue.destination as? SongViewController,
-            let selectedIndex = tableView.indexPathForSelectedRow {
-            songController.song = songsFetchedResultsController.object(at: selectedIndex)
+            let songController = segue.destination as? SongViewController {
+
+            var selectedSong: SongMO!
+
+            if let searchedSong = selectedSearchSong {
+                selectedSong = searchedSong
+                selectedSearchSong = nil
+            } else if let selectedIndex = tableView.indexPathForSelectedRow {
+                selectedSong = songsFetchedResultsController.object(at: selectedIndex)
+            } else {
+                preconditionFailure("A song controller must always have a selected song.")
+            }
+
+            songController.song = selectedSong
 
         } else if segue.identifier == SegueIdentifiers.MenuControllerSegue,
             let menuNavigationController = segue.destination as? UISideMenuNavigationController {
@@ -166,32 +232,6 @@ class SongsListingViewController: UIViewController {
             self.view.layoutIfNeeded()
             self.tableView.alpha = 0
         }, completion: completionHandler)
-    }
-
-    /// Configures the search controller associated with the listing.
-    private func configureSearchController() {
-        // TODO: Write the search controller.
-        let searchTableViewController = UITableViewController(style: .plain)
-
-        searchController = UISearchController(searchResultsController: searchTableViewController)
-        searchController.searchBar.placeholder = NSLocalizedString(
-            "Persquisar",
-            comment: "Placeholder text of the search bar."
-        )
-        searchController.searchBar.tintColor = .white
-
-        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-            textField.tintColor = .lightGray
-            textField.font = UIFont(name: "Quicksand-Regular", size: 16)
-
-            if let backgroundView = textField.subviews.first {
-                backgroundView.backgroundColor = .white
-                backgroundView.layer.cornerRadius = 10
-            }
-        }
-
-        definesPresentationContext = true
-        navigationItem.searchController = searchController
     }
 }
 
