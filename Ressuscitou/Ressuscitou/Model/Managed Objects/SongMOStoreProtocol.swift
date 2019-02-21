@@ -34,6 +34,13 @@ protocol SongMOStoreProtocol {
         usingContext context: NSManagedObjectContext
         ) -> NSFetchedResultsController<SongMO>
 
+    /// Makes a fetched results controller for the passed eucarist part.
+    /// - Returns: the configured fetched results controller for the specific eucarist part.
+    func makeFetchedResultsControllerForEucaristCategory(
+        _ eucaristPart: SongMO.EucaristCategory,
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO>
+
     /// Persists the received songs into core data.
     /// - Parameters:
     ///     - songs: the songs to be persisted.

@@ -54,6 +54,31 @@ struct SongsMOStore: SongMOStoreProtocol {
         )
     }
 
+    func makeFetchedResultsControllerForEucaristCategory(
+        _ eucaristPart: SongMO.EucaristCategory,
+        usingContext context: NSManagedObjectContext
+        ) -> NSFetchedResultsController<SongMO> {
+        var text: String!
+
+        switch eucaristPart {
+        case .entrance:
+            text = "isForEntrance = %d"
+        case .peace:
+            text = "isForPeace = %d"
+        case .breadFraction:
+            text = "isForBreadFraction = %d"
+        case .communion:
+            text = "isForCommunion = %d"
+        case .final:
+            text = "isForFinal = %d"
+        }
+
+        return makeFetchedResultsController(
+            filterPredicate: NSPredicate(format: text, true),
+            context: context
+        )
+    }
+
     func createSongsManagedObjects(fromJSONSongs songs: [Song],
                                    usingContext context: NSManagedObjectContext) -> [SongMO] {
         return songs.map { createSongManagedObject(fromJSONSong: $0, usingContext: context) }

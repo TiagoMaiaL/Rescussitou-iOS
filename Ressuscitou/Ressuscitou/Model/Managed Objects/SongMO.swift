@@ -60,4 +60,28 @@ class SongMO: NSManagedObject {
             }
         }
     }
+
+    enum EucaristCategory: Int, CaseIterable {
+        case entrance = 0
+        case peace
+        case breadFraction
+        case communion
+        case final
+
+        /// The title associated with each category.
+        var title: String {
+            switch self {
+            case .entrance:
+                return NSLocalizedString("Cantos de entrada", comment: "One of the eucarist categories.")
+            case .peace:
+                return NSLocalizedString("Paz", comment: "One of the eucarist categories.")
+            case .breadFraction:
+                return NSLocalizedString("Fração do pão", comment: "One of the eucarist categories.")
+            case .communion:
+                return NSLocalizedString("Comunhão", comment: "One of the eucarist categories.")
+            case .final:
+                return NSLocalizedString("Canto final", comment: "One of the eucarist categories.")
+            }
+        }
+    }
 }

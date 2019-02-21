@@ -17,7 +17,8 @@ class MenuTableViewController: UITableViewController {
     /// The sections of the menu.
     private enum Section: Int, CaseIterable {
         case stages = 0
-        case liturgicalTime = 1
+        case liturgicalTime
+        case eucarist
 
         /// The title assciated with the section.
         var title: String {
@@ -26,6 +27,8 @@ class MenuTableViewController: UITableViewController {
                 return NSLocalizedString("Etapa", comment: "The name of the first menu section.")
             case .liturgicalTime:
                 return NSLocalizedString("Tempo Litúrgico", comment: "The name of the second menu section.")
+            case .eucarist:
+                return NSLocalizedString("Eucaristia", comment: "The name of the third menu section.")
             }
         }
 
@@ -36,6 +39,8 @@ class MenuTableViewController: UITableViewController {
                 return SongMO.StageCategory.allCases.count
             case .liturgicalTime:
                 return SongMO.LiturgicalTimeCategory.allCases.count
+            case .eucarist:
+                return SongMO.EucaristCategory.allCases.count
             }
         }
     }
@@ -97,18 +102,22 @@ class MenuTableViewController: UITableViewController {
         switch section {
         case .stages:
             guard let currentStage = SongMO.StageCategory(rawValue: indexPath.row) else {
-                preconditionFailure("Couln't get the stage category.")
+                preconditionFailure("Couldn't get the stage category.")
             }
-
+            // TODO: Display the color of the song.
             text = currentStage.title
-            break
+
         case .liturgicalTime:
             guard let currentTime = SongMO.LiturgicalTimeCategory(rawValue: indexPath.row) else {
-                preconditionFailure("Couln't get the time category.")
+                preconditionFailure("Couldn't get the time category.")
             }
-
             text = currentTime.title
-            break
+
+        case .eucarist:
+            guard let currentEucaristPart = SongMO.EucaristCategory(rawValue: indexPath.row) else {
+                preconditionFailure("Couldn't get the eucarist category.")
+            }
+            text = currentEucaristPart.title
         }
 
         cell.textLabel?.text = text
@@ -153,12 +162,22 @@ class MenuTableViewController: UITableViewController {
                 stage,
                 usingContext: viewContext
             )
+
         case .liturgicalTime:
             guard let liturgicalTime = SongMO.LiturgicalTimeCategory(rawValue: indexPath.row) else {
                 preconditionFailure("Couldn't get the stage.")
             }
             fetchedResultsControllerForFilter = songStore.makeFetchedResultsControllerForLiturgicalTimeCategory(
                 liturgicalTime,
+                usingContext: viewContext
+            )
+
+        case .eucarist:
+            guard let eucaristPart = SongMO.EucaristCategory(rawValue: indexPath.row) else {
+                preconditionFailure("Couldn't get the eucarist category.")
+            }
+            fetchedResultsControllerForFilter = songStore.makeFetchedResultsControllerForEucaristCategory(
+                eucaristPart,
                 usingContext: viewContext
             )
         }
