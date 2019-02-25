@@ -328,7 +328,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Yk-Gtv">
-                                            <rect key="frame" x="16" y="10.5" width="343" height="22.5"/>
+                                            <rect key="frame" x="16" y="18.5" width="343" height="22.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvN-kN-lik" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="5.5" width="12" height="12"/>

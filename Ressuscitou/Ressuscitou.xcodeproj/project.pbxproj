@@ -43,6 +43,8 @@
 		4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6A221B815B0089C658 /* Notification+Constants.swift */; };
 		4741BF6D221C410D0089C658 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6C221C410D0089C658 /* String+Helpers.swift */; };
 		4741BF6F221C60AC0089C658 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6E221C60AC0089C658 /* WarningViewController.swift */; };
+		474956B92224741A00EEDCC4 /* EmptySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474956B82224741A00EEDCC4 /* EmptySearchView.swift */; };
+		474956BB2224743000EEDCC4 /* EmptySearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474956BA2224743000EEDCC4 /* EmptySearchView.xib */; };
 		47D9262E221D73A70002A59B /* TransitioningHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D9262D221D73A70002A59B /* TransitioningHandler.swift */; };
 		47D92630221E3EB40002A59B /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D9262F221E3EB40002A59B /* MenuTableViewCell.swift */; };
 		47D92632221E3EEE0002A59B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92631221E3EEE0002A59B /* RoundedView.swift */; };
@@ -105,6 +107,8 @@
 		4741BF6A221B815B0089C658 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
 		4741BF6C221C410D0089C658 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		4741BF6E221C60AC0089C658 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
+		474956B82224741A00EEDCC4 /* EmptySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySearchView.swift; sourceTree = "<group>"; };
+		474956BA2224743000EEDCC4 /* EmptySearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptySearchView.xib; sourceTree = "<group>"; };
 		47D9262D221D73A70002A59B /* TransitioningHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitioningHandler.swift; sourceTree = "<group>"; };
 		47D9262F221E3EB40002A59B /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		47D92631221E3EEE0002A59B /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				47D92633221E486C0002A59B /* SongTableViewCell.swift */,
 				47D92631221E3EEE0002A59B /* RoundedView.swift */,
 				47D92639221ED04B0002A59B /* SongTableHeaderView */,
+				474956B7222473CB00EEDCC4 /* EmptySearchView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +343,15 @@
 			path = LeagueGothic;
 			sourceTree = "<group>";
 		};
+		474956B7222473CB00EEDCC4 /* EmptySearchView */ = {
+			isa = PBXGroup;
+			children = (
+				474956B82224741A00EEDCC4 /* EmptySearchView.swift */,
+				474956BA2224743000EEDCC4 /* EmptySearchView.xib */,
+			);
+			path = EmptySearchView;
+			sourceTree = "<group>";
+		};
 		47D92639221ED04B0002A59B /* SongTableHeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +460,7 @@
 				470CE67122173042005E321F /* Quicksand-Medium.ttf in Resources */,
 				470CE67922173312005E321F /* LeagueGothic-Regular.otf in Resources */,
 				470CE66F22173042005E321F /* Quicksand-Bold.ttf in Resources */,
+				474956BB2224743000EEDCC4 /* EmptySearchView.xib in Resources */,
 				470CE67A22173312005E321F /* LeagueGothic-Italic.otf in Resources */,
 				470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */,
 				470CE67B22173312005E321F /* LeagueGothic-CondensedItalic.otf in Resources */,
@@ -538,6 +553,7 @@
 				470CE66322162D60005E321F /* SongsListingViewController.swift in Sources */,
 				4741BF67221B388B0089C658 /* MenuTableViewController.swift in Sources */,
 				470CE61622149F11005E321F /* AppDelegate.swift in Sources */,
+				474956B92224741A00EEDCC4 /* EmptySearchView.swift in Sources */,
 				470CE6472214C659005E321F /* SongMO.swift in Sources */,
 				470CE6532215CB8F005E321F /* SongsServiceProtocol.swift in Sources */,
 				470CE65722160081005E321F /* SongMOStoreProtocol.swift in Sources */,

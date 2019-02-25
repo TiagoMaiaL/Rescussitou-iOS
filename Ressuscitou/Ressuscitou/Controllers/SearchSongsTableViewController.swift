@@ -26,12 +26,30 @@ class SearchSongsTableViewController: UITableViewController {
     /// The result of the search performed on the songs to be searched.
     private var searchResults = [SongMO]()
 
+    /// The view indicating that the search didn't find any results.
+    private lazy var noResultsView: EmptySearchView = {
+        guard let emptySearchView = Bundle.main.loadNibNamed(
+            "EmptySearchView",
+            owner: self,
+            options: nil
+            )?.first as? EmptySearchView else {
+                preconditionFailure("The EmptySearchView must be set.")
+        }
+
+        return emptySearchView
+    }()
+
     // MARK: Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         precondition(selectionHandler != nil)
+
+        tableView.backgroundView = noResultsView
+        tableView.backgroundView!.isHidden = true
+        // Remove any extra cell separators.
+        tableView.tableFooterView = UIView()
 
         clearsSelectionOnViewWillAppear = true
     }
@@ -109,5 +127,11 @@ extension SearchSongsTableViewController: UISearchResultsUpdating {
         tableView.reloadData()
 
         // If the search results are empty, display a view informing it.
+        let isSearchEmpty = searchResults.isEmpty && !searchText.isEmpty
+        tableView.backgroundView?.isHidden = !isSearchEmpty
+
+        if isSearchEmpty {
+            noResultsView.displayNoResultsText(forTerm: searchText)
+        }
     }
 }
