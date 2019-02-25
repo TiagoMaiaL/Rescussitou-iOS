@@ -46,8 +46,8 @@ class SongsListingViewController: UIViewController {
             "Pesquisar",
             comment: "Placeholder text of the search bar."
         )
-        searchController.searchBar.tintColor = .white
 
+        searchController.searchBar.tintColor = .white
         if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textField.tintColor = .lightGray
             textField.font = UIFont(name: "Quicksand-Regular", size: 16)
@@ -107,9 +107,10 @@ class SongsListingViewController: UIViewController {
         precondition(songsFetchedResultsController != nil)
         precondition(songStore != nil)
 
-        navigationController?.navigationBar.prefersLargeTitles = true
         definesPresentationContext = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
 
         subscribeToNotification(named: .FilterSongs, usingSelector: #selector(filterSongs(_:)))
 
@@ -132,7 +133,9 @@ class SongsListingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
 
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        if navigationController?.isNavigationBarHidden ?? false {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
         animateTableViewDisplayal()
     }
 
@@ -207,9 +210,10 @@ class SongsListingViewController: UIViewController {
             }
         }
     }
+
     @IBAction func search(_ sender: UIBarButtonItem) {
-        searchController.searchBar.becomeFirstResponder()
-        searchController.isActive = true
+        self.searchController.searchBar.becomeFirstResponder()
+        self.searchController.isActive = true
     }
 
     // MARK: Imperatives

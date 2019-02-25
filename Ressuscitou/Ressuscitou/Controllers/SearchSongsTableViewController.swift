@@ -83,7 +83,7 @@ class SearchSongsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return searchResults.count > 0 ? 80 : 0
+        return !searchResults.isEmpty ? 80 : 0
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -107,5 +107,7 @@ extension SearchSongsTableViewController: UISearchResultsUpdating {
                 song.content!.contains(searchText.replacingOccurrences(of: " ", with: ""))
         }
         tableView.reloadData()
+
+        // If the search results are empty, display a view informing it.
     }
 }
