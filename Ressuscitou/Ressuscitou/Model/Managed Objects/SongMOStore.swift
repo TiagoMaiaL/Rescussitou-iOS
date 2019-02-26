@@ -100,6 +100,7 @@ struct SongsMOStore: SongMOStoreProtocol {
             songManagedObject.number = number
         }
         songManagedObject.base64HTML = song.base64Html
+        songManagedObject.hasSound = !song.hasSoundMarker.isEmpty
 
         songManagedObject.isForFinal = song.isForFinal
         songManagedObject.isForAdvent = song.isForAdvent
