@@ -33,4 +33,24 @@ class MenuTableViewCell: UITableViewCell {
         dotView.isHidden = true
         titleLabel.font = UIFont(name: "Quicksand-Regular", size: 18)
     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        let dotViewInitialColor = dotView.backgroundColor
+
+        super.setSelected(selected, animated: animated)
+
+        if dotViewInitialColor != nil {
+            dotView.backgroundColor = dotViewInitialColor
+        }
+    }
+
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        let dotViewInitialColor = dotView.backgroundColor
+
+        super.setHighlighted(highlighted, animated: animated)
+
+        if dotViewInitialColor != nil {
+            dotView.backgroundColor = dotViewInitialColor
+        }
+    }
 }

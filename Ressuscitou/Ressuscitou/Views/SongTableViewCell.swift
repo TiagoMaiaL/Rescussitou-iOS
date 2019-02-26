@@ -23,11 +23,39 @@ class SongTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        dotView.isHidden = true
+        configureInitialState()
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        configureInitialState()
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        let dotViewInitialColor = dotView.backgroundColor
+
+        super.setSelected(selected, animated: animated)
+
+        if dotViewInitialColor != nil {
+            dotView.backgroundColor = dotViewInitialColor
+        }
+    }
+
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        let dotViewInitialColor = dotView.backgroundColor
+
+        super.setHighlighted(highlighted, animated: animated)
+
+        if dotViewInitialColor != nil {
+            dotView.backgroundColor = dotViewInitialColor
+        }
+    }
+
+    // MARK: Imperatives
+
+    /// Configures the cell initial state.
+    private func configureInitialState() {
         dotView.isHidden = true
+        dotView.backgroundColor = nil
     }
 }
