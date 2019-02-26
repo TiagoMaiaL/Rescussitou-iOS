@@ -55,6 +55,7 @@ class SongTableViewCell: UITableViewCell {
 
     /// Configures the cell initial state.
     private func configureInitialState() {
+        titleLabel.font = UIFont(name: "Quicksand-Regular", size: 18)
         dotView.isHidden = true
         dotView.backgroundColor = nil
     }

@@ -76,8 +76,6 @@ class MenuTableViewController: UITableViewController {
         precondition(viewContext != nil)
 
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerReuseIdentifier)
-
-        UIApplication.shared.statusBarView?.backgroundColor = Colors.BaseRed
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -110,7 +108,7 @@ class MenuTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: cellReuseIdentifier,
             for: indexPath
-            ) as? MenuTableViewCell else {
+            ) as? SongTableViewCell else {
                 preconditionFailure("The menu cell must be set.")
         }
         guard let section = Section(rawValue: indexPath.section) else { preconditionFailure("Couldn't get section.") }

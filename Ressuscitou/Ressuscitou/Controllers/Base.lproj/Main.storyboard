@@ -106,22 +106,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell_identifier" id="Zjg-uy-Ct6" customClass="MenuTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell_identifier" id="053-qh-7sk" customClass="SongTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zjg-uy-Ct6" id="T40-BO-AOS">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="053-qh-7sk" id="MUi-kt-gFp">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jAU-Px-ujQ">
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZM5-5I-EKs">
                                             <rect key="frame" x="16" y="14" width="343" height="22.5"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6M-uP-o5Z" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzK-n9-99c" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="5" width="12" height="12"/>
-                                                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="12" id="Abx-TR-iwO"/>
-                                                        <constraint firstAttribute="width" secondItem="i6M-uP-o5Z" secondAttribute="height" multiplier="1:1" id="IFp-SW-u1X"/>
+                                                        <constraint firstAttribute="width" secondItem="EzK-n9-99c" secondAttribute="height" multiplier="1:1" id="DaG-cE-Fe6"/>
+                                                        <constraint firstAttribute="width" constant="12" id="aBT-XK-UiN"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -129,24 +129,27 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Pré-catecumenato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjz-dK-vLx">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iru-YI-W5w">
                                                     <rect key="frame" x="22" y="0.0" width="321" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EzK-n9-99c" firstAttribute="width" secondItem="EzK-n9-99c" secondAttribute="height" multiplier="1:1" id="BO7-1z-V7K"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="jAU-Px-ujQ" secondAttribute="trailing" id="1pf-bP-r6m"/>
-                                        <constraint firstItem="jAU-Px-ujQ" firstAttribute="centerY" secondItem="T40-BO-AOS" secondAttribute="centerY" id="9Qr-U5-auJ"/>
-                                        <constraint firstItem="jAU-Px-ujQ" firstAttribute="leading" secondItem="T40-BO-AOS" secondAttribute="leadingMargin" id="QEh-2e-piM"/>
+                                        <constraint firstItem="ZM5-5I-EKs" firstAttribute="leading" secondItem="MUi-kt-gFp" secondAttribute="leadingMargin" id="2iz-3N-ClG"/>
+                                        <constraint firstItem="ZM5-5I-EKs" firstAttribute="centerY" secondItem="MUi-kt-gFp" secondAttribute="centerY" id="JW8-IC-HAD"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ZM5-5I-EKs" secondAttribute="trailing" id="Sb4-6h-Pj3"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dotView" destination="i6M-uP-o5Z" id="vDE-YZ-4Vz"/>
-                                    <outlet property="titleLabel" destination="hjz-dK-vLx" id="tHL-cp-Xas"/>
+                                    <outlet property="dotView" destination="EzK-n9-99c" id="uzc-Qh-aZg"/>
+                                    <outlet property="titleLabel" destination="Iru-YI-W5w" id="4M1-f0-Zzq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
