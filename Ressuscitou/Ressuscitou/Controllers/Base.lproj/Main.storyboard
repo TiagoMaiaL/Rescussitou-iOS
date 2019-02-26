@@ -106,22 +106,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell_identifier" id="053-qh-7sk" customClass="SongTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menu_cell_identifier" id="kmM-xh-ehZ" customClass="SongTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="053-qh-7sk" id="MUi-kt-gFp">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kmM-xh-ehZ" id="qXc-fv-qeh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZM5-5I-EKs">
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aYm-WE-hC5">
                                             <rect key="frame" x="16" y="14" width="343" height="22.5"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzK-n9-99c" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHy-sb-Rex" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="5" width="12" height="12"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="EzK-n9-99c" secondAttribute="height" multiplier="1:1" id="DaG-cE-Fe6"/>
-                                                        <constraint firstAttribute="width" constant="12" id="aBT-XK-UiN"/>
+                                                        <constraint firstAttribute="width" constant="12" id="NBv-Rz-nHA"/>
+                                                        <constraint firstAttribute="width" secondItem="oHy-sb-Rex" secondAttribute="height" multiplier="1:1" id="kp4-ts-tg1"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -129,27 +129,38 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iru-YI-W5w">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDe-pe-aZb">
                                                     <rect key="frame" x="22" y="0.0" width="321" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-download-icon-on" translatesAutoresizingMaskIntoConstraints="NO" id="OsI-eI-zUI">
+                                                    <rect key="frame" x="343" y="1" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="HP6-KJ-SiD"/>
+                                                        <constraint firstAttribute="width" secondItem="OsI-eI-zUI" secondAttribute="height" multiplier="1:1" id="efh-su-vGX"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EzK-n9-99c" firstAttribute="width" secondItem="EzK-n9-99c" secondAttribute="height" multiplier="1:1" id="BO7-1z-V7K"/>
+                                                <constraint firstItem="oHy-sb-Rex" firstAttribute="width" secondItem="oHy-sb-Rex" secondAttribute="height" multiplier="1:1" id="zn7-WZ-end"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ZM5-5I-EKs" firstAttribute="leading" secondItem="MUi-kt-gFp" secondAttribute="leadingMargin" id="2iz-3N-ClG"/>
-                                        <constraint firstItem="ZM5-5I-EKs" firstAttribute="centerY" secondItem="MUi-kt-gFp" secondAttribute="centerY" id="JW8-IC-HAD"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ZM5-5I-EKs" secondAttribute="trailing" id="Sb4-6h-Pj3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aYm-WE-hC5" secondAttribute="trailing" id="1bl-or-0Mj"/>
+                                        <constraint firstItem="aYm-WE-hC5" firstAttribute="leading" secondItem="qXc-fv-qeh" secondAttribute="leadingMargin" id="SbF-3g-dzv"/>
+                                        <constraint firstItem="aYm-WE-hC5" firstAttribute="centerY" secondItem="qXc-fv-qeh" secondAttribute="centerY" id="rMY-es-Fel"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dotView" destination="EzK-n9-99c" id="uzc-Qh-aZg"/>
-                                    <outlet property="titleLabel" destination="Iru-YI-W5w" id="4M1-f0-Zzq"/>
+                                    <outlet property="dotView" destination="oHy-sb-Rex" id="ehK-hH-ecd"/>
+                                    <outlet property="songIndicatorView" destination="OsI-eI-zUI" id="XJN-Xr-6DS"/>
+                                    <outlet property="titleLabel" destination="JDe-pe-aZb" id="758-r4-dBO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -323,22 +334,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="song_cell" id="sEg-0Z-dPX" customClass="SongTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="song_cell" id="agT-8J-ueB" customClass="SongTableViewCell" customModule="Ressuscitou" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sEg-0Z-dPX" id="qEf-43-h9U">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="agT-8J-ueB" id="xkt-Xz-MQ8">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PtM-Yk-Gtv">
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Q5-QT-QbT">
                                             <rect key="frame" x="16" y="18.5" width="343" height="22.5"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvN-kN-lik" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hah-qu-QXE" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="5.5" width="12" height="12"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="12" id="Ldb-Cd-4gP"/>
-                                                        <constraint firstAttribute="width" secondItem="xvN-kN-lik" secondAttribute="height" multiplier="1:1" id="fXM-9O-EC1"/>
+                                                        <constraint firstAttribute="width" constant="12" id="Oud-Yr-pVU"/>
+                                                        <constraint firstAttribute="width" secondItem="Hah-qu-QXE" secondAttribute="height" multiplier="1:1" id="gVs-Tb-vOl"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -346,27 +357,38 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-jF-EVh">
-                                                    <rect key="frame" x="22" y="0.0" width="321" height="22.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntx-cJ-euq">
+                                                    <rect key="frame" x="22" y="0.0" width="291" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-download-icon-on" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-V0-D5m">
+                                                    <rect key="frame" x="323" y="1.5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="r2p-V0-D5m" secondAttribute="height" multiplier="1:1" id="8dv-B8-AAn"/>
+                                                        <constraint firstAttribute="width" constant="20" id="O7D-ya-5ei"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xvN-kN-lik" firstAttribute="width" secondItem="xvN-kN-lik" secondAttribute="height" multiplier="1:1" id="mFx-rP-MwL"/>
+                                                <constraint firstItem="Hah-qu-QXE" firstAttribute="width" secondItem="Hah-qu-QXE" secondAttribute="height" multiplier="1:1" id="2vI-Q8-hSL"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="PtM-Yk-Gtv" secondAttribute="trailing" id="YYJ-y0-bi2"/>
-                                        <constraint firstItem="PtM-Yk-Gtv" firstAttribute="leading" secondItem="qEf-43-h9U" secondAttribute="leadingMargin" id="bGm-O5-z75"/>
-                                        <constraint firstItem="PtM-Yk-Gtv" firstAttribute="centerY" secondItem="qEf-43-h9U" secondAttribute="centerY" id="bJT-jT-NeY"/>
+                                        <constraint firstItem="3Q5-QT-QbT" firstAttribute="leading" secondItem="xkt-Xz-MQ8" secondAttribute="leadingMargin" id="7Js-Uf-Ru0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3Q5-QT-QbT" secondAttribute="trailing" id="uoE-mp-C4K"/>
+                                        <constraint firstItem="3Q5-QT-QbT" firstAttribute="centerY" secondItem="xkt-Xz-MQ8" secondAttribute="centerY" id="vRP-1K-w3D"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dotView" destination="xvN-kN-lik" id="pta-dd-Pz4"/>
-                                    <outlet property="titleLabel" destination="tj7-jF-EVh" id="B5D-BD-XhI"/>
+                                    <outlet property="dotView" destination="Hah-qu-QXE" id="lPW-qn-QBd"/>
+                                    <outlet property="songIndicatorView" destination="r2p-V0-D5m" id="f18-Kq-4Jb"/>
+                                    <outlet property="titleLabel" destination="ntx-cJ-euq" id="R9d-zN-DFh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -428,11 +450,21 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed3-x2-TYI">
-                                                            <rect key="frame" x="22" y="0.0" width="323" height="22.5"/>
+                                                            <rect key="frame" x="22" y="0.0" width="293" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-download-icon-on" translatesAutoresizingMaskIntoConstraints="NO" id="GyJ-e2-CKw">
+                                                            <rect key="frame" x="325" y="1.5" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="GyJ-e2-CKw" secondAttribute="height" multiplier="1:1" id="E64-iI-igs"/>
+                                                                <constraint firstAttribute="width" constant="20" id="aXx-p1-DYb"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="Lb5-5Q-Ag4" firstAttribute="width" secondItem="Lb5-5Q-Ag4" secondAttribute="height" multiplier="1:1" id="HMT-Vv-rQV"/>
@@ -447,6 +479,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dotView" destination="Lb5-5Q-Ag4" id="3qX-gV-yc9"/>
+                                            <outlet property="songIndicatorView" destination="GyJ-e2-CKw" id="cBI-tq-P5I"/>
                                             <outlet property="titleLabel" destination="ed3-x2-TYI" id="Iog-mU-LiA"/>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="Show song" id="rzP-no-KvE"/>
                                         </connections>
@@ -513,6 +546,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="content-download-icon-on" width="20" height="20"/>
         <image name="content-guitar-image" width="355" height="324"/>
         <image name="nav-back-icon" width="20" height="20"/>
         <image name="nav-menu-icon" width="20" height="14"/>

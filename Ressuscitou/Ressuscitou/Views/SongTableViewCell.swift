@@ -19,6 +19,9 @@ class SongTableViewCell: UITableViewCell {
     /// The label displaying name of the song.
     @IBOutlet weak var titleLabel: UILabel!
 
+    /// The view indicating if the song has a sound file or not.
+    @IBOutlet weak var songIndicatorView: UIImageView!
+
     // MARK: Life cycle
 
     override func awakeFromNib() {
@@ -53,10 +56,22 @@ class SongTableViewCell: UITableViewCell {
 
     // MARK: Imperatives
 
+    /// Configures the sound indicator view according to the passed parameters.
+    /// - Parameters:
+    ///     - hasSound: indicates if the song being displayed has a soung associated with it.
+    ///     - wasDownloaded: indicates if the song was already downloaded or not.
+    func displaySoundIndicator(ifItHasSound hasSound: Bool, andIfSoundWasDonwloaded wasDownloaded: Bool) {
+        songIndicatorView.isHidden = !hasSound
+        songIndicatorView.image = UIImage(
+            named: wasDownloaded ? "content-download-icon-on" : "content-download-icon-off"
+        )
+    }
+
     /// Configures the cell initial state.
     private func configureInitialState() {
         titleLabel.font = UIFont(name: "Quicksand-Regular", size: 18)
         dotView.isHidden = true
         dotView.backgroundColor = nil
+        songIndicatorView.isHidden = true
     }
 }
