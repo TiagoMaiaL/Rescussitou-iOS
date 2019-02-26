@@ -30,17 +30,19 @@ class SongViewController: UIViewController {
         title = song.title
 
         navigationItem.searchController = nil
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        // Display the song html.
-        if let encodedHtml = song.base64HTML,
-            let decodedHtml = Data(base64Encoded: encodedHtml),
-            let html = String(data: decodedHtml, encoding: .utf8) {
-            songWebView.loadHTMLString(html, baseURL: nil)
+        // Make the html responsive.
+        guard let encodedHtml = song.base64HTML,
+            let decodedHtmlData = Data(base64Encoded: encodedHtml),
+            var html = String(data: decodedHtmlData, encoding: .utf8),
+            let headRange = html.range(of: "<head>") else {
+                preconditionFailure("Couldn't load the song html.")
         }
+        html.insert(
+            contentsOf: "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+            at: headRange.upperBound
+        )
+        songWebView.loadHTMLString(html, baseURL: nil)
     }
 
     // MARK: Actions
