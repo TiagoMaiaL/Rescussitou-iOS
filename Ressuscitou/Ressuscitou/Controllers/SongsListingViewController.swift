@@ -267,7 +267,7 @@ extension SongsListingViewController: UITableViewDataSource, UITableViewDelegate
             cell.dotView.backgroundColor = songColor
         }
 
-        cell.displaySoundIndicator(ifItHasSound: song.hasSound, andIfSoundWasDonwloaded: false)
+        cell.displaySoundIndicator(ifItHasSound: song.hasAudio, andIfSoundWasDonwloaded: false)
 
         return cell
     }

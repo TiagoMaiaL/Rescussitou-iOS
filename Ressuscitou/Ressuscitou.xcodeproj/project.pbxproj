@@ -40,6 +40,7 @@
 		470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */; };
 		473959892226164900510DFE /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473959882226164900510DFE /* APIClientProtocol.swift */; };
 		4739598B2226182200510DFE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739598A2226182200510DFE /* APIClient.swift */; };
+		4739598D2226CDD000510DFE /* SongsService+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739598C2226CDD000510DFE /* SongsService+Constants.swift */; };
 		4741BF67221B388B0089C658 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF66221B388B0089C658 /* MenuTableViewController.swift */; };
 		4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */; };
 		4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6A221B815B0089C658 /* Notification+Constants.swift */; };
@@ -105,6 +106,7 @@
 		470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.otf"; sourceTree = "<group>"; };
 		473959882226164900510DFE /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
 		4739598A2226182200510DFE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4739598C2226CDD000510DFE /* SongsService+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongsService+Constants.swift"; sourceTree = "<group>"; };
 		4741BF66221B388B0089C658 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		4741BF6A221B815B0089C658 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				470CE6522215CB8F005E321F /* SongsServiceProtocol.swift */,
 				470CE65A221600A8005E321F /* SongsService.swift */,
+				4739598C2226CDD000510DFE /* SongsService+Constants.swift */,
 				470CE65C2216021C005E321F /* Song.swift */,
 			);
 			path = Songs;
@@ -582,6 +585,7 @@
 				47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */,
 				4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
+				4739598D2226CDD000510DFE /* SongsService+Constants.swift in Sources */,
 				470CE6592216008C005E321F /* SongMOStore.swift in Sources */,
 				4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */,
 				47D9262E221D73A70002A59B /* TransitioningHandler.swift in Sources */,

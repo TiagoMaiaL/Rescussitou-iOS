@@ -52,7 +52,47 @@ class SongsService: SongsServiceProtocol {
         }
     }
 
-    func downloadSound(fromSong song: SongMO, withCompletionHandler: @escaping (Bool, Error?) -> Void) {
-        // TODO: Download the song.
+    func downloadSound(
+        fromSong song: SongMO,
+        withCompletionHandler handler: @escaping (Bool, SongsServiceError?) -> Void
+        ) {
+        guard song.hasAudio, let songTitle = song.title else { return }
+
+        let downloadTask = apiClient.makeConfiguredDownloadTask(
+        forResourceAtUrl: getBaseUrl().appendingPathComponent("audios/\(songTitle.uppercased()).mp3")
+        ) { resourceUrl, taskError in
+            guard taskError == nil else {
+                var error: SongsServiceError!
+
+                switch taskError! {
+                case .connection:
+                    error = .internetConnection
+                case .serverResponse(let statusCode):
+                    if let statusCode = statusCode, statusCode >= 500 {
+                        error = .serverNotAvailable
+                    } else {
+                        error = .resourceNotAvailable
+                    }
+                }
+
+                handler(false, error)
+                return
+            }
+
+            guard let resourceUrl = resourceUrl else {
+                handler(false, .readResource)
+                return
+            }
+
+            do {
+                // TODO: Get sound from the url and save it into the entity.
+                let songData = try Data(contentsOf: resourceUrl)
+                print(songData)
+                handler(true, nil)
+            } catch {
+                handler(false, .readResource)
+            }
+        }
+        downloadTask.resume()
     }
 }

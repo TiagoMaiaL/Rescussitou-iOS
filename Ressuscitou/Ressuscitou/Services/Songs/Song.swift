@@ -21,7 +21,7 @@ struct Song: Codable {
     let number: String
     let category: Int
     let base64Html: String
-    let hasSoundMarker: String
+    let hasAudioMarker: String
 
     // The categories it might belongs to.
     let isForFinal: Bool
@@ -46,7 +46,7 @@ struct Song: Codable {
         case number = "numero"
         case category = "categoria"
         case base64Html = "html_base64"
-        case hasSoundMarker = "url"
+        case hasAudioMarker = "url"
         case isForFinal = "cfin"
         case isForAdvent = "adve"
         case isForBreadFraction = "fpao"

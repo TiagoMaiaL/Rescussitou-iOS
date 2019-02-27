@@ -84,7 +84,7 @@ class SearchSongsTableViewController: UITableViewController {
             cell.dotView.backgroundColor = songColor
         }
 
-        cell.displaySoundIndicator(ifItHasSound: currentSong.hasSound, andIfSoundWasDonwloaded: false)
+        cell.displaySoundIndicator(ifItHasSound: currentSong.hasAudio, andIfSoundWasDonwloaded: false)
 
         return cell
     }

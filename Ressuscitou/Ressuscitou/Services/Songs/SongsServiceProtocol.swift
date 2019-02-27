@@ -38,5 +38,16 @@ protocol SongsServiceProtocol {
     /// - Parameters:
     ///     - song: the song related to the sound to be downloaded.
     ///     - completionHandler: the completion handler called after the download completes, or if an error occurs.
-    func downloadSound(fromSong song: SongMO, withCompletionHandler: @escaping (Bool, Error?) -> Void)
+    func downloadSound(
+        fromSong song: SongMO,
+        withCompletionHandler handler: @escaping (Bool, SongsServiceError?) -> Void
+    )
+}
+
+/// The possible errors related to the songs service operations.
+enum SongsServiceError: Error {
+    case internetConnection
+    case serverNotAvailable
+    case resourceNotAvailable
+    case readResource
 }
