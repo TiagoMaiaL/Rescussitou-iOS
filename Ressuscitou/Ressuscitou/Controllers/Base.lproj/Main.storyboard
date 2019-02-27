@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="-782" y="27"/>
         </scene>
-        <!--Song View Controller-->
+        <!--Song Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SongViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,15 +81,28 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="eUc-lF-ldl">
+                    <navigationItem key="navigationItem" title="Song Controller" largeTitleDisplayMode="never" id="eUc-lF-ldl">
                         <barButtonItem key="leftBarButtonItem" image="nav-back-icon" id="M35-db-byR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="dismiss:" destination="BYZ-38-t0r" id="b2e-ZN-4SI"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" image="nav-options-icon" id="1nJ-e9-caV">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                            <barButtonItem image="nav-audio-icon" id="b71-KN-Em2">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="displayPlayer:" destination="BYZ-38-t0r" id="lFU-fG-8Ce"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="audioBarButton" destination="b71-KN-Em2" id="ARF-FB-Xw3"/>
+                        <outlet property="optionsBarButton" destination="1nJ-e9-caV" id="Dg2-xF-BSX"/>
                         <outlet property="songWebView" destination="SKG-MC-Dpp" id="n2m-r0-3qP"/>
                     </connections>
                 </viewController>
@@ -548,8 +561,10 @@
     <resources>
         <image name="content-download-icon-on" width="20" height="20"/>
         <image name="content-guitar-image" width="355" height="324"/>
+        <image name="nav-audio-icon" width="20" height="20"/>
         <image name="nav-back-icon" width="20" height="20"/>
         <image name="nav-menu-icon" width="20" height="14"/>
+        <image name="nav-options-icon" width="6" height="20"/>
         <image name="nav-search-icon" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>

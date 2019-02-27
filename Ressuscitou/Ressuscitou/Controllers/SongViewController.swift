@@ -14,6 +14,12 @@ class SongViewController: UIViewController {
 
     // MARK: Properties
 
+    /// The options bar button.
+    @IBOutlet weak var optionsBarButton: UIBarButtonItem!
+
+    /// The audio button used to display the player.
+    @IBOutlet weak var audioBarButton: UIBarButtonItem!
+
     /// The web view displaying the html associated to the song.
     @IBOutlet weak var songWebView: WKWebView!
 
@@ -29,7 +35,9 @@ class SongViewController: UIViewController {
 
         title = song.title
 
-        navigationItem.searchController = nil
+        if !song.hasAudio {
+            navigationItem.setRightBarButtonItems([optionsBarButton], animated: false)
+        }
 
         // Make the html responsive.
         guard let encodedHtml = song.base64HTML,
@@ -49,5 +57,9 @@ class SongViewController: UIViewController {
 
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func displayPlayer(_ sender: UIBarButtonItem) {
+        // TODO: Display the audio player.
     }
 }
