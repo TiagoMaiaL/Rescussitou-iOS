@@ -29,6 +29,16 @@ protocol APIClientProtocol {
     /// - Returns: the configure download task.
     func makeConfiguredDownloadTask(
         forResourceAtUrl url: URL,
-        withCompletionHandler handler: @escaping (URL?, Error?) -> Void
+        withCompletionHandler handler: @escaping (URL?, URLSessionTask.TaskError?) -> Void
         ) -> URLSessionDownloadTask
+}
+
+extension URLSessionTask {
+
+    // MARK: Error type
+
+    enum TaskError: Error {
+        case connection
+        case serverResponse(statusCode: Int?)
+    }
 }

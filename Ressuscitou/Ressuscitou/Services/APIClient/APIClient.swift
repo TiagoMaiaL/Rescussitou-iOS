@@ -30,10 +30,25 @@ struct APIClient: APIClientProtocol {
     /// - Returns: the configure download task.
     func makeConfiguredDownloadTask(
         forResourceAtUrl url: URL,
-        withCompletionHandler handler: @escaping (URL?, Error?) -> Void
+        withCompletionHandler handler: @escaping (URL?, URLSessionTask.TaskError?) -> Void
         ) -> URLSessionDownloadTask {
         return session.downloadTask(with: url, completionHandler: { fileURL, response, error in
-            // TODO: Make the treatment of any errors, and call the handler with the results.
+            guard error == nil, fileURL != nil else {
+                handler(nil, .connection)
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                handler(nil, .connection)
+                return
+            }
+
+            guard (200...299).contains(httpResponse.statusCode) else {
+                handler(nil, .serverResponse(statusCode: httpResponse.statusCode))
+                return
+            }
+
+            handler(url, nil)
         })
     }
 }
