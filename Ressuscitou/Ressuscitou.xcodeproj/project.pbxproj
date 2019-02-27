@@ -38,6 +38,8 @@
 		470CE67A22173312005E321F /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67622173312005E321F /* LeagueGothic-Italic.otf */; };
 		470CE67B22173312005E321F /* LeagueGothic-CondensedItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */; };
 		470CE67C22173312005E321F /* LeagueGothic-CondensedRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */; };
+		473959892226164900510DFE /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473959882226164900510DFE /* APIClientProtocol.swift */; };
+		4739598B2226182200510DFE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739598A2226182200510DFE /* APIClient.swift */; };
 		4741BF67221B388B0089C658 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF66221B388B0089C658 /* MenuTableViewController.swift */; };
 		4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */; };
 		4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6A221B815B0089C658 /* Notification+Constants.swift */; };
@@ -101,6 +103,8 @@
 		470CE67622173312005E321F /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		470CE67722173312005E321F /* LeagueGothic-CondensedItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.otf"; sourceTree = "<group>"; };
 		470CE67822173312005E321F /* LeagueGothic-CondensedRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.otf"; sourceTree = "<group>"; };
+		473959882226164900510DFE /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
+		4739598A2226182200510DFE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4741BF66221B388B0089C658 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		4741BF6A221B815B0089C658 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
@@ -265,9 +269,8 @@
 		470CE6512215CB7E005E321F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				470CE6522215CB8F005E321F /* SongsServiceProtocol.swift */,
-				470CE65A221600A8005E321F /* SongsService.swift */,
-				470CE65C2216021C005E321F /* Song.swift */,
+				473959872226162F00510DFE /* APIClient */,
+				473959862226161F00510DFE /* Songs */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -338,6 +341,25 @@
 				470CE67522173312005E321F /* LeagueGothic-Regular.otf */,
 			);
 			path = LeagueGothic;
+			sourceTree = "<group>";
+		};
+		473959862226161F00510DFE /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				470CE6522215CB8F005E321F /* SongsServiceProtocol.swift */,
+				470CE65A221600A8005E321F /* SongsService.swift */,
+				470CE65C2216021C005E321F /* Song.swift */,
+			);
+			path = Songs;
+			sourceTree = "<group>";
+		};
+		473959872226162F00510DFE /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				473959882226164900510DFE /* APIClientProtocol.swift */,
+				4739598A2226182200510DFE /* APIClient.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 		474956B7222473CB00EEDCC4 /* EmptySearchView */ = {
@@ -543,6 +565,7 @@
 			files = (
 				47D9263B221F47AD0002A59B /* SearchSongsTableViewController.swift in Sources */,
 				470CE65B221600A8005E321F /* SongsService.swift in Sources */,
+				473959892226164900510DFE /* APIClientProtocol.swift in Sources */,
 				4741BF6D221C410D0089C658 /* String+Helpers.swift in Sources */,
 				470CE6402214AA2A005E321F /* SongViewController.swift in Sources */,
 				47D92632221E3EEE0002A59B /* RoundedView.swift in Sources */,
@@ -555,6 +578,7 @@
 				470CE6532215CB8F005E321F /* SongsServiceProtocol.swift in Sources */,
 				470CE65722160081005E321F /* SongMOStoreProtocol.swift in Sources */,
 				47D92636221ECFF70002A59B /* SongTableHeaderView.swift in Sources */,
+				4739598B2226182200510DFE /* APIClient.swift in Sources */,
 				47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */,
 				4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,

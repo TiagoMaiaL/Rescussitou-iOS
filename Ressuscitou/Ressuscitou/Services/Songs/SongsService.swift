@@ -12,14 +12,20 @@ class SongsService: SongsServiceProtocol {
 
     // MARK: Properties
 
-    var dataController: DataControllerProtocol
-    var songsStore: SongMOStoreProtocol
+    private(set) var dataController: DataControllerProtocol
+    private(set) var songsStore: SongMOStoreProtocol
+    private(set) var apiClient: APIClientProtocol
 
     // MARK: Initializers
 
-    required init(dataController: DataControllerProtocol, songsStore: SongMOStoreProtocol) {
+    required init(
+        dataController: DataControllerProtocol,
+        songsStore: SongMOStoreProtocol,
+        apiClient: APIClientProtocol
+        ) {
         self.dataController = dataController
         self.songsStore = songsStore
+        self.apiClient = apiClient
     }
 
     // MARK: Imperatives
@@ -44,5 +50,9 @@ class SongsService: SongsServiceProtocol {
             print("Error while decoding json.")
             handler(error)
         }
+    }
+
+    func downloadSound(fromSong song: SongMO, withCompletionHandler: @escaping (Bool, Error?) -> Void) {
+        // TODO: Download the song.
     }
 }

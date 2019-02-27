@@ -30,7 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             preconditionFailure("The first controller should be the splash screen.")
         }
         splashController.dataController = dataController
-        splashController.songsService = SongsService(dataController: dataController, songsStore: SongsMOStore())
+        splashController.songsService = SongsService(
+            dataController: dataController,
+            songsStore: SongsMOStore(),
+            apiClient: APIClient(session: .shared)
+        )
 
         return true
     }
