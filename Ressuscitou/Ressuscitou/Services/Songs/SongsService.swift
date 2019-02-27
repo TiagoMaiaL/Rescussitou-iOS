@@ -56,10 +56,14 @@ class SongsService: SongsServiceProtocol {
         fromSong song: SongMO,
         withCompletionHandler handler: @escaping (Bool, SongsServiceError?) -> Void
         ) {
-        guard song.hasAudio, let songTitle = song.title else { return }
+        guard let songContext = song.managedObjectContext else {
+            preconditionFailure("Songs must have a managed object context.")
+        }
+        guard song.hasAudio, var songTitle = song.title?.uppercased() else { return }
+        songTitle = songTitle.folding(options: .diacriticInsensitive, locale: nil)
 
         let downloadTask = apiClient.makeConfiguredDownloadTask(
-        forResourceAtUrl: getBaseUrl().appendingPathComponent("audios/\(songTitle.uppercased()).mp3")
+            forResourceAtUrl: getBaseUrl().appendingPathComponent("audios/\(songTitle).mp3")
         ) { resourceUrl, taskError in
             guard taskError == nil else {
                 var error: SongsServiceError!
@@ -85,10 +89,19 @@ class SongsService: SongsServiceProtocol {
             }
 
             do {
-                // TODO: Get sound from the url and save it into the entity.
-                let songData = try Data(contentsOf: resourceUrl)
-                print(songData)
-                handler(true, nil)
+                let audioData = try Data(contentsOf: resourceUrl)
+
+                songContext.perform {
+                    song.audio = audioData
+
+                    do {
+                        try songContext.save()
+                        handler(true, nil)
+                    } catch {
+                        songContext.rollback()
+                        handler(false, .readResource)
+                    }
+                }
             } catch {
                 handler(false, .readResource)
             }

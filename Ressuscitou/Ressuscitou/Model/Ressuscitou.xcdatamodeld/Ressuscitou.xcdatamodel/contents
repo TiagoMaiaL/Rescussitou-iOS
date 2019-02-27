@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="SongMO" representedClassName=".SongMO" syncable="YES" codeGenerationType="category">
+        <attribute name="audio" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="base64HTML" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="content" attributeType="String" syncable="YES"/>
@@ -22,6 +23,6 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SongMO" positionX="-18" positionY="27" width="128" height="330"/>
+        <element name="SongMO" positionX="-18" positionY="27" width="128" height="345"/>
     </elements>
 </model>
