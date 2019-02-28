@@ -28,6 +28,9 @@ class AudioHandlerViewController: UIViewController {
     /// The label informing about the loading state.
     @IBOutlet weak var loadingLabel: UILabel!
 
+    /// The download task currently running.
+    private var downloadTask: URLSessionDownloadTask?
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -75,36 +78,45 @@ class AudioHandlerViewController: UIViewController {
     /// Completes the animation by showing the audio player or starting the
     /// download of the song.
     private func completeDisplayAnimation() {
-        if song.audio == nil {
+        if song.audio == nil, downloadTask == nil {
             // Download the song.
             self.loadingLabel.text = NSLocalizedString(
                 "Baixando o áudio do cântico...",
                 comment: "Label shown while the audio is being downloaded."
             )
 
-//            print("Starting the download task.")
-//            self.songsService.downloadSound(fromSong: song) { wasDownloadSuccessful, error in
-//                guard error == nil, wasDownloadSuccessful == true else {
-//                    switch error! {
-//                    case SongsServiceError.internetConnection:
-//                        print("Internet connection problem.")
-//
-//                    case SongsServiceError.serverNotAvailable:
-//                        print("Server not available.")
-//
-//                    case SongsServiceError.resourceNotAvailable:
-//                        print("Resource not available.")
-//
-//                    case SongsServiceError.readResource:
-//                        print("Couldn't read the resource.")
-//
-//                    }
-//
-//                    return
-//                }
-//
-//                print("Download sucessful!!")
-//            }
+            print("Starting the download task.")
+            downloadTask = self.songsService.downloadSound(fromSong: song) { wasDownloadSuccessful, error in
+
+                self.downloadTask = nil
+
+                guard error == nil, wasDownloadSuccessful == true else {
+                    // TODO: Display error to the user.
+                    switch error! {
+                    case SongsServiceError.internetConnection:
+                        print("Internet connection problem.")
+
+                    case SongsServiceError.serverNotAvailable:
+                        print("Server not available.")
+
+                    case SongsServiceError.resourceNotAvailable:
+                        print("Resource not available.")
+
+                    case SongsServiceError.readResource:
+                        print("Couldn't read the resource.")
+
+                    }
+
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    print("Download sucessful!!")
+                    // TODO: Show player.
+                    self.loadingLabel.text = nil
+                    self.loadingActivityIndicator.stopAnimating()
+                }
+            }
         } else {
             // Load the song and the player.
         }

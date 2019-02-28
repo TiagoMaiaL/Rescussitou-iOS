@@ -41,7 +41,7 @@ protocol SongsServiceProtocol {
     func downloadSound(
         fromSong song: SongMO,
         withCompletionHandler handler: @escaping (Bool, SongsServiceError?) -> Void
-    )
+    ) -> URLSessionDownloadTask?
 }
 
 /// The possible errors related to the songs service operations.
