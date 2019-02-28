@@ -162,5 +162,6 @@ class SplashViewController: UIViewController {
             songsService.songsStore.makeFetchedResultsControllerForAllSongs(
                 usingContext: dataController.viewContext
         )
+        songsController.songsService = songsService
     }
 }

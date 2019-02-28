@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="55" id="bBG-gL-RUk"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="UQZ-0P-5GO" kind="embed" id="lGd-an-Af9"/>
+                                    <segue destination="UQZ-0P-5GO" kind="embed" identifier="Embed audio handler" id="lGd-an-Af9"/>
                                 </connections>
                             </containerView>
                             <wkWebView contentMode="scaleToFill" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKG-MC-Dpp" userLabel="Song web view">

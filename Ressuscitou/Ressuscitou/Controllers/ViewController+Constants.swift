@@ -16,6 +16,7 @@ extension UIViewController {
         static let SongsControllerSegue = "Show songs controller"
         static let MenuControllerSegue = "Show menu"
         static let SongControllerSegue = "Show song"
+        static let AudioHandlerControllerSegue = "Embed audio handler"
     }
 
     /// The theme colors used in the application.

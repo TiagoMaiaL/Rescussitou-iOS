@@ -34,6 +34,9 @@ class SongViewController: UIViewController {
         return audioHandlerTopConstraint.constant == 0
     }
 
+    /// The songs service used to download audios if requested.
+    var songsService: SongsServiceProtocol!
+
     /// The song to be displayed.
     var song: SongMO!
 
@@ -43,6 +46,7 @@ class SongViewController: UIViewController {
         super.viewDidLoad()
 
         precondition(song != nil)
+        precondition(songsService != nil)
 
         title = song.title
 
@@ -64,6 +68,26 @@ class SongViewController: UIViewController {
             at: headRange.upperBound
         )
         songWebView.loadHTMLString(html, baseURL: nil)
+    }
+
+    // MARK: Navigation
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == SegueIdentifiers.AudioHandlerControllerSegue {
+            return song.hasAudio
+        }
+
+        return true
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifiers.AudioHandlerControllerSegue {
+            guard let audioHandlerController = segue.destination as? AudioHandlerViewController else {
+                preconditionFailure("The audio handler must be set.")
+            }
+            audioHandlerController.song = song
+            audioHandlerController.songsService = songsService
+        }
     }
 
     // MARK: Actions

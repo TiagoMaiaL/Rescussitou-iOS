@@ -95,6 +95,9 @@ class SongsListingViewController: UIViewController {
     /// The store used to fetch and filter the songs.
     var songStore: SongMOStoreProtocol!
 
+    /// The service used to handle the songs using external resources.
+    var songsService: SongsServiceProtocol!
+
     // MARK: Life cycle
 
     deinit {
@@ -106,6 +109,7 @@ class SongsListingViewController: UIViewController {
 
         precondition(songsFetchedResultsController != nil)
         precondition(songStore != nil)
+        precondition(songsService != nil)
 
         definesPresentationContext = true
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -164,6 +168,7 @@ class SongsListingViewController: UIViewController {
             }
 
             songController.song = selectedSong
+            songController.songsService = songsService
 
         } else if segue.identifier == SegueIdentifiers.MenuControllerSegue,
             let menuNavigationController = segue.destination as? UISideMenuNavigationController {
