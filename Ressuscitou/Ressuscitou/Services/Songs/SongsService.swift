@@ -52,7 +52,7 @@ class SongsService: SongsServiceProtocol {
         }
     }
 
-    func downloadSound(
+    func downloadAudio(
         fromSong song: SongMO,
         withCompletionHandler handler: @escaping (Bool, SongsServiceError?) -> Void
         ) -> URLSessionDownloadTask? {
@@ -60,7 +60,11 @@ class SongsService: SongsServiceProtocol {
             preconditionFailure("Songs must have a managed object context.")
         }
         guard song.hasAudio, var songTitle = song.title?.uppercased() else { return nil }
-        songTitle = songTitle.folding(options: .diacriticInsensitive, locale: nil)
+        // TODO: Write a test to make sure this name formatting is right.
+        songTitle = songTitle.folding(
+            options: .diacriticInsensitive,
+            locale: nil
+        ).components(separatedBy: .punctuationCharacters).joined()
 
         let downloadTask = apiClient.makeConfiguredDownloadTask(
             forResourceAtUrl: getBaseUrl().appendingPathComponent("audios/\(songTitle).mp3")

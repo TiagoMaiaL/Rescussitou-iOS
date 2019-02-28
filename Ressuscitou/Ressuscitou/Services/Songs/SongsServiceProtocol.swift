@@ -34,11 +34,11 @@ protocol SongsServiceProtocol {
     ///     - completionHandler: the completion handler called when finished parsing and storing the songs.
     func handleSongsJson(_ jsonData: Data, withCompletionHandler handler: @escaping (Error?) -> Void)
 
-    /// Downloads the sound related to the passed song entity and persists it using core data.
+    /// Downloads the audio related to the passed song entity and persists it using core data.
     /// - Parameters:
     ///     - song: the song related to the sound to be downloaded.
     ///     - completionHandler: the completion handler called after the download completes, or if an error occurs.
-    func downloadSound(
+    func downloadAudio(
         fromSong song: SongMO,
         withCompletionHandler handler: @escaping (Bool, SongsServiceError?) -> Void
     ) -> URLSessionDownloadTask?

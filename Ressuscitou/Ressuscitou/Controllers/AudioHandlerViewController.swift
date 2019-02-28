@@ -86,7 +86,7 @@ class AudioHandlerViewController: UIViewController {
             )
 
             print("Starting the download task.")
-            downloadTask = self.songsService.downloadSound(fromSong: song) { wasDownloadSuccessful, error in
+            downloadTask = self.songsService.downloadAudio(fromSong: song) { wasDownloadSuccessful, error in
 
                 self.downloadTask = nil
 
