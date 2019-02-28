@@ -29,6 +29,9 @@ class SongViewController: UIViewController {
     /// The height constraint of the audio handler to be adjusted.
     @IBOutlet weak var audioHandlerHeightConstraint: NSLayoutConstraint!
 
+    /// The container view holding the audio handler controller.
+    @IBOutlet weak var audioHandlerContainer: UIView!
+
     /// Indicates if the audio handler is being displayed or not.
     private var isDisplayingAudioHandler: Bool {
         return audioHandlerTopConstraint.constant == 0
@@ -40,6 +43,9 @@ class SongViewController: UIViewController {
     /// The song to be displayed.
     var song: SongMO!
 
+    /// The audio handler child controller.
+    var audioHandlerChildController: AudioHandlerViewController?
+
     // MARK: Life cycle
 
     override func viewDidLoad() {
@@ -49,8 +55,6 @@ class SongViewController: UIViewController {
         precondition(songsService != nil)
 
         title = song.title
-
-        audioHandlerTopConstraint.constant = -audioHandlerHeightConstraint.constant
 
         if !song.hasAudio {
             navigationItem.setRightBarButtonItems([optionsBarButton], animated: false)
@@ -87,6 +91,8 @@ class SongViewController: UIViewController {
             }
             audioHandlerController.song = song
             audioHandlerController.songsService = songsService
+
+            audioHandlerChildController = audioHandlerController
         }
     }
 
@@ -97,11 +103,24 @@ class SongViewController: UIViewController {
     }
 
     @IBAction func displayPlayer(_ sender: UIBarButtonItem) {
+        audioHandlerContainer.isHidden = false
+
+        // Toggle the displayal of the audio handler view.
         audioHandlerTopConstraint.constant =
             isDisplayingAudioHandler ? -audioHandlerHeightConstraint.constant : 0
 
-        UIView.animate(withDuration: 0.2) {
+        if isDisplayingAudioHandler {
+            audioHandlerChildController?.animateViewsIn()
+        } else {
+            audioHandlerChildController?.animateViewsOut()
+        }
+
+        UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
+        }) { isCompleted in
+            if isCompleted {
+                self.audioHandlerContainer.isHidden = !self.isDisplayingAudioHandler
+            }
         }
     }
 }
