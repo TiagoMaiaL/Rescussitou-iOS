@@ -23,6 +23,17 @@ class SongViewController: UIViewController {
     /// The web view displaying the html associated to the song.
     @IBOutlet weak var songWebView: WKWebView!
 
+    /// The top constraint of the audio handler to be animated in and out.
+    @IBOutlet weak var audioHandlerTopConstraint: NSLayoutConstraint!
+
+    /// The height constraint of the audio handler to be adjusted.
+    @IBOutlet weak var audioHandlerHeightConstraint: NSLayoutConstraint!
+
+    /// Indicates if the audio handler is being displayed or not.
+    private var isDisplayingAudioHandler: Bool {
+        return audioHandlerTopConstraint.constant == 0
+    }
+
     /// The song to be displayed.
     var song: SongMO!
 
@@ -34,6 +45,8 @@ class SongViewController: UIViewController {
         precondition(song != nil)
 
         title = song.title
+
+        audioHandlerTopConstraint.constant = -audioHandlerHeightConstraint.constant
 
         if !song.hasAudio {
             navigationItem.setRightBarButtonItems([optionsBarButton], animated: false)
@@ -60,6 +73,11 @@ class SongViewController: UIViewController {
     }
 
     @IBAction func displayPlayer(_ sender: UIBarButtonItem) {
-        // TODO: Display the audio player.
+        audioHandlerTopConstraint.constant =
+            isDisplayingAudioHandler ? -audioHandlerHeightConstraint.constant : 0
+
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
     }
 }

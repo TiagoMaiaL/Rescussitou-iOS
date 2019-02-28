@@ -41,6 +41,7 @@
 		473959892226164900510DFE /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473959882226164900510DFE /* APIClientProtocol.swift */; };
 		4739598B2226182200510DFE /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739598A2226182200510DFE /* APIClient.swift */; };
 		4739598D2226CDD000510DFE /* SongsService+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739598C2226CDD000510DFE /* SongsService+Constants.swift */; };
+		4739598F22270D4100510DFE /* AudioHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739598E22270D4100510DFE /* AudioHandlerViewController.swift */; };
 		4741BF67221B388B0089C658 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF66221B388B0089C658 /* MenuTableViewController.swift */; };
 		4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */; };
 		4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6A221B815B0089C658 /* Notification+Constants.swift */; };
@@ -107,6 +108,7 @@
 		473959882226164900510DFE /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
 		4739598A2226182200510DFE /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		4739598C2226CDD000510DFE /* SongsService+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SongsService+Constants.swift"; sourceTree = "<group>"; };
+		4739598E22270D4100510DFE /* AudioHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHandlerViewController.swift; sourceTree = "<group>"; };
 		4741BF66221B388B0089C658 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		4741BF6A221B815B0089C658 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				470CE66222162D60005E321F /* SongsListingViewController.swift */,
 				4741BF66221B388B0089C658 /* MenuTableViewController.swift */,
 				470CE63F2214AA2A005E321F /* SongViewController.swift */,
+				4739598E22270D4100510DFE /* AudioHandlerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				470CE65722160081005E321F /* SongMOStoreProtocol.swift in Sources */,
 				47D92636221ECFF70002A59B /* SongTableHeaderView.swift in Sources */,
 				4739598B2226182200510DFE /* APIClient.swift in Sources */,
+				4739598F22270D4100510DFE /* AudioHandlerViewController.swift in Sources */,
 				47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */,
 				4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,

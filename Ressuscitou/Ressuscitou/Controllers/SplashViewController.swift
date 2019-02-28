@@ -8,6 +8,9 @@
 
 import UIKit
 
+// TODO: Remove this import after testing
+//import CoreData
+
 /// The view controller in charge of initializing the core data stack and also seed the database.
 class SplashViewController: UIViewController {
 
@@ -49,7 +52,7 @@ class SplashViewController: UIViewController {
 //
 //            print("Getting first song with downloadable sound.")
 //            let songsRequest: NSFetchRequest<SongMO> = SongMO.fetchRequest()
-//            songsRequest.predicate = NSPredicate(format: "hasSound = true")
+//            songsRequest.predicate = NSPredicate(format: "hasAudio = true")
 //
 //            guard let result = try! self.dataController.viewContext.fetch(songsRequest).first else {
 //                preconditionFailure("Couldn't get a song with downloadable sound.")

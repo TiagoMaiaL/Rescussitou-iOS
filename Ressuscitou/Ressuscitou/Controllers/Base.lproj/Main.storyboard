@@ -62,8 +62,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-mL-Kek">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="bBG-gL-RUk"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="UQZ-0P-5GO" kind="embed" id="lGd-an-Af9"/>
+                                </connections>
+                            </containerView>
                             <wkWebView contentMode="scaleToFill" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKG-MC-Dpp" userLabel="Song web view">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="548"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" suppressesIncrementalRendering="YES">
                                     <dataDetectorTypes key="dataDetectorTypes" none="YES"/>
@@ -74,10 +83,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9dB-mL-Kek" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5DI-0Q-wgp"/>
+                            <constraint firstItem="SKG-MC-Dpp" firstAttribute="top" secondItem="9dB-mL-Kek" secondAttribute="bottom" id="6ne-vd-yKk"/>
+                            <constraint firstItem="9dB-mL-Kek" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9RZ-7p-9YI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SKG-MC-Dpp" secondAttribute="trailing" id="AFv-GG-OL2"/>
                             <constraint firstItem="SKG-MC-Dpp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="C33-h9-0ox"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SKG-MC-Dpp" secondAttribute="bottom" id="Cuy-WP-BQq"/>
-                            <constraint firstItem="SKG-MC-Dpp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oAR-tU-Jgw"/>
+                            <constraint firstItem="9dB-mL-Kek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dkG-ko-fGi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -102,13 +114,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="audioBarButton" destination="b71-KN-Em2" id="ARF-FB-Xw3"/>
+                        <outlet property="audioHandlerHeightConstraint" destination="bBG-gL-RUk" id="aDF-Sb-D3W"/>
+                        <outlet property="audioHandlerTopConstraint" destination="9RZ-7p-9YI" id="aEK-wU-1y7"/>
                         <outlet property="optionsBarButton" destination="1nJ-e9-caV" id="Dg2-xF-BSX"/>
                         <outlet property="songWebView" destination="SKG-MC-Dpp" id="n2m-r0-3qP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="-313"/>
+            <point key="canvasLocation" x="1712.8" y="-313.49325337331339"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="FNK-Wa-prk">
@@ -556,6 +570,20 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="908" y="27"/>
+        </scene>
+        <!--Audio Handler View Controller-->
+        <scene sceneID="Gc4-Nx-oWb">
+            <objects>
+                <viewController id="UQZ-0P-5GO" customClass="AudioHandlerViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i5v-cx-OsO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.83663484291352785" green="0.0017948438870658365" blue="0.064274991844617782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MkA-zF-VSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2500" y="-530"/>
         </scene>
     </scenes>
     <resources>
