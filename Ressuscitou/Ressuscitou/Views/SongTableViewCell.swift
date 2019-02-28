@@ -60,7 +60,7 @@ class SongTableViewCell: UITableViewCell {
     /// - Parameters:
     ///     - hasSound: indicates if the song being displayed has a soung associated with it.
     ///     - wasDownloaded: indicates if the song was already downloaded or not.
-    func displaySoundIndicator(ifItHasSound hasSound: Bool, andIfSoundWasDonwloaded wasDownloaded: Bool) {
+    func displayAudioIndicator(ifItHasAudio hasSound: Bool, andIfAudioWasDonwloaded wasDownloaded: Bool) {
         songIndicatorView.isHidden = !hasSound
         songIndicatorView.image = UIImage(
             named: wasDownloaded ? "content-download-icon-on" : "content-download-icon-off"

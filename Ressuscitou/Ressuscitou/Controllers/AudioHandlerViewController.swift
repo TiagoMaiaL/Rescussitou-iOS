@@ -112,9 +112,9 @@ class AudioHandlerViewController: UIViewController {
 
                 DispatchQueue.main.async {
                     print("Download sucessful!!")
-                    // TODO: Show player.
                     self.loadingLabel.text = nil
                     self.loadingActivityIndicator.stopAnimating()
+                    // TODO: Show player.
                 }
             }
         } else {

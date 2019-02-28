@@ -54,6 +54,14 @@ class SearchSongsTableViewController: UITableViewController {
         clearsSelectionOnViewWillAppear = true
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let selectedRow = tableView.indexPathForSelectedRow {
+            tableView.reloadRows(at: [selectedRow], with: .automatic)
+        }
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         searchResults = []
@@ -84,7 +92,10 @@ class SearchSongsTableViewController: UITableViewController {
             cell.dotView.backgroundColor = songColor
         }
 
-        cell.displaySoundIndicator(ifItHasSound: currentSong.hasAudio, andIfSoundWasDonwloaded: false)
+        cell.displayAudioIndicator(
+            ifItHasAudio: currentSong.hasAudio,
+            andIfAudioWasDonwloaded: currentSong.audio != nil
+        )
 
         return cell
     }

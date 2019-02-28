@@ -130,6 +130,7 @@ class SongsListingViewController: UIViewController {
         super.viewWillAppear(animated)
 
         if let selectedIntexPath = tableView.indexPathForSelectedRow {
+            tableView.reloadRows(at: [selectedIntexPath], with: .automatic)
             tableView.deselectRow(at: selectedIntexPath, animated: true)
         }
     }
@@ -272,7 +273,7 @@ extension SongsListingViewController: UITableViewDataSource, UITableViewDelegate
             cell.dotView.backgroundColor = songColor
         }
 
-        cell.displaySoundIndicator(ifItHasSound: song.hasAudio, andIfSoundWasDonwloaded: false)
+        cell.displayAudioIndicator(ifItHasAudio: song.hasAudio, andIfAudioWasDonwloaded: song.audio != nil)
 
         return cell
     }
