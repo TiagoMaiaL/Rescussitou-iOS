@@ -586,44 +586,84 @@
             <objects>
                 <viewController id="UQZ-0P-5GO" customClass="AudioHandlerViewController" customModule="Ressuscitou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i5v-cx-OsO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g4f-PB-Ymx" userLabel="Download container view">
-                                <rect key="frame" x="31" y="17.5" width="313" height="20"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="DMu-mn-2zd">
+                                <rect key="frame" x="16" y="9" width="343" height="62"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-i9-GSd">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g4f-PB-Ymx" userLabel="Loading container view">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="20"/>
+                                        <subviews>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-i9-GSd">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </activityIndicatorView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-m5-CEB">
+                                                <rect key="frame" x="36" y="0.0" width="91.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
                                         </userDefinedRuntimeAttributes>
-                                    </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-m5-CEB">
-                                        <rect key="frame" x="36" y="0.0" width="277" height="20"/>
-                                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytR-Yu-s6U" userLabel="Player container view">
+                                        <rect key="frame" x="0.0" y="34" width="139" height="28"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9c-Uq-4S6" userLabel="Play">
+                                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="r9c-Uq-4S6" secondAttribute="height" multiplier="1:1" id="aB0-vG-ks8"/>
+                                                    <constraint firstAttribute="height" constant="28" id="pu7-wL-vBA"/>
+                                                </constraints>
+                                                <state key="normal" image="top-play-icon"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TO-oe-6sj" userLabel="Current time">
+                                                <rect key="frame" x="45" y="0.0" width="38.5" height="28"/>
+                                                <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld7-q5-oSD" userLabel="Final time">
+                                                <rect key="frame" x="100.5" y="0.0" width="38.5" height="28"/>
+                                                <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
                                 </subviews>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.83663484291352785" green="0.0017948438870658365" blue="0.064274991844617782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="g4f-PB-Ymx" firstAttribute="centerX" secondItem="i5v-cx-OsO" secondAttribute="centerX" id="L0g-WO-dec"/>
-                            <constraint firstItem="g4f-PB-Ymx" firstAttribute="leading" secondItem="i5v-cx-OsO" secondAttribute="leadingMargin" constant="15" id="jER-ta-HHh"/>
-                            <constraint firstItem="g4f-PB-Ymx" firstAttribute="centerY" secondItem="i5v-cx-OsO" secondAttribute="centerY" id="lK4-8I-DG5"/>
+                            <constraint firstItem="DMu-mn-2zd" firstAttribute="centerX" secondItem="i5v-cx-OsO" secondAttribute="centerX" id="64w-fK-No6"/>
+                            <constraint firstItem="DMu-mn-2zd" firstAttribute="leading" secondItem="3LM-AI-EIl" secondAttribute="leading" constant="16" id="89b-ub-2WX"/>
+                            <constraint firstItem="DMu-mn-2zd" firstAttribute="centerY" secondItem="i5v-cx-OsO" secondAttribute="centerY" id="uNd-YS-RDO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3LM-AI-EIl"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="80"/>
                     <connections>
                         <outlet property="loadingActivityIndicator" destination="qwD-i9-GSd" id="5sI-dG-nMq"/>
                         <outlet property="loadingContainerView" destination="g4f-PB-Ymx" id="onV-eM-DR7"/>
                         <outlet property="loadingLabel" destination="Qgb-m5-CEB" id="coi-Hh-xd9"/>
+                        <outlet property="playerContainerView" destination="ytR-Yu-s6U" id="EgH-ei-ynw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkA-zF-VSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -639,6 +679,7 @@
         <image name="nav-menu-icon" width="20" height="14"/>
         <image name="nav-options-icon" width="6" height="20"/>
         <image name="nav-search-icon" width="20" height="20"/>
+        <image name="top-play-icon" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Miq-fo-9cG"/>

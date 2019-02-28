@@ -22,6 +22,9 @@ class AudioHandlerViewController: UIViewController {
     /// The stack view holding the audio loading controls.
     @IBOutlet weak var loadingContainerView: UIStackView!
 
+    /// The stack view holding the audio player controls.
+    @IBOutlet weak var playerContainerView: UIStackView!
+
     /// The indicator telling the user if the audio is being loaded.
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
 
@@ -47,21 +50,37 @@ class AudioHandlerViewController: UIViewController {
 
     /// Animates the initial visual state of the controller.
     func animateViewsIn() {
-        if song.audio == nil {
-            // Display the download container view.
+        UIView.animate(withDuration: 0.2, animations: {
+            /// Displays the loading container view.
+            func displayLoading(active: Bool = true) {
+                self.loadingContainerView.isHidden = !active
 
-            self.loadingActivityIndicator.startAnimating()
-
-            UIView.animate(withDuration: 0.2, animations: {
-                self.loadingContainerView.alpha = 1
-            }) { isCompleted in
-                if isCompleted {
-                    self.completeDisplayAnimation()
+                if active {
+                    self.loadingActivityIndicator.startAnimating()
+                } else {
+                    self.loadingActivityIndicator.stopAnimating()
                 }
+
+                self.loadingContainerView.alpha = active ? 1 : 0
             }
-        } else {
-            // Display the player.
-            // TODO: Display the player.
+
+            /// Displays the player container view.
+            func displayPlayer(active: Bool = true) {
+                self.playerContainerView.isHidden = !active
+                self.playerContainerView.alpha = active ? 1 : 0
+            }
+
+            if self.song.audio == nil {
+                // Display the loading container view.
+                displayLoading()
+                displayPlayer(active: false)
+            } else {
+                // Display the audio player.
+                displayPlayer()
+                displayLoading(active: false)
+            }
+        }) { isCompleted in
+            self.completeDisplayAnimation()
         }
     }
 
@@ -69,9 +88,11 @@ class AudioHandlerViewController: UIViewController {
     func animateViewsOut() {
         // Hide all views.
         self.loadingActivityIndicator.stopAnimating()
-
         UIView.animate(withDuration: 0.2) {
-            self.loadingContainerView.alpha = 0
+            [self.playerContainerView, self.loadingContainerView].forEach {
+                $0?.alpha = 0
+                $0?.isHidden = true
+            }
         }
     }
 
@@ -114,11 +135,10 @@ class AudioHandlerViewController: UIViewController {
                     print("Download sucessful!!")
                     self.loadingLabel.text = nil
                     self.loadingActivityIndicator.stopAnimating()
-                    // TODO: Show player.
+
+                    self.animateViewsIn()
                 }
             }
-        } else {
-            // Load the song and the player.
         }
     }
 }
