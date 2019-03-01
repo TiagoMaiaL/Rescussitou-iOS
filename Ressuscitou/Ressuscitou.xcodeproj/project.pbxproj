@@ -49,6 +49,7 @@
 		4741BF6F221C60AC0089C658 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6E221C60AC0089C658 /* WarningViewController.swift */; };
 		474956B92224741A00EEDCC4 /* EmptySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474956B82224741A00EEDCC4 /* EmptySearchView.swift */; };
 		474956BB2224743000EEDCC4 /* EmptySearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474956BA2224743000EEDCC4 /* EmptySearchView.xib */; };
+		47829D852229C33500B633C1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47829D842229C33500B633C1 /* AVFoundation.framework */; };
 		47D9262E221D73A70002A59B /* TransitioningHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D9262D221D73A70002A59B /* TransitioningHandler.swift */; };
 		47D92632221E3EEE0002A59B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92631221E3EEE0002A59B /* RoundedView.swift */; };
 		47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92633221E486C0002A59B /* SongTableViewCell.swift */; };
@@ -116,6 +117,7 @@
 		4741BF6E221C60AC0089C658 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
 		474956B82224741A00EEDCC4 /* EmptySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySearchView.swift; sourceTree = "<group>"; };
 		474956BA2224743000EEDCC4 /* EmptySearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptySearchView.xib; sourceTree = "<group>"; };
+		47829D842229C33500B633C1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		47D9262D221D73A70002A59B /* TransitioningHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitioningHandler.swift; sourceTree = "<group>"; };
 		47D92631221E3EEE0002A59B /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		47D92633221E486C0002A59B /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47829D852229C33500B633C1 /* AVFoundation.framework in Frameworks */,
 				470CE6452214AAB1005E321F /* WebKit.framework in Frameworks */,
 				470CE6432214AAAC005E321F /* CoreData.framework in Frameworks */,
 				669ADB8C7C44D5B8C1D1B7BE /* Pods_Ressuscitou.framework in Frameworks */,
@@ -254,6 +257,7 @@
 		470CE6412214AAAB005E321F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47829D842229C33500B633C1 /* AVFoundation.framework */,
 				470CE6442214AAB1005E321F /* WebKit.framework */,
 				470CE6422214AAAB005E321F /* CoreData.framework */,
 				754CC9F08C90E60423E2F721 /* Pods_Ressuscitou.framework */,

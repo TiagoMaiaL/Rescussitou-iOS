@@ -625,6 +625,9 @@
                                                     <constraint firstAttribute="height" constant="28" id="pu7-wL-vBA"/>
                                                 </constraints>
                                                 <state key="normal" image="top-play-icon"/>
+                                                <connections>
+                                                    <action selector="playOrPauseAudio:" destination="UQZ-0P-5GO" eventType="touchUpInside" id="Hn1-EV-M2o"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TO-oe-6sj" userLabel="Current time">
                                                 <rect key="frame" x="45" y="0.0" width="38.5" height="28"/>

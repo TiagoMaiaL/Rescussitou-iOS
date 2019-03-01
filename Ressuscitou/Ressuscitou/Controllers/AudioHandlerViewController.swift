@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 /// Controller in charge of downloading and playing the audios of the songs.
 class AudioHandlerViewController: UIViewController {
@@ -15,6 +16,9 @@ class AudioHandlerViewController: UIViewController {
 
     /// The current song having the audio to be handled.
     var song: SongMO!
+
+    /// The player used to play the audio of the song.
+    var audioPlayer: AVAudioPlayer!
 
     /// The service in charge of downloading the audio related to the song.
     var songsService: SongsServiceProtocol!
@@ -44,6 +48,25 @@ class AudioHandlerViewController: UIViewController {
         precondition(songsService != nil)
 
         loadingActivityIndicator.stopAnimating()
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            audioPlayer = try AVAudioPlayer(data: song.audio!, fileTypeHint: AVFileType.mp3.rawValue)
+            audioPlayer.prepareToPlay()
+        } catch {
+
+        }
+    }
+
+    // MARK: Actions
+
+    @IBAction func playOrPauseAudio(_ sender: UIButton) {
+        if audioPlayer.isPlaying {
+            audioPlayer.stop()
+        } else {
+            audioPlayer.play()
+        }
     }
 
     // MARK: Imperatives
