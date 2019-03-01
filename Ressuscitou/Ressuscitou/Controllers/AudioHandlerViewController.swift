@@ -18,7 +18,7 @@ class AudioHandlerViewController: UIViewController {
     var song: SongMO!
 
     /// The player used to play the audio of the song.
-    var audioPlayer: AVAudioPlayer!
+    var audioPlayer: AVAudioPlayer?
 
     /// The service in charge of downloading the audio related to the song.
     var songsService: SongsServiceProtocol!
@@ -64,35 +64,48 @@ class AudioHandlerViewController: UIViewController {
 
         loadingActivityIndicator.stopAnimating()
 
+        setupAudioPlayer()
+    }
+
+    // MARK: Setup
+
+    /// Sets up the audio player related to the song, if the song has a downloaded audio.
+    private func setupAudioPlayer() {
+        guard let audio = song.audio else { return }
+
         do {
             try AVAudioSession.sharedInstance().setCategory(.soloAmbient, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-            audioPlayer = try AVAudioPlayer(data: song.audio!, fileTypeHint: AVFileType.mp3.rawValue)
-            audioPlayer.prepareToPlay()
-            audioPlayer.delegate = self
-            audioTimeDurationLabel.text = getFormattedPlaybackTime(fromTimeInterval: audioPlayer.duration)
+            audioPlayer = try AVAudioPlayer(data: audio, fileTypeHint: AVFileType.mp3.rawValue)
+            audioPlayer!.prepareToPlay()
+            audioPlayer!.delegate = self
+            audioTimeDurationLabel.text = getFormattedPlaybackTime(fromTimeInterval: audioPlayer!.duration)
         } catch {
-
+            // TODO: Display error to user.
         }
     }
 
     // MARK: Actions
 
     @IBAction func setAudioCurrentTime(_ sender: UISlider) {
+        guard let audioPlayer = audioPlayer else { return }
+
         let value = Double(sender.value)
 
         DispatchQueue.global(qos: .userInteractive).async {
-            self.audioPlayer.currentTime = value * self.audioPlayer.duration
+            audioPlayer.currentTime = value * audioPlayer.duration
 
             DispatchQueue.main.async {
                 self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
-                    fromTimeInterval: self.audioPlayer.currentTime
+                    fromTimeInterval: audioPlayer.currentTime
                 )
             }
         }
     }
 
     @IBAction func playOrPauseAudio(_ sender: UIButton) {
+        guard let audioPlayer = audioPlayer else { return }
+
         if audioPlayer.isPlaying {
             audioPlayer.pause()
 
@@ -106,13 +119,13 @@ class AudioHandlerViewController: UIViewController {
             if playbackUpdateTimer == nil {
                 playbackUpdateTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
                     self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
-                        fromTimeInterval: self.audioPlayer.currentTime
+                        fromTimeInterval: audioPlayer.currentTime
                     )
 
-                    self.playbackSlider.value = Float(self.audioPlayer.currentTime / self.audioPlayer.duration)
+                    self.playbackSlider.value = Float(audioPlayer.currentTime / audioPlayer.duration)
 
                     let playbackButtonImage = UIImage(
-                        named: self.audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"
+                        named: audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"
                     )
                     if playbackButtonImage != self.playbackButton.image(for: .normal)! {
                         self.playbackButton.setImage(playbackButtonImage, for: .normal)
@@ -125,12 +138,6 @@ class AudioHandlerViewController: UIViewController {
     }
 
     // MARK: Imperatives
-
-    /// Resets the audio player controls to display its initial state.
-    private func resetAudioPlayer() {
-        playbackButton.setImage(UIImage(named: "top-play-icon")!, for: .normal)
-        currentPlaybackTimeLabel.text = "00:00"
-    }
 
     /// Formats the passed time interval into a text of minutes and seconds.
     /// - Parameter time: the interval to be formatted.
@@ -225,11 +232,12 @@ class AudioHandlerViewController: UIViewController {
                 }
 
                 DispatchQueue.main.async {
-                    print("Download sucessful!!")
                     self.loadingLabel.text = nil
                     self.loadingActivityIndicator.stopAnimating()
 
+                    self.setupAudioPlayer()
                     self.animateViewsIn()
+                    self.playOrPauseAudio(self.playbackButton)
                 }
             }
         }
