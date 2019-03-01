@@ -590,9 +590,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="DMu-mn-2zd">
-                                <rect key="frame" x="16" y="9" width="343" height="62"/>
+                                <rect key="frame" x="16" y="8" width="343" height="64"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g4f-PB-Ymx" userLabel="Loading container view">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g4f-PB-Ymx" userLabel="Loading container view">
                                         <rect key="frame" x="0.0" y="0.0" width="127.5" height="20"/>
                                         <subviews>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-i9-GSd">
@@ -602,7 +602,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgb-m5-CEB">
-                                                <rect key="frame" x="36" y="0.0" width="91.5" height="20"/>
+                                                <rect key="frame" x="36" y="1.5" width="91.5" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -615,11 +615,11 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytR-Yu-s6U" userLabel="Player container view">
-                                        <rect key="frame" x="0.0" y="34" width="139" height="28"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytR-Yu-s6U" userLabel="Player container view">
+                                        <rect key="frame" x="0.0" y="34" width="343" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9c-Uq-4S6" userLabel="Play">
-                                                <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
+                                                <rect key="frame" x="0.0" y="1" width="28" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="r9c-Uq-4S6" secondAttribute="height" multiplier="1:1" id="aB0-vG-ks8"/>
                                                     <constraint firstAttribute="height" constant="28" id="pu7-wL-vBA"/>
@@ -630,13 +630,27 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TO-oe-6sj" userLabel="Current time">
-                                                <rect key="frame" x="45" y="0.0" width="38.5" height="28"/>
+                                                <rect key="frame" x="45" y="6.5" width="45" height="17.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="3VV-x0-hbE"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ePa-VQ-dsT">
+                                                <rect key="frame" x="105" y="0.0" width="178" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="setAudioCurrentTime:" destination="UQZ-0P-5GO" eventType="valueChanged" id="mv7-S5-Yf1"/>
+                                                </connections>
+                                            </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld7-q5-oSD" userLabel="Final time">
-                                                <rect key="frame" x="100.5" y="0.0" width="38.5" height="28"/>
+                                                <rect key="frame" x="298" y="6.5" width="45" height="17.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="eg1-SK-4up"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -650,6 +664,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="ytR-Yu-s6U" firstAttribute="width" secondItem="DMu-mn-2zd" secondAttribute="width" id="KWI-7D-7o5"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.83663484291352785" green="0.0017948438870658365" blue="0.064274991844617782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -669,6 +686,7 @@
                         <outlet property="loadingContainerView" destination="g4f-PB-Ymx" id="onV-eM-DR7"/>
                         <outlet property="loadingLabel" destination="Qgb-m5-CEB" id="coi-Hh-xd9"/>
                         <outlet property="playbackButton" destination="r9c-Uq-4S6" id="wrT-ox-iVX"/>
+                        <outlet property="playbackSlider" destination="ePa-VQ-dsT" id="TcD-I1-GA6"/>
                         <outlet property="playerContainerView" destination="ytR-Yu-s6U" id="EgH-ei-ynw"/>
                     </connections>
                 </viewController>

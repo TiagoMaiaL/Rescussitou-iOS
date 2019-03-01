@@ -50,6 +50,9 @@ class AudioHandlerViewController: UIViewController {
     /// A timer used to update the UI with the current playback status.
     private var playbackUpdateTimer: Timer?
 
+    /// The playback slider used to control the time of the audio.
+    @IBOutlet weak var playbackSlider: UISlider!
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -62,7 +65,7 @@ class AudioHandlerViewController: UIViewController {
         loadingActivityIndicator.stopAnimating()
 
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setCategory(.soloAmbient, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
             audioPlayer = try AVAudioPlayer(data: song.audio!, fileTypeHint: AVFileType.mp3.rawValue)
             audioPlayer.prepareToPlay()
@@ -74,6 +77,20 @@ class AudioHandlerViewController: UIViewController {
     }
 
     // MARK: Actions
+
+    @IBAction func setAudioCurrentTime(_ sender: UISlider) {
+        let value = Double(sender.value)
+
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.audioPlayer.currentTime = value * self.audioPlayer.duration
+
+            DispatchQueue.main.async {
+                self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
+                    fromTimeInterval: self.audioPlayer.currentTime
+                )
+            }
+        }
+    }
 
     @IBAction func playOrPauseAudio(_ sender: UIButton) {
         if audioPlayer.isPlaying {
@@ -91,14 +108,20 @@ class AudioHandlerViewController: UIViewController {
                     self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
                         fromTimeInterval: self.audioPlayer.currentTime
                     )
+
+                    self.playbackSlider.value = Float(self.audioPlayer.currentTime / self.audioPlayer.duration)
+
+                    let playbackButtonImage = UIImage(
+                        named: self.audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"
+                    )
+                    if playbackButtonImage != self.playbackButton.image(for: .normal)! {
+                        self.playbackButton.setImage(playbackButtonImage, for: .normal)
+                    }
                 }
             }
         }
 
-        playbackButton.setImage(
-            UIImage(named: audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"),
-            for: .normal
-        )
+        sender.setImage(UIImage(named: audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"), for: .normal)
     }
 
     // MARK: Imperatives
@@ -218,17 +241,8 @@ extension AudioHandlerViewController: AVAudioPlayerDelegate {
     // MARK: Allow audio player
 
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        resetAudioPlayer()
-        audioPlayer.stop()
+        playbackUpdateTimer?.fire()
         playbackUpdateTimer?.invalidate()
         playbackUpdateTimer = nil
-    }
-
-    func audioPlayerBeginInterruption(_ player: AVAudioPlayer) {
-        // TODO:
-    }
-
-    func audioPlayerEndInterruption(_ player: AVAudioPlayer, withOptions flags: Int) {
-        // TODO:
     }
 }

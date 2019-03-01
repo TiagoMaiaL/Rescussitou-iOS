@@ -114,6 +114,7 @@ class SongsListingViewController: UIViewController {
         precondition(songStore != nil)
         precondition(songsService != nil)
 
+        navigationController?.view.backgroundColor = .white
         definesPresentationContext = true
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController
