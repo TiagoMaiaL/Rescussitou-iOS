@@ -39,6 +39,7 @@ class WarningViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        // Perform appearance animations.
         UIView.animate(withDuration: 0.1) {
              self.informationStackView.alpha = 1
         }
@@ -49,6 +50,7 @@ class WarningViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // Perform dismissal animations.
         UIView.animate(withDuration: 0.2) {
             self.guitarImageView.frame.origin.x -= 20
         }

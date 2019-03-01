@@ -14,13 +14,13 @@ class SearchSongsTableViewController: UITableViewController {
 
     // MARK: Properties
 
-    /// The reuse identifier of the cell displaying the results.
+    /// The reuse identifier of the cell displaying the song results.
     private let reuseIdentifier = "song_cell"
 
     /// The selection handler called when a song is selected.
     var selectionHandler: ((SongMO) -> Void)!
 
-    /// The songs to be searched.
+    /// The songs to be searched based on the specific term.
     var songsToBeSearched = [SongMO]()
 
     /// The result of the search performed on the songs to be searched.

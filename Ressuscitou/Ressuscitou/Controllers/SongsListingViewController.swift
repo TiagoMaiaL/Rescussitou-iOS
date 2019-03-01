@@ -15,13 +15,13 @@ class SongsListingViewController: UIViewController {
 
     // MARK: Properties
 
-    /// The cell reuse identifier.
+    /// The reuse identifier of the cells displaying the songs.
     private let reuseIdentifier = "song_cell"
 
-    /// The reuse identifier of the header view.
+    /// The reuse identifier of the header view displaying the selected category.
     private let headerViewReuseIdentifier = "header_view"
 
-    /// The search results controller.
+    /// The controller displaying the results of a user search.
     private lazy var searchResultsController: SearchSongsTableViewController! = {
         guard let searchTableViewController = storyboard?.instantiateViewController(
             withIdentifier: "SearchSongsTableViewController"
@@ -61,13 +61,14 @@ class SongsListingViewController: UIViewController {
         return searchController
     }()
 
-    /// The song selected from the user's search.
+    /// The song selected from the user's search, so it can be passed to the next controller.
     private var selectedSearchSong: SongMO?
 
     /// The table view displaying the songs.
     @IBOutlet weak var tableView: UITableView!
 
     /// The top constraint of the tableView related to its super view.
+    /// - Note: this constraint is used to animate the table in and out after filters.
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
 
     /// The fetched results controller of the selected category of songs.
@@ -86,10 +87,12 @@ class SongsListingViewController: UIViewController {
         }
     }
 
-    /// The currently selected filter category.
+    /// The currently selected filter category, related to the menu table view controller.
+    /// - Note: Since the menu controller is always destroyed after dismissed, this reference is passed right before
+    ///         it appears, so the selected category can be displayed to the user.
     var selectedCategory = IndexPath(row: 0, section: 0)
 
-    /// The currently selected category title.
+    /// The currently selected category title, displayed in the section header.
     var selectedCategoryTitle = MenuTableViewController.Section.all.title
 
     /// The store used to fetch and filter the songs.
@@ -224,7 +227,7 @@ class SongsListingViewController: UIViewController {
 
     // MARK: Imperatives
 
-    /// Animates the table view in.
+    /// Animates the table view in after a filter or initial controller appearance.
     /// - Parameter completionHandler: closure called when the animation completes.
     private func animateTableViewDisplayal(_ completionHandler: ((Bool) -> Void)? = nil) {
         tableViewTopConstraint.constant = 0
@@ -234,7 +237,7 @@ class SongsListingViewController: UIViewController {
         }, completion: completionHandler)
     }
 
-    /// Animates the table view out.
+    /// Animates the table view out to display the filtered results.
     /// - Parameter completionHandler: closure called when the animation completes.
     private func animateTableViewDismissal(_ completionHandler: ((Bool) -> Void)? = nil) {
         tableViewTopConstraint.constant = 50

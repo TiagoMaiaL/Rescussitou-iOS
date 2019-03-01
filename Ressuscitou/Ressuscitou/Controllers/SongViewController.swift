@@ -14,7 +14,7 @@ class SongViewController: UIViewController {
 
     // MARK: Properties
 
-    /// The options bar button.
+    /// The options bar button, used to display additional options of HTML visualization.
     @IBOutlet weak var optionsBarButton: UIBarButtonItem!
 
     /// The audio button used to display the player.
@@ -26,7 +26,7 @@ class SongViewController: UIViewController {
     /// The top constraint of the audio handler to be animated in and out.
     @IBOutlet weak var audioHandlerTopConstraint: NSLayoutConstraint!
 
-    /// The height constraint of the audio handler to be adjusted.
+    /// The height constraint of the audio handler used to correctly animate its view out of the screen.
     @IBOutlet weak var audioHandlerHeightConstraint: NSLayoutConstraint!
 
     /// The container view holding the audio handler controller.

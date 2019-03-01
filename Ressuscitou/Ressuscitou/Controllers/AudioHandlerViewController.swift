@@ -84,7 +84,7 @@ class AudioHandlerViewController: UIViewController {
         }
     }
 
-    /// Animates the controller views out.
+    /// Animates the controller views to the state of dismissal, when the controller disappears.
     func animateViewsOut() {
         // Hide all views.
         self.loadingActivityIndicator.stopAnimating()
@@ -96,8 +96,7 @@ class AudioHandlerViewController: UIViewController {
         }
     }
 
-    /// Completes the animation by showing the audio player or starting the
-    /// download of the song.
+    /// Completes the animation by showing the audio player or starting the download of the song.
     private func completeDisplayAnimation() {
         if song.audio == nil, downloadTask == nil {
             // Download the song.

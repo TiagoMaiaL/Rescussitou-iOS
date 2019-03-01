@@ -61,10 +61,10 @@ class MenuTableViewController: UITableViewController {
     /// The index path of the selected category.
     var selectedCategory: IndexPath?
 
-    /// The song store used to send the selected fetched results controller for filtering.
+    /// The song store used to create fetched results controller for filtering by the selected category of songs.
     var songStore: SongMOStoreProtocol!
 
-    /// The view context used to create the fetched results controllers to filter.
+    /// The view context used to create the fetched results controllers for filtering.
     var viewContext: NSManagedObjectContext!
 
     // MARK: Life Cycle
