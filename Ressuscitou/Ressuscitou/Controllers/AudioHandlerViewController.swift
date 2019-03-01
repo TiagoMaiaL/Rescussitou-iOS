@@ -47,6 +47,9 @@ class AudioHandlerViewController: UIViewController {
     /// The label displaying the duration of the audio being played.
     @IBOutlet weak var audioTimeDurationLabel: UILabel!
 
+    /// A timer used to update the UI with the current playback status.
+    private var playbackUpdateTimer: Timer?
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -74,17 +77,35 @@ class AudioHandlerViewController: UIViewController {
 
     @IBAction func playOrPauseAudio(_ sender: UIButton) {
         if audioPlayer.isPlaying {
-            audioPlayer.stop()
+            audioPlayer.pause()
+
+            // Stop the interface update timer by killing it.
+            playbackUpdateTimer?.invalidate()
+            playbackUpdateTimer = nil
         } else {
             audioPlayer.play()
+
+            // Start the interface update timer.
+            if playbackUpdateTimer == nil {
+                playbackUpdateTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+                    self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
+                        fromTimeInterval: self.audioPlayer.currentTime
+                    )
+                }
+            }
         }
+
+        playbackButton.setImage(
+            UIImage(named: audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"),
+            for: .normal
+        )
     }
 
     // MARK: Imperatives
 
     /// Resets the audio player controls to display its initial state.
     private func resetAudioPlayer() {
-        playbackButton.setImage(UIImage(named: "")!, for: .normal)
+        playbackButton.setImage(UIImage(named: "top-play-icon")!, for: .normal)
         currentPlaybackTimeLabel.text = "00:00"
     }
 
@@ -197,7 +218,10 @@ extension AudioHandlerViewController: AVAudioPlayerDelegate {
     // MARK: Allow audio player
 
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        // TODO:
+        resetAudioPlayer()
+        audioPlayer.stop()
+        playbackUpdateTimer?.invalidate()
+        playbackUpdateTimer = nil
     }
 
     func audioPlayerBeginInterruption(_ player: AVAudioPlayer) {
