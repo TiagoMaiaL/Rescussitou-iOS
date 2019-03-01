@@ -38,6 +38,15 @@ class AudioHandlerViewController: UIViewController {
     /// The download task currently running.
     private var downloadTask: URLSessionDownloadTask?
 
+    /// The button used to play/pause the audio.
+    @IBOutlet weak var playbackButton: UIButton!
+
+    /// The label displaying the current playback time of the audio.
+    @IBOutlet weak var currentPlaybackTimeLabel: UILabel!
+
+    /// The label displaying the duration of the audio being played.
+    @IBOutlet weak var audioTimeDurationLabel: UILabel!
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -54,6 +63,8 @@ class AudioHandlerViewController: UIViewController {
             try AVAudioSession.sharedInstance().setActive(true)
             audioPlayer = try AVAudioPlayer(data: song.audio!, fileTypeHint: AVFileType.mp3.rawValue)
             audioPlayer.prepareToPlay()
+            audioPlayer.delegate = self
+            audioTimeDurationLabel.text = getFormattedPlaybackTime(fromTimeInterval: audioPlayer.duration)
         } catch {
 
         }
@@ -70,6 +81,22 @@ class AudioHandlerViewController: UIViewController {
     }
 
     // MARK: Imperatives
+
+    /// Resets the audio player controls to display its initial state.
+    private func resetAudioPlayer() {
+        playbackButton.setImage(UIImage(named: "")!, for: .normal)
+        currentPlaybackTimeLabel.text = "00:00"
+    }
+
+    /// Formats the passed time interval into a text of minutes and seconds.
+    /// - Parameter time: the interval to be formatted.
+    /// - Returns: the string containing the minutes and seconds.
+    private func getFormattedPlaybackTime(fromTimeInterval timeInterval: TimeInterval) -> String {
+        let minutes = Int(floor(timeInterval / 60))
+        let seconds = Int(floor(timeInterval.truncatingRemainder(dividingBy: 60)))
+
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
 
     /// Animates the initial visual state of the controller.
     func animateViewsIn() {
@@ -162,5 +189,22 @@ class AudioHandlerViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+extension AudioHandlerViewController: AVAudioPlayerDelegate {
+
+    // MARK: Allow audio player
+
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        // TODO:
+    }
+
+    func audioPlayerBeginInterruption(_ player: AVAudioPlayer) {
+        // TODO:
+    }
+
+    func audioPlayerEndInterruption(_ player: AVAudioPlayer, withOptions flags: Int) {
+        // TODO:
     }
 }

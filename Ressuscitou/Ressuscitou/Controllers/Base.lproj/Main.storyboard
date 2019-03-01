@@ -663,9 +663,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="80"/>
                     <connections>
+                        <outlet property="audioTimeDurationLabel" destination="Ld7-q5-oSD" id="2GP-QY-Nko"/>
+                        <outlet property="currentPlaybackTimeLabel" destination="6TO-oe-6sj" id="eSs-tv-Cj0"/>
                         <outlet property="loadingActivityIndicator" destination="qwD-i9-GSd" id="5sI-dG-nMq"/>
                         <outlet property="loadingContainerView" destination="g4f-PB-Ymx" id="onV-eM-DR7"/>
                         <outlet property="loadingLabel" destination="Qgb-m5-CEB" id="coi-Hh-xd9"/>
+                        <outlet property="playbackButton" destination="r9c-Uq-4S6" id="wrT-ox-iVX"/>
                         <outlet property="playerContainerView" destination="ytR-Yu-s6U" id="EgH-ei-ynw"/>
                     </connections>
                 </viewController>
