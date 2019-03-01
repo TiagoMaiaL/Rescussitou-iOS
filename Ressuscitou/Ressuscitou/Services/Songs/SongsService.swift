@@ -66,8 +66,16 @@ class SongsService: SongsServiceProtocol {
             locale: nil
         ).components(separatedBy: .punctuationCharacters).joined()
 
+        guard var audioUrlComponents = URLComponents(
+            url: getBaseUrl().appendingPathComponent("audios/\(songTitle).mp3"),
+            resolvingAgainstBaseURL: true
+            ) else {
+                preconditionFailure("The url for audios must be set.")
+        }
+        audioUrlComponents.query = "raw=true"
+
         let downloadTask = apiClient.makeConfiguredDownloadTask(
-            forResourceAtUrl: getBaseUrl().appendingPathComponent("audios/\(songTitle).mp3")
+            forResourceAtUrl: audioUrlComponents.url!
         ) { resourceUrl, taskError in
             guard taskError == nil else {
                 var error: SongsServiceError!
