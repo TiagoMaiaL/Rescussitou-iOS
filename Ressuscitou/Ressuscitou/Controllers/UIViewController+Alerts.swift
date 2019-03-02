@@ -13,20 +13,45 @@ extension UIViewController {
     // MARK: Imperatives
 
     /// Creates a default error alert configured with the passed message.
-    /// - Parameter message: the message to be displayed to the user.
+    /// - Parameters:
+    ///     - message: the message to be displayed to the user.
+    ///     - action: the action to be taken when the user selects the default action.
     /// - Returns: the configured error alert controller.
-    func makeErrorAlertController(withMessage message: String) -> UIAlertController {
+    func makeErrorAlertController(
+        withMessage message: String,
+        andDefaultActionHandler action: ((UIAlertAction) -> Void)? = nil
+        ) -> UIAlertController {
+        return makeErrorAlertController(
+            withMessage: message,
+            actionTitle: NSLocalizedString("Ok", comment: "The title of the default alert action."),
+            andDefaultActionHandler: action
+        )
+    }
+
+    /// Creates an error alert configured with the passed message and default action options.
+    /// - Parameters:
+    ///     - message: the message to be displayed to the user.
+    ///     - title: the title of the default action button.
+    ///     - action: the action to be taken when the user selects the default button.
+    /// - Returns: the configured error alert controller.
+    func makeErrorAlertController(
+        withMessage message: String,
+        actionTitle title: String,
+        andDefaultActionHandler action: ((UIAlertAction) -> Void)? = nil
+        ) -> UIAlertController {
         let alert = makeAlertController(
             withTitle: NSLocalizedString("Error", comment: "The title of the alert to be displayed."),
             andMessage: message
         )
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("Ok", comment: "The title of the default alert action."),
-            style: .default
+            title: title,
+            style: .default,
+            handler: action
         ))
 
         return alert
     }
+
 
     /// Creates an alert configured with the passed title and message.
     /// - Parameters:

@@ -632,7 +632,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TO-oe-6sj" userLabel="Current time">
                                                 <rect key="frame" x="45" y="6.5" width="45" height="17.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="3VV-x0-hbE"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="3VV-x0-hbE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -649,7 +649,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld7-q5-oSD" userLabel="Final time">
                                                 <rect key="frame" x="298" y="6.5" width="45" height="17.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="eg1-SK-4up"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="eg1-SK-4up"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

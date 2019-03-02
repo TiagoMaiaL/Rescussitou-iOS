@@ -38,8 +38,17 @@ class SplashViewController: UIViewController {
 
         dataController.load { description, error in
             guard error == nil else {
-                // TODO: Alert error to user.
-                print("Error while loading the store.")
+                DispatchQueue.main.async {
+                    let errorAlert = self.makeErrorAlertController(
+                        withMessage: NSLocalizedString(
+                            "Aconteceu um erro ao iniciar o aplicativo. Por favor, contate o desenvolvedor.",
+                            comment: "Error message sent to the user when core data fails to load."
+                        )
+                    ) { _ in
+                        abort()
+                    }
+                    self.present(errorAlert, animated: true)
+                }
                 return
             }
 
@@ -94,7 +103,22 @@ class SplashViewController: UIViewController {
 
         songsService.handleSongsJson(songsJsonData) { error in
             guard error == nil else {
-                // TODO: Alert users about the error.
+                DispatchQueue.main.async {
+                    let errorAlert = self.makeErrorAlertController(
+                        withMessage: NSLocalizedString(
+                            "Houve um erro ao carragar os cânticos do Ressuscitou. Por favor, verifique o espaço disponível e tente novamente.",
+                            comment: "Error message displayed when the songs can't be seeded."
+                        ),
+                        actionTitle: NSLocalizedString(
+                            "Tentar novamente",
+                            comment: "Action title for trying again."
+                        ),
+                        andDefaultActionHandler: { _ in
+                            // Try it again.
+                            self.seedSongsFromJsonFile()
+                    })
+                    self.present(errorAlert, animated: true)
+                }
                 return
             }
 
