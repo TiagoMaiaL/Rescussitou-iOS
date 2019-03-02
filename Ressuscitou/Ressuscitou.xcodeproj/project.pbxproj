@@ -50,6 +50,7 @@
 		474956B92224741A00EEDCC4 /* EmptySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474956B82224741A00EEDCC4 /* EmptySearchView.swift */; };
 		474956BB2224743000EEDCC4 /* EmptySearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474956BA2224743000EEDCC4 /* EmptySearchView.xib */; };
 		47829D852229C33500B633C1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47829D842229C33500B633C1 /* AVFoundation.framework */; };
+		47829D87222ADE1600B633C1 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47829D86222ADE1500B633C1 /* UIViewController+Alerts.swift */; };
 		47D9262E221D73A70002A59B /* TransitioningHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D9262D221D73A70002A59B /* TransitioningHandler.swift */; };
 		47D92632221E3EEE0002A59B /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92631221E3EEE0002A59B /* RoundedView.swift */; };
 		47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D92633221E486C0002A59B /* SongTableViewCell.swift */; };
@@ -118,6 +119,7 @@
 		474956B82224741A00EEDCC4 /* EmptySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySearchView.swift; sourceTree = "<group>"; };
 		474956BA2224743000EEDCC4 /* EmptySearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptySearchView.xib; sourceTree = "<group>"; };
 		47829D842229C33500B633C1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		47829D86222ADE1500B633C1 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		47D9262D221D73A70002A59B /* TransitioningHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitioningHandler.swift; sourceTree = "<group>"; };
 		47D92631221E3EEE0002A59B /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		47D92633221E486C0002A59B /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				470CE61922149F11005E321F /* Main.storyboard */,
+				47829D86222ADE1500B633C1 /* UIViewController+Alerts.swift */,
 				470CE64A2214F3B6005E321F /* ViewController+Constants.swift */,
 				47D9262D221D73A70002A59B /* TransitioningHandler.swift */,
 				470CE6482214F20F005E321F /* SplashViewController.swift */,
@@ -593,6 +596,7 @@
 				47D92634221E486C0002A59B /* SongTableViewCell.swift in Sources */,
 				4741BF69221B62E50089C658 /* UIApplication+Helpers.swift in Sources */,
 				470CE61E22149F11005E321F /* Ressuscitou.xcdatamodeld in Sources */,
+				47829D87222ADE1600B633C1 /* UIViewController+Alerts.swift in Sources */,
 				4739598D2226CDD000510DFE /* SongsService+Constants.swift in Sources */,
 				470CE6592216008C005E321F /* SongMOStore.swift in Sources */,
 				4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */,
