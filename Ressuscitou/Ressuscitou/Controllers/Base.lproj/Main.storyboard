@@ -643,7 +643,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
-                                                    <action selector="setAudioCurrentTime:" destination="UQZ-0P-5GO" eventType="valueChanged" id="mv7-S5-Yf1"/>
+                                                    <action selector="changeAudioCurrentTime:" destination="UQZ-0P-5GO" eventType="valueChanged" id="mv7-S5-Yf1"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld7-q5-oSD" userLabel="Final time">

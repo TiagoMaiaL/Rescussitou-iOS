@@ -47,11 +47,14 @@ class AudioHandlerViewController: UIViewController {
     /// The label displaying the duration of the audio being played.
     @IBOutlet weak var audioTimeDurationLabel: UILabel!
 
-    /// A timer used to update the UI with the current playback status.
-    private var playbackUpdateTimer: Timer?
-
     /// The playback slider used to control the time of the audio.
     @IBOutlet weak var playbackSlider: UISlider!
+
+    /// A timer used to update the UI with the current playback status.
+    private var playbackUserInterfaceUpdater: Timer?
+
+    /// A timer used to delay the change in the current time of the player, only when necessary.
+    private var playerTimeScheduledChanger: Timer?
 
     // MARK: Life Cycle
 
@@ -87,18 +90,41 @@ class AudioHandlerViewController: UIViewController {
 
     // MARK: Actions
 
-    @IBAction func setAudioCurrentTime(_ sender: UISlider) {
+    /// Sets the current playback time of the audio every time the slider is changed.
+    /// - Note: Since this action is called a lot of times by the slider, its wise to delay the actual change a little,
+    ///         and make it happen once after a specified amount of time.
+    @IBAction func changeAudioCurrentTime(_ sender: UISlider) {
         guard let audioPlayer = audioPlayer else { return }
 
         let value = Double(sender.value)
 
-        DispatchQueue.global(qos: .userInteractive).async {
-            audioPlayer.currentTime = value * audioPlayer.duration
+        // Update the current time label of the player.
+        currentPlaybackTimeLabel.text = getFormattedPlaybackTime(
+            fromTimeInterval: value * audioPlayer.duration
+        )
 
-            DispatchQueue.main.async {
-                self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
-                    fromTimeInterval: audioPlayer.currentTime
-                )
+        playerTimeScheduledChanger?.invalidate()
+        playerTimeScheduledChanger = nil
+        // Invalidate the interface updater, since the current time will be changed.
+        playbackUserInterfaceUpdater?.invalidate()
+        playbackUserInterfaceUpdater = nil
+
+        // Schedule a timer to change the playback time.
+        playerTimeScheduledChanger = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { _ in
+            DispatchQueue.global(qos: .userInteractive).async {
+                let wasAudioPlaying = audioPlayer.isPlaying
+
+                audioPlayer.stop()
+                audioPlayer.currentTime = value * audioPlayer.duration
+
+                if wasAudioPlaying {
+                    audioPlayer.prepareToPlay()
+                    audioPlayer.play()
+                }
+
+                DispatchQueue.main.async {
+                    self.playbackUserInterfaceUpdater = self.makeUserInterfaceUpdater()
+                }
             }
         }
     }
@@ -110,27 +136,14 @@ class AudioHandlerViewController: UIViewController {
             audioPlayer.pause()
 
             // Stop the interface update timer by killing it.
-            playbackUpdateTimer?.invalidate()
-            playbackUpdateTimer = nil
+            playbackUserInterfaceUpdater?.invalidate()
+            playbackUserInterfaceUpdater = nil
         } else {
             audioPlayer.play()
 
             // Start the interface update timer.
-            if playbackUpdateTimer == nil {
-                playbackUpdateTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
-                    self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
-                        fromTimeInterval: audioPlayer.currentTime
-                    )
-
-                    self.playbackSlider.value = Float(audioPlayer.currentTime / audioPlayer.duration)
-
-                    let playbackButtonImage = UIImage(
-                        named: audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"
-                    )
-                    if playbackButtonImage != self.playbackButton.image(for: .normal)! {
-                        self.playbackButton.setImage(playbackButtonImage, for: .normal)
-                    }
-                }
+            if playbackUserInterfaceUpdater == nil {
+                playbackUserInterfaceUpdater = makeUserInterfaceUpdater()
             }
         }
 
@@ -138,6 +151,27 @@ class AudioHandlerViewController: UIViewController {
     }
 
     // MARK: Imperatives
+
+    /// Generates a new user interface updating timer used to update the player controls while it's running.
+    /// - Returns: the configured timer, if there's an audio player to be played.
+    private func makeUserInterfaceUpdater() -> Timer? {
+        guard let audioPlayer = audioPlayer else { return nil }
+
+        return Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+            self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
+                fromTimeInterval: audioPlayer.currentTime
+            )
+
+            self.playbackSlider.value = Float(audioPlayer.currentTime / audioPlayer.duration)
+
+            let playbackButtonImage = UIImage(
+                named: audioPlayer.isPlaying ? "top-pause-icon" : "top-play-icon"
+            )
+            if playbackButtonImage != self.playbackButton.image(for: .normal)! {
+                self.playbackButton.setImage(playbackButtonImage, for: .normal)
+            }
+        }
+    }
 
     /// Formats the passed time interval into a text of minutes and seconds.
     /// - Parameter time: the interval to be formatted.
@@ -180,7 +214,7 @@ class AudioHandlerViewController: UIViewController {
                 displayPlayer()
                 displayLoading(active: false)
             }
-        }) { isCompleted in
+        }) { _ in
             self.completeDisplayAnimation()
         }
     }
@@ -249,8 +283,8 @@ extension AudioHandlerViewController: AVAudioPlayerDelegate {
     // MARK: Allow audio player
 
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        playbackUpdateTimer?.fire()
-        playbackUpdateTimer?.invalidate()
-        playbackUpdateTimer = nil
+        playbackUserInterfaceUpdater?.fire()
+        playbackUserInterfaceUpdater?.invalidate()
+        playbackUserInterfaceUpdater = nil
     }
 }
