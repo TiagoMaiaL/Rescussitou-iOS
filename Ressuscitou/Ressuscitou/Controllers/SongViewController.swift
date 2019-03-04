@@ -91,6 +91,9 @@ class SongViewController: UIViewController {
             }
             audioHandlerController.song = song
             audioHandlerController.songsService = songsService
+            audioHandlerController.dismissAudioHandler = {
+                self.displayPlayer(self.audioBarButton)
+            }
 
             audioHandlerChildController = audioHandlerController
         }

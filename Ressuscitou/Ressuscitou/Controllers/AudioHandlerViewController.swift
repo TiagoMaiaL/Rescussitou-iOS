@@ -56,6 +56,9 @@ class AudioHandlerViewController: UIViewController {
     /// A timer used to delay the change in the current time of the player, only when necessary.
     private var playerTimeScheduledChanger: Timer?
 
+    /// The closure called when the controller needs to be dismissed from it's container controller.
+    var dismissAudioHandler: (() -> Void)!
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -64,6 +67,7 @@ class AudioHandlerViewController: UIViewController {
         precondition(song != nil)
         precondition(song.hasAudio)
         precondition(songsService != nil)
+        precondition(dismissAudioHandler != nil)
 
         loadingActivityIndicator.stopAnimating()
 
@@ -84,7 +88,14 @@ class AudioHandlerViewController: UIViewController {
             audioPlayer!.delegate = self
             audioTimeDurationLabel.text = getFormattedPlaybackTime(fromTimeInterval: audioPlayer!.duration)
         } catch {
-            // TODO: Display error to user.
+            let message = NSLocalizedString(
+                "Não foi possível tocar o áudio do cântico.",
+                comment: "The error message sent when the audio player fails to play the audio."
+            )
+            let alert = makeErrorAlertController(withMessage: message) { _ in
+                self.dismissAudioHandler()
+            }
+            present(alert, animated: true)
         }
     }
 
@@ -215,7 +226,7 @@ class AudioHandlerViewController: UIViewController {
                 displayLoading(active: false)
             }
         }) { _ in
-            self.completeDisplayAnimation()
+            self.downloadAudioIfNeeded()
         }
     }
 
@@ -231,8 +242,8 @@ class AudioHandlerViewController: UIViewController {
         }
     }
 
-    /// Completes the animation by showing the audio player or starting the download of the song.
-    private func completeDisplayAnimation() {
+    /// Starts the download of the audio, if not yet downloaded.
+    private func downloadAudioIfNeeded() {
         if song.audio == nil, downloadTask == nil {
             // Download the song.
             self.loadingLabel.text = NSLocalizedString(
@@ -240,28 +251,12 @@ class AudioHandlerViewController: UIViewController {
                 comment: "Label shown while the audio is being downloaded."
             )
 
-            print("Starting the download task.")
             downloadTask = self.songsService.downloadAudio(fromSong: song) { wasDownloadSuccessful, error in
 
                 self.downloadTask = nil
 
                 guard error == nil, wasDownloadSuccessful == true else {
-                    // TODO: Display error to the user.
-                    switch error! {
-                    case SongsServiceError.internetConnection:
-                        print("Internet connection problem.")
-
-                    case SongsServiceError.serverNotAvailable:
-                        print("Server not available.")
-
-                    case SongsServiceError.resourceNotAvailable:
-                        print("Resource not available.")
-
-                    case SongsServiceError.readResource:
-                        print("Couldn't read the resource.")
-
-                    }
-
+                    self.displayDownloadError(error!)
                     return
                 }
 
@@ -275,6 +270,54 @@ class AudioHandlerViewController: UIViewController {
                 }
             }
         }
+    }
+
+    /// Displays the download error as an alert to the user.
+    /// - Parameter error: the error to be displayed to the user.
+    private func displayDownloadError(_ error: SongsServiceError) {
+        var alert: UIAlertController!
+
+        switch error {
+        case SongsServiceError.internetConnection:
+            let message = NSLocalizedString(
+                "Não foi possivel fazer o donwload do cântico. Por favor, verifique a sua conexão com a internet e tente novamente.",
+                comment: "Error message sent when the user doesn't have access to the internet."
+            )
+            alert = self.makeErrorAlertController(
+                withMessage: message,
+                actionTitle: "Tentar novamente",
+                andDefaultActionHandler: { action in
+                    // Try downloading the audio again.
+                    self.downloadTask = nil
+                    self.downloadAudioIfNeeded()
+            })
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive) { _ in
+                self.dismissAudioHandler()
+            })
+
+        case SongsServiceError.serverNotAvailable:
+            let message = NSLocalizedString(
+                "O servidor se encontra indisponível no momento, por favor, tente novamente mais tarde.",
+                comment: "Error message sent when the server isn't available."
+            )
+            alert = self.makeErrorAlertController(withMessage: message)
+
+        case SongsServiceError.resourceNotAvailable:
+            let message = NSLocalizedString(
+                "Infelizmente o áudio do cântico não está disponível para download. Por favor, contate os desenvolvedores.",
+                comment: "Error message sent when the audio isn't available."
+            )
+            alert = self.makeErrorAlertController(withMessage: message)
+
+        case SongsServiceError.readResource:
+            let message = NSLocalizedString(
+                "Não foi possível armazenar o áudio do cântico. Por favor, verifique o espaço disponível no seu celular.",
+                comment: "Error message sent when the audio couldn't be persisted."
+            )
+            alert = self.makeErrorAlertController(withMessage: message)
+        }
+
+        self.present(alert, animated: true)
     }
 }
 
