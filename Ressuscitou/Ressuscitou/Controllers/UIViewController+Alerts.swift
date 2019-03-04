@@ -52,7 +52,6 @@ extension UIViewController {
         return alert
     }
 
-
     /// Creates an alert configured with the passed title and message.
     /// - Parameters:
     ///     - title: the title of the alert.

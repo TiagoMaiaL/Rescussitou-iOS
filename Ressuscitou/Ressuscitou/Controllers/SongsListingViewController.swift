@@ -81,7 +81,7 @@ class SongsListingViewController: UIViewController {
                     searchResultsController.songsToBeSearched = songsFetchedResultsController.fetchedObjects ?? []
                     tableView.reloadData()
                 } catch {
-                    // TODO: Display error to the user.
+                    displayFetchingError()
                 }
             }
         }
@@ -126,7 +126,7 @@ class SongsListingViewController: UIViewController {
             try songsFetchedResultsController.performFetch()
             searchResultsController.songsToBeSearched = songsFetchedResultsController.fetchedObjects ?? []
         } catch {
-            // TODO: Display any errors to the user.
+            displayFetchingError()
         }
     }
 
@@ -246,6 +246,15 @@ class SongsListingViewController: UIViewController {
             self.view.layoutIfNeeded()
             self.tableView.alpha = 0
         }, completion: completionHandler)
+    }
+
+    /// Displays an error alert to the user informing that the songs fetch couldn't be performed.
+    private func displayFetchingError() {
+        let message = NSLocalizedString(
+            "Não foi possível exibir os cânticos.",
+            comment: "Error message displayed when the songs can't be displayed."
+        )
+        present(makeErrorAlertController(withMessage: message), animated: true)
     }
 }
 
