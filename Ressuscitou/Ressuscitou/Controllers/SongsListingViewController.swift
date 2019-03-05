@@ -232,7 +232,7 @@ class SongsListingViewController: UIViewController {
     /// - Parameter completionHandler: closure called when the animation completes.
     private func animateTableViewDisplayal(_ completionHandler: ((Bool) -> Void)? = nil) {
         tableViewTopConstraint.constant = 0
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.2, animations: { [unowned self] in
             self.view.layoutIfNeeded()
             self.tableView.alpha = 1
         }, completion: completionHandler)
@@ -242,7 +242,7 @@ class SongsListingViewController: UIViewController {
     /// - Parameter completionHandler: closure called when the animation completes.
     private func animateTableViewDismissal(_ completionHandler: ((Bool) -> Void)? = nil) {
         tableViewTopConstraint.constant = 50
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.2, animations: { [unowned self] in
             self.view.layoutIfNeeded()
             self.tableView.alpha = 0
         }, completion: completionHandler)

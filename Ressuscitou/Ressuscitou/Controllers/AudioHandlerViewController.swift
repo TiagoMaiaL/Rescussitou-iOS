@@ -61,6 +61,12 @@ class AudioHandlerViewController: UIViewController {
 
     // MARK: Life Cycle
 
+    deinit {
+        playbackUserInterfaceUpdater?.invalidate()
+        playerTimeScheduledChanger?.invalidate()
+        audioPlayer?.stop()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -121,7 +127,7 @@ class AudioHandlerViewController: UIViewController {
         playbackUserInterfaceUpdater = nil
 
         // Schedule a timer to change the playback time.
-        playerTimeScheduledChanger = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { _ in
+        playerTimeScheduledChanger = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { [unowned self] _ in
             DispatchQueue.global(qos: .userInteractive).async {
                 let wasAudioPlaying = audioPlayer.isPlaying
 
@@ -168,7 +174,7 @@ class AudioHandlerViewController: UIViewController {
     private func makeUserInterfaceUpdater() -> Timer? {
         guard let audioPlayer = audioPlayer else { return nil }
 
-        return Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+        return Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [unowned self] _ in
             self.currentPlaybackTimeLabel.text = self.getFormattedPlaybackTime(
                 fromTimeInterval: audioPlayer.currentTime
             )
@@ -196,7 +202,7 @@ class AudioHandlerViewController: UIViewController {
 
     /// Animates the initial visual state of the controller.
     func animateViewsIn() {
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.2, animations: { [unowned self] in
             /// Displays the loading container view.
             func displayLoading(active: Bool = true) {
                 self.loadingContainerView.isHidden = !active
@@ -251,7 +257,8 @@ class AudioHandlerViewController: UIViewController {
                 comment: "Label shown while the audio is being downloaded."
             )
 
-            downloadTask = self.songsService.downloadAudio(fromSong: song) { wasDownloadSuccessful, error in
+            downloadTask = self.songsService.downloadAudio(fromSong: song) { [weak self] wasDownloadSuccessful, error in
+                guard let self = self else { return }
 
                 self.downloadTask = nil
 

@@ -91,7 +91,7 @@ class SongViewController: UIViewController {
             }
             audioHandlerController.song = song
             audioHandlerController.songsService = songsService
-            audioHandlerController.dismissAudioHandler = {
+            audioHandlerController.dismissAudioHandler = { [unowned self] in
                 self.displayPlayer(self.audioBarButton)
             }
 
