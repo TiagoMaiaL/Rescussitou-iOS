@@ -499,7 +499,9 @@
                                                                 <constraint firstAttribute="width" constant="20" id="aXx-p1-DYb"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                                    <integer key="value" value="0"/>
+                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                     </subviews>

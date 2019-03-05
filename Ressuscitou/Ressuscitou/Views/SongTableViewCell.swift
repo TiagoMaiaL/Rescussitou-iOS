@@ -61,7 +61,7 @@ class SongTableViewCell: UITableViewCell {
     ///     - hasSound: indicates if the song being displayed has a soung associated with it.
     ///     - wasDownloaded: indicates if the song was already downloaded or not.
     func displayAudioIndicator(ifItHasAudio hasSound: Bool, andIfAudioWasDonwloaded wasDownloaded: Bool) {
-        songIndicatorView.isHidden = !hasSound
+        songIndicatorView.alpha = hasSound ? 1 : 0
         songIndicatorView.image = UIImage(
             named: wasDownloaded ? "content-download-icon-on" : "content-download-icon-off"
         )
@@ -72,6 +72,6 @@ class SongTableViewCell: UITableViewCell {
         titleLabel.font = UIFont(name: "Quicksand-Regular", size: 18)
         dotView.isHidden = true
         dotView.backgroundColor = nil
-        songIndicatorView.isHidden = true
+        songIndicatorView.alpha = 0
     }
 }
