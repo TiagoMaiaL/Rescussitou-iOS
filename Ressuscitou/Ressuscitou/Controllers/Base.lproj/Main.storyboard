@@ -83,9 +83,83 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1t-XE-Xis" userLabel="Options popover" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
+                                <rect key="frame" x="28" y="209.5" width="319" height="184"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6CV-IX-gkm">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="184"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYJ-U9-Bbr">
+                                                <rect key="frame" x="16" y="0.0" width="287" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="6Zc-0c-im8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
+                                                <state key="normal" title="Rolagem automática">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-TS-Cer" userLabel="Separator">
+                                                <rect key="frame" x="0.0" y="60" width="319" height="2"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="ctF-uj-IKc"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sk0-QR-9eh">
+                                                <rect key="frame" x="16" y="62" width="287" height="60"/>
+                                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
+                                                <state key="normal" title="Transpor">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSd-N7-UF7" userLabel="Separator">
+                                                <rect key="frame" x="0.0" y="122" width="319" height="2"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="o0Y-gS-7cK"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lb-fm-i0e">
+                                                <rect key="frame" x="16" y="124" width="287" height="60"/>
+                                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
+                                                <state key="normal" title="Lista de acordes">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Sk0-QR-9eh" firstAttribute="width" secondItem="qYJ-U9-Bbr" secondAttribute="width" id="8rF-Aj-pzX"/>
+                                            <constraint firstItem="5lb-fm-i0e" firstAttribute="width" secondItem="qYJ-U9-Bbr" secondAttribute="width" id="CBp-Qg-6TA"/>
+                                            <constraint firstItem="qYJ-U9-Bbr" firstAttribute="width" secondItem="6CV-IX-gkm" secondAttribute="width" multiplier="0.9" id="FSK-81-AI6"/>
+                                            <constraint firstItem="5lb-fm-i0e" firstAttribute="height" secondItem="qYJ-U9-Bbr" secondAttribute="height" id="MPy-Tf-pQl"/>
+                                            <constraint firstItem="QXJ-TS-Cer" firstAttribute="width" secondItem="6CV-IX-gkm" secondAttribute="width" id="wU7-Yl-Wq8"/>
+                                            <constraint firstItem="Sk0-QR-9eh" firstAttribute="height" secondItem="qYJ-U9-Bbr" secondAttribute="height" id="zPY-xy-Phk"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="6CV-IX-gkm" firstAttribute="leading" secondItem="m1t-XE-Xis" secondAttribute="leading" id="1GC-g4-6yG"/>
+                                    <constraint firstAttribute="bottom" secondItem="6CV-IX-gkm" secondAttribute="bottom" id="5nQ-JU-Ot3"/>
+                                    <constraint firstItem="6CV-IX-gkm" firstAttribute="top" secondItem="m1t-XE-Xis" secondAttribute="top" id="Hbm-oS-9a9"/>
+                                    <constraint firstAttribute="trailing" secondItem="6CV-IX-gkm" secondAttribute="trailing" id="IB2-9Z-cSL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="m1t-XE-Xis" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="2up-A6-jWM">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="9dB-mL-Kek" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5DI-0Q-wgp"/>
                             <constraint firstItem="SKG-MC-Dpp" firstAttribute="top" secondItem="9dB-mL-Kek" secondAttribute="bottom" id="6ne-vd-yKk"/>
                             <constraint firstItem="9dB-mL-Kek" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9RZ-7p-9YI">
@@ -98,6 +172,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SKG-MC-Dpp" secondAttribute="trailing" id="AFv-GG-OL2"/>
                             <constraint firstItem="SKG-MC-Dpp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="C33-h9-0ox"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SKG-MC-Dpp" secondAttribute="bottom" id="Cuy-WP-BQq"/>
+                            <constraint firstItem="m1t-XE-Xis" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="209.5" id="K4G-N6-fCw"/>
+                            <constraint firstItem="m1t-XE-Xis" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pa2-X3-O4o">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="9dB-mL-Kek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dkG-ko-fGi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -110,7 +190,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem enabled="NO" image="nav-options-icon" id="1nJ-e9-caV">
+                            <barButtonItem image="nav-options-icon" id="1nJ-e9-caV">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </barButtonItem>
                             <barButtonItem image="nav-audio-icon" id="b71-KN-Em2">
