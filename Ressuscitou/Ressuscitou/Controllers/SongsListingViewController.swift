@@ -37,29 +37,7 @@ class SongsListingViewController: UIViewController {
     }()
 
     /// The search controller in charge of handling the user's search.
-    private lazy var searchController: UISearchController! = {
-        let searchController = UISearchController(searchResultsController: searchResultsController)
-        searchController.searchResultsUpdater = searchResultsController
-
-        // Configure the search bar.
-        searchController.searchBar.placeholder = NSLocalizedString(
-            "Pesquisar",
-            comment: "Placeholder text of the search bar."
-        )
-
-        searchController.searchBar.tintColor = .white
-        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-            textField.tintColor = .lightGray
-            textField.font = UIFont(name: "Quicksand-Regular", size: 16)
-
-            if let backgroundView = textField.subviews.first {
-                backgroundView.backgroundColor = .white
-                backgroundView.layer.cornerRadius = 10
-            }
-        }
-
-        return searchController
-    }()
+    private var searchController: UISearchController!
 
     /// The song selected from the user's search, so it can be passed to the next controller.
     private var selectedSearchSong: SongMO?
@@ -117,8 +95,6 @@ class SongsListingViewController: UIViewController {
         navigationController?.view.backgroundColor = .white
         definesPresentationContext = true
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
 
         subscribeToNotification(named: .FilterSongs, usingSelector: #selector(filterSongs(_:)))
 
@@ -137,6 +113,8 @@ class SongsListingViewController: UIViewController {
             tableView.reloadRows(at: [selectedIntexPath], with: .automatic)
             tableView.deselectRow(at: selectedIntexPath, animated: true)
         }
+
+        configureSearchController()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -227,6 +205,30 @@ class SongsListingViewController: UIViewController {
     }
 
     // MARK: Imperatives
+
+    /// Configures the search controller to appear in the navigation bar.
+    private func configureSearchController() {
+        searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.searchResultsUpdater = searchResultsController
+
+        // Configure the search bar.
+        searchController.searchBar.placeholder = NSLocalizedString(
+            "Pesquisar",
+            comment: "Placeholder text of the search bar."
+        )
+
+        searchController.searchBar.tintColor = .white
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.tintColor = .lightGray
+            textField.font = UIFont(name: "Quicksand-Regular", size: 16)
+
+            if let backgroundView = textField.subviews.first {
+                backgroundView.backgroundColor = .white
+                backgroundView.layer.cornerRadius = 10
+            }
+        }
+        navigationItem.searchController = searchController
+    }
 
     /// Animates the table view in after a filter or initial controller appearance.
     /// - Parameter completionHandler: closure called when the animation completes.
