@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Popover
 
 /// A view controller displaying an specific song.
 class SongViewController: UIViewController {
@@ -31,6 +32,9 @@ class SongViewController: UIViewController {
 
     /// The container view holding the audio handler controller.
     @IBOutlet weak var audioHandlerContainer: UIView!
+
+    /// The view displaying additional actions the user can take.
+    @IBOutlet var optionsView: RoundedView!
 
     /// Indicates if the audio handler is being displayed or not.
     private var isDisplayingAudioHandler: Bool {
@@ -100,6 +104,24 @@ class SongViewController: UIViewController {
     }
 
     // MARK: Actions
+
+    @IBAction func showOptions(_ sender: UIBarButtonItem) {
+        optionsView.isHidden = false
+        let popover = Popover(options: [
+            .arrowSize(.zero),
+            .animationIn(0.3),
+            .animationOut(0.1)
+            ])
+        optionsView.sizeToFit()
+        optionsView.frame = CGRect(x: 0, y: 0, width: 300, height: optionsView.frame.height)
+        popover.show(optionsView, fromView: navigationController!.navigationBar)
+
+        optionsView.topAnchor.constraint(equalTo: popover.topAnchor).isActive = true
+        optionsView.leadingAnchor.constraint(equalTo: popover.leadingAnchor).isActive = true
+        optionsView.widthAnchor.constraint(equalTo: popover.widthAnchor).isActive = true
+
+        optionsView.setNeedsLayout()
+    }
 
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)

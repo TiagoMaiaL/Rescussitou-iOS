@@ -83,8 +83,8 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1t-XE-Xis" userLabel="Options popover" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
-                                <rect key="frame" x="28" y="209.5" width="319" height="184"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1t-XE-Xis" userLabel="Options popover" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
+                                <rect key="frame" x="28" y="10" width="319" height="184"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6CV-IX-gkm">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="184"/>
@@ -131,7 +131,7 @@
                                         <constraints>
                                             <constraint firstItem="Sk0-QR-9eh" firstAttribute="width" secondItem="qYJ-U9-Bbr" secondAttribute="width" id="8rF-Aj-pzX"/>
                                             <constraint firstItem="5lb-fm-i0e" firstAttribute="width" secondItem="qYJ-U9-Bbr" secondAttribute="width" id="CBp-Qg-6TA"/>
-                                            <constraint firstItem="qYJ-U9-Bbr" firstAttribute="width" secondItem="6CV-IX-gkm" secondAttribute="width" multiplier="0.9" id="FSK-81-AI6"/>
+                                            <constraint firstItem="xSd-N7-UF7" firstAttribute="width" secondItem="QXJ-TS-Cer" secondAttribute="width" id="GfB-LL-V6a"/>
                                             <constraint firstItem="5lb-fm-i0e" firstAttribute="height" secondItem="qYJ-U9-Bbr" secondAttribute="height" id="MPy-Tf-pQl"/>
                                             <constraint firstItem="QXJ-TS-Cer" firstAttribute="width" secondItem="6CV-IX-gkm" secondAttribute="width" id="wU7-Yl-Wq8"/>
                                             <constraint firstItem="Sk0-QR-9eh" firstAttribute="height" secondItem="qYJ-U9-Bbr" secondAttribute="height" id="zPY-xy-Phk"/>
@@ -144,9 +144,10 @@
                                     <constraint firstAttribute="bottom" secondItem="6CV-IX-gkm" secondAttribute="bottom" id="5nQ-JU-Ot3"/>
                                     <constraint firstItem="6CV-IX-gkm" firstAttribute="top" secondItem="m1t-XE-Xis" secondAttribute="top" id="Hbm-oS-9a9"/>
                                     <constraint firstAttribute="trailing" secondItem="6CV-IX-gkm" secondAttribute="trailing" id="IB2-9Z-cSL"/>
+                                    <constraint firstItem="qYJ-U9-Bbr" firstAttribute="width" secondItem="m1t-XE-Xis" secondAttribute="width" multiplier="0.9" id="NNQ-wr-Qfs"/>
+                                    <constraint firstItem="6CV-IX-gkm" firstAttribute="width" secondItem="m1t-XE-Xis" secondAttribute="width" id="YSn-3I-j5U"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
@@ -172,7 +173,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SKG-MC-Dpp" secondAttribute="trailing" id="AFv-GG-OL2"/>
                             <constraint firstItem="SKG-MC-Dpp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="C33-h9-0ox"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SKG-MC-Dpp" secondAttribute="bottom" id="Cuy-WP-BQq"/>
-                            <constraint firstItem="m1t-XE-Xis" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="209.5" id="K4G-N6-fCw"/>
+                            <constraint firstItem="m1t-XE-Xis" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="K4G-N6-fCw">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="m1t-XE-Xis" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pa2-X3-O4o">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="active" value="NO"/>
@@ -192,6 +197,9 @@
                         <rightBarButtonItems>
                             <barButtonItem image="nav-options-icon" id="1nJ-e9-caV">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="showOptions:" destination="BYZ-38-t0r" id="kF1-8o-t9w"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="nav-audio-icon" id="b71-KN-Em2">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -207,6 +215,7 @@
                         <outlet property="audioHandlerHeightConstraint" destination="bBG-gL-RUk" id="aDF-Sb-D3W"/>
                         <outlet property="audioHandlerTopConstraint" destination="9RZ-7p-9YI" id="aEK-wU-1y7"/>
                         <outlet property="optionsBarButton" destination="1nJ-e9-caV" id="Dg2-xF-BSX"/>
+                        <outlet property="optionsView" destination="m1t-XE-Xis" id="gey-Mr-DfT"/>
                         <outlet property="songWebView" destination="SKG-MC-Dpp" id="n2m-r0-3qP"/>
                     </connections>
                 </viewController>

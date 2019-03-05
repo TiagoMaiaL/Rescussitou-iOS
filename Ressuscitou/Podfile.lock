@@ -1,16 +1,20 @@
 PODS:
+  - Popover (1.2.2)
   - SideMenu (5.0.3)
 
 DEPENDENCIES:
+  - Popover
   - SideMenu
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Popover
     - SideMenu
 
 SPEC CHECKSUMS:
+  Popover: 21e357f86d45c8d9e29a41a4adbca3664d6e511f
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
 
-PODFILE CHECKSUM: 8eae2b39461cfb9899519201114efd0379c1d5d4
+PODFILE CHECKSUM: 6d25c9452322a50969eafa0b902db3d5f9987dc4
 
 COCOAPODS: 1.5.3
