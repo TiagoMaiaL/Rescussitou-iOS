@@ -41,6 +41,18 @@ class SongViewController: UIViewController {
         return audioHandlerTopConstraint.constant == 0
     }
 
+    /// The bottom constraint of the autoScroll container.
+    @IBOutlet weak var autoScrollBottomConstraint: NSLayoutConstraint!
+
+    /// The button used to play or pause the auto scroll.
+    @IBOutlet weak var autoScrollControlButton: UIButton!
+
+    /// The button used to stop and close the auto scroll.
+    @IBOutlet weak var autoScrollCloseButton: UIButton!
+
+    /// The slider specifying the amount scrolled so far.
+    @IBOutlet weak var autoScrollSlider: UISlider!
+    
     /// The songs service used to download audios if requested.
     var songsService: SongsServiceProtocol!
 
@@ -147,5 +159,17 @@ class SongViewController: UIViewController {
                 self.audioHandlerContainer.isHidden = !self.isDisplayingAudioHandler
             }
         }
+    }
+
+    @IBAction func stopAndCloseAutoScroll(_ sender: UIButton) {
+        // TODO:
+    }
+
+    @IBAction func playOrPauseAutoScroll(_ sender: UIButton) {
+        // TODO:
+    }
+
+    @IBAction func scrollByAmount(_ sender: UISlider) {
+        // TODO:
     }
 }
