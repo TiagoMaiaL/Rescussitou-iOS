@@ -33,6 +33,9 @@ class SongViewController: UIViewController {
     /// The container view holding the audio handler controller.
     @IBOutlet weak var audioHandlerContainer: UIView!
 
+    /// The options popover being currently displayed.
+    private var popover: Popover?
+
     /// The view displaying additional actions the user can take.
     @IBOutlet var optionsView: RoundedView!
 
@@ -52,6 +55,11 @@ class SongViewController: UIViewController {
 
     /// The slider specifying the amount scrolled so far.
     @IBOutlet weak var autoScrollSlider: UISlider!
+
+    /// Flag indicating if the auto scroll container is being shown or not.
+    private var isDisplayingAutoScrollContainer: Bool {
+        return autoScrollBottomConstraint.constant == 0
+    }
     
     /// The songs service used to download audios if requested.
     var songsService: SongsServiceProtocol!
@@ -119,18 +127,22 @@ class SongViewController: UIViewController {
 
     @IBAction func showOptions(_ sender: UIBarButtonItem) {
         optionsView.isHidden = false
-        let popover = Popover(options: [
-            .arrowSize(.zero),
-            .animationIn(0.3),
-            .animationOut(0.1)
-            ])
+
+        if popover == nil {
+            popover = Popover(options: [
+                .arrowSize(.zero),
+                .animationIn(0.3),
+                .animationOut(0.1)
+                ])
+        }
+
         optionsView.sizeToFit()
         optionsView.frame = CGRect(x: 0, y: 0, width: 300, height: optionsView.frame.height)
-        popover.show(optionsView, fromView: navigationController!.navigationBar)
+        popover!.show(optionsView, fromView: navigationController!.navigationBar)
 
-        optionsView.topAnchor.constraint(equalTo: popover.topAnchor).isActive = true
-        optionsView.leadingAnchor.constraint(equalTo: popover.leadingAnchor).isActive = true
-        optionsView.widthAnchor.constraint(equalTo: popover.widthAnchor).isActive = true
+        optionsView.topAnchor.constraint(equalTo: popover!.topAnchor).isActive = true
+        optionsView.leadingAnchor.constraint(equalTo: popover!.leadingAnchor).isActive = true
+        optionsView.widthAnchor.constraint(equalTo: popover!.widthAnchor).isActive = true
 
         optionsView.setNeedsLayout()
     }
@@ -161,15 +173,33 @@ class SongViewController: UIViewController {
         }
     }
 
+    @IBAction func beginOrCancelAutoScroll(_ sender: UIButton) {
+        enableAutoScrollContainer(!isDisplayingAutoScrollContainer)
+        popover?.dismiss()
+
+        // TODO: Begin auto scroll.
+    }
+
     @IBAction func stopAndCloseAutoScroll(_ sender: UIButton) {
-        // TODO:
+        // TODO: Stop auto scroll.
+        enableAutoScrollContainer(false)
     }
 
     @IBAction func playOrPauseAutoScroll(_ sender: UIButton) {
+        // TODO: Pause or play auto scroll.
+    }
+
+    @IBAction func changeAutoScrollVelocity(_ sender: UISlider) {
         // TODO:
     }
 
-    @IBAction func scrollByAmount(_ sender: UISlider) {
-        // TODO:
+    // MARK: Imperatives
+
+    /// Displays or hides the auto scroll container view, based on the provided flag.
+    private func enableAutoScrollContainer(_ isEnabled: Bool) {
+        autoScrollBottomConstraint.constant = isEnabled ? 0 : 60
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
