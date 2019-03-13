@@ -87,7 +87,7 @@ class AudioHandlerViewController: UIViewController {
         guard let audio = song.audio else { return }
 
         do {
-            try AVAudioSession.sharedInstance().setCategory(.soloAmbient, mode: .default)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
             audioPlayer = try AVAudioPlayer(data: audio, fileTypeHint: AVFileType.mp3.rawValue)
             audioPlayer!.prepareToPlay()

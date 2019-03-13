@@ -308,10 +308,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aYm-WE-hC5">
-                                            <rect key="frame" x="16" y="14.5" width="343" height="21"/>
+                                            <rect key="frame" x="16" y="14" width="343" height="22.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHy-sb-Rex" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="4.5" width="12" height="12"/>
+                                                    <rect key="frame" x="0.0" y="5" width="12" height="12"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12" id="NBv-Rz-nHA"/>
@@ -324,13 +324,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDe-pe-aZb">
-                                                    <rect key="frame" x="22" y="0.0" width="321" height="21"/>
+                                                    <rect key="frame" x="22" y="0.0" width="321" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-download-icon-on" translatesAutoresizingMaskIntoConstraints="NO" id="OsI-eI-zUI">
-                                                    <rect key="frame" x="343" y="0.5" width="20" height="20"/>
+                                                    <rect key="frame" x="343" y="1" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="HP6-KJ-SiD"/>
                                                         <constraint firstAttribute="width" secondItem="OsI-eI-zUI" secondAttribute="height" multiplier="1:1" id="efh-su-vGX"/>
@@ -408,13 +408,13 @@
                                         <rect key="frame" x="19" y="385" width="337.5" height="262"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPORTANTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-h7-3S8">
-                                                <rect key="frame" x="112.5" y="0.0" width="112.5" height="21"/>
+                                                <rect key="frame" x="112" y="0.0" width="113" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="9q0-6B-kdJ">
-                                                <rect key="frame" x="14" y="31" width="309" height="84"/>
+                                                <rect key="frame" x="9" y="32.5" width="319" height="90"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Irmãos, esse aplicativo ">
                                                         <attributes>
@@ -441,7 +441,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONb-b8-jmt">
-                                                <rect key="frame" x="135.5" y="125" width="66" height="137"/>
+                                                <rect key="frame" x="133.5" y="132.5" width="70" height="129.5"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
                                                 <state key="normal" title="Entendi!">
                                                     <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -536,10 +536,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Q5-QT-QbT">
-                                            <rect key="frame" x="16" y="19.5" width="343" height="21"/>
+                                            <rect key="frame" x="16" y="18.5" width="343" height="22.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hah-qu-QXE" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="4.5" width="12" height="12"/>
+                                                    <rect key="frame" x="0.0" y="5.5" width="12" height="12"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12" id="Oud-Yr-pVU"/>
@@ -552,13 +552,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntx-cJ-euq">
-                                                    <rect key="frame" x="22" y="0.0" width="291" height="21"/>
+                                                    <rect key="frame" x="22" y="0.0" width="291" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-download-icon-on" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-V0-D5m">
-                                                    <rect key="frame" x="323" y="0.5" width="20" height="20"/>
+                                                    <rect key="frame" x="323" y="1.5" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="r2p-V0-D5m" secondAttribute="height" multiplier="1:1" id="8dv-B8-AAn"/>
                                                         <constraint firstAttribute="width" constant="20" id="O7D-ya-5ei"/>
@@ -628,10 +628,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ew6-u2-MPd">
-                                                    <rect key="frame" x="15" y="19.5" width="345" height="21"/>
+                                                    <rect key="frame" x="15" y="18.5" width="345" height="22.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lb5-5Q-Ag4" userLabel="Dot" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="4.5" width="12" height="12"/>
+                                                            <rect key="frame" x="0.0" y="5.5" width="12" height="12"/>
                                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="12" id="dYU-Lf-aEh"/>
@@ -644,13 +644,13 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Song title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed3-x2-TYI">
-                                                            <rect key="frame" x="22" y="0.0" width="293" height="21"/>
+                                                            <rect key="frame" x="22" y="0.0" width="293" height="22.5"/>
                                                             <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content-download-icon-on" translatesAutoresizingMaskIntoConstraints="NO" id="GyJ-e2-CKw">
-                                                            <rect key="frame" x="325" y="0.5" width="20" height="20"/>
+                                                            <rect key="frame" x="325" y="1.5" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="GyJ-e2-CKw" secondAttribute="height" multiplier="1:1" id="E64-iI-igs"/>
                                                                 <constraint firstAttribute="width" constant="20" id="aXx-p1-DYb"/>
