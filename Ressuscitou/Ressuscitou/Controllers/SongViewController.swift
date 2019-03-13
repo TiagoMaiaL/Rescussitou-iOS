@@ -197,7 +197,11 @@ class SongViewController: UIViewController {
     }
 
     @IBAction func changeAutoScrollVelocity(_ sender: UISlider) {
-        // TODO:
+        // If the auto scroll is running, change its velocity by resetting it.
+        if autoScrollHandler != nil {
+            stopAutoScroll()
+            beginAutoScroll()
+        }
     }
 
     // MARK: Imperatives
@@ -210,10 +214,13 @@ class SongViewController: UIViewController {
         }
     }
 
-    /// Creates the auto scroll handler, configured with the passed scroll velocity.
-    private func makeAutoScrollHandler(velocity: Float) -> Timer {
-        // TODO: Adjust time interval based on the velocity.
-        return Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [unowned self] _ in
+    /// Creates the auto scroll handler, configured with the user selected scroll velocity.
+    /// - Note: The scroll velocity is a value that ranges from 5 pixels per second, to 25 pixels per second.
+    private func makeAutoScrollHandler() -> Timer {
+        // A second divided according to the selected slider value (which ranges from 5 to 25 pixels).
+        let timeIntervalVelocity = Double(1 / autoScrollSlider.value)
+
+        return Timer.scheduledTimer(withTimeInterval: timeIntervalVelocity, repeats: true) { [unowned self] _ in
             self.songWebView.evaluateJavaScript("window.scrollBy(0, 1)")
         }
     }
@@ -230,7 +237,7 @@ class SongViewController: UIViewController {
     /// Begins the auto scroll by initializing the handler.
     private func beginAutoScroll() {
         if autoScrollHandler == nil {
-            autoScrollHandler = makeAutoScrollHandler(velocity: 1)
+            autoScrollHandler = makeAutoScrollHandler()
         }
         autoScrollControlButton.setImage(UIImage(named: "bottom-pause_auto_scroll-icon")!, for: .normal)
     }
