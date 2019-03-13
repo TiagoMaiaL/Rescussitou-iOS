@@ -182,9 +182,9 @@ class SongViewController: UIViewController {
     }
 
     @IBAction func beginOrCancelAutoScroll(_ sender: UIButton) {
+        (isDisplayingAutoScrollContainer ? stopAutoScroll : beginAutoScroll)()
         enableAutoScrollContainer(!isDisplayingAutoScrollContainer)
         popover?.dismiss()
-        toggleAutoScroll()
     }
 
     @IBAction func stopAndCloseAutoScroll(_ sender: UIButton) {
@@ -194,7 +194,6 @@ class SongViewController: UIViewController {
 
     @IBAction func playOrPauseAutoScroll(_ sender: UIButton) {
         toggleAutoScroll()
-        // TODO: Change the button image accordingly.
     }
 
     @IBAction func changeAutoScrollVelocity(_ sender: UISlider) {
@@ -233,6 +232,7 @@ class SongViewController: UIViewController {
         if autoScrollHandler == nil {
             autoScrollHandler = makeAutoScrollHandler(velocity: 1)
         }
+        autoScrollControlButton.setImage(UIImage(named: "bottom-pause_auto_scroll-icon")!, for: .normal)
     }
 
     /// Stops the auto scroll by destroying the handler.
@@ -241,5 +241,6 @@ class SongViewController: UIViewController {
             autoScrollHandler!.invalidate()
             autoScrollHandler = nil
         }
+        autoScrollControlButton.setImage(UIImage(named:"bottom-play_auto_scroll-icon")!, for: .normal)
     }
 }

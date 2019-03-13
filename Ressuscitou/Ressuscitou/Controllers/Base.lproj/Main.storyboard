@@ -163,7 +163,11 @@
                                         <rect key="frame" x="20" y="0.0" width="335" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgg-Cu-WlO">
-                                                <rect key="frame" x="0.0" y="19" width="19" height="22"/>
+                                                <rect key="frame" x="0.0" y="8" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cgg-Cu-WlO" secondAttribute="height" id="Htp-0W-uW0"/>
+                                                    <constraint firstAttribute="width" constant="44" id="uJF-gB-OFM"/>
+                                                </constraints>
                                                 <state key="normal" image="bottom-play_auto_scroll_icon">
                                                     <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -172,7 +176,7 @@
                                                 </connections>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="J3y-Zu-Ldr">
-                                                <rect key="frame" x="27" y="15" width="290" height="31"/>
+                                                <rect key="frame" x="52" y="15" width="231" height="31"/>
                                                 <color key="tintColor" red="0.94509803920000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="value">
@@ -184,7 +188,7 @@
                                                 </connections>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jS3-Fa-e2T">
-                                                <rect key="frame" x="325" y="19" width="10" height="22"/>
+                                                <rect key="frame" x="291" y="8" width="44" height="44"/>
                                                 <state key="normal" image="bottom-cancel_auto_scroll_icon">
                                                     <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -193,6 +197,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jS3-Fa-e2T" firstAttribute="height" secondItem="cgg-Cu-WlO" secondAttribute="height" id="dZ4-5y-dPA"/>
+                                            <constraint firstItem="jS3-Fa-e2T" firstAttribute="width" secondItem="cgg-Cu-WlO" secondAttribute="width" id="t10-a3-7td"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
