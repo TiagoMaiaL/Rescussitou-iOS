@@ -60,6 +60,9 @@ class SongViewController: UIViewController {
     private var isDisplayingAutoScrollContainer: Bool {
         return autoScrollBottomConstraint.constant == 0
     }
+
+    /// The timer in charge of scroll the webview down every n seconds.
+    private var autoScrollHandler: Timer?
     
     /// The songs service used to download audios if requested.
     var songsService: SongsServiceProtocol!
@@ -71,6 +74,11 @@ class SongViewController: UIViewController {
     var audioHandlerChildController: AudioHandlerViewController?
 
     // MARK: Life cycle
+
+    deinit {
+        autoScrollHandler?.invalidate()
+        autoScrollHandler = nil
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,17 +184,17 @@ class SongViewController: UIViewController {
     @IBAction func beginOrCancelAutoScroll(_ sender: UIButton) {
         enableAutoScrollContainer(!isDisplayingAutoScrollContainer)
         popover?.dismiss()
-
-        // TODO: Begin auto scroll.
+        toggleAutoScroll()
     }
 
     @IBAction func stopAndCloseAutoScroll(_ sender: UIButton) {
-        // TODO: Stop auto scroll.
+        stopAutoScroll()
         enableAutoScrollContainer(false)
     }
 
     @IBAction func playOrPauseAutoScroll(_ sender: UIButton) {
-        // TODO: Pause or play auto scroll.
+        toggleAutoScroll()
+        // TODO: Change the button image accordingly.
     }
 
     @IBAction func changeAutoScrollVelocity(_ sender: UISlider) {
@@ -200,6 +208,38 @@ class SongViewController: UIViewController {
         autoScrollBottomConstraint.constant = isEnabled ? 0 : 60
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
+        }
+    }
+
+    /// Creates the auto scroll handler, configured with the passed scroll velocity.
+    private func makeAutoScrollHandler(velocity: Float) -> Timer {
+        // TODO: Adjust time interval based on the velocity.
+        return Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [unowned self] _ in
+            self.songWebView.evaluateJavaScript("window.scrollBy(0, 1)")
+        }
+    }
+
+    /// Toggles the auto scroll functionality of the webview.
+    private func toggleAutoScroll() {
+        if autoScrollHandler == nil {
+            beginAutoScroll()
+        } else {
+            stopAutoScroll()
+        }
+    }
+
+    /// Begins the auto scroll by initializing the handler.
+    private func beginAutoScroll() {
+        if autoScrollHandler == nil {
+            autoScrollHandler = makeAutoScrollHandler(velocity: 1)
+        }
+    }
+
+    /// Stops the auto scroll by destroying the handler.
+    private func stopAutoScroll() {
+        if autoScrollHandler != nil {
+            autoScrollHandler!.invalidate()
+            autoScrollHandler = nil
         }
     }
 }
