@@ -128,7 +128,11 @@ struct SongsMOStore: SongMOStoreProtocol {
                                               context: NSManagedObjectContext) -> NSFetchedResultsController<SongMO> {
         let request: NSFetchRequest<SongMO> = SongMO.fetchRequest()
         request.sortDescriptors = [
-            NSSortDescriptor(key: "title", ascending: true)
+            NSSortDescriptor(
+                key: "title",
+                ascending: true,
+                selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
+            )
         ]
         request.predicate = filterPredicate
 
