@@ -231,8 +231,15 @@ class AudioHandlerViewController: UIViewController {
                 displayPlayer()
                 displayLoading(active: false)
             }
-        }) { _ in
-            self.downloadAudioIfNeeded()
+        }) { [unowned self] _ in
+            if self.song.audio == nil {
+                // Begin the download task.
+                self.downloadAudioIfNeeded()
+
+            } else if let audioPlayer = self.audioPlayer, !audioPlayer.isPlaying {
+                // Start playing the audio.
+                self.playOrPauseAudio(self.playbackButton)
+            }
         }
     }
 
