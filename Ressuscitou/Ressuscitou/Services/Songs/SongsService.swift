@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SongsService: SongsServiceProtocol {
 
@@ -77,6 +78,10 @@ class SongsService: SongsServiceProtocol {
         let downloadTask = apiClient.makeConfiguredDownloadTask(
             forResourceAtUrl: audioUrlComponents.url!
         ) { resourceUrl, taskError in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+
             guard taskError == nil else {
                 var error: SongsServiceError!
 
@@ -119,6 +124,10 @@ class SongsService: SongsServiceProtocol {
             }
         }
         downloadTask.resume()
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+
         return downloadTask
     }
 }

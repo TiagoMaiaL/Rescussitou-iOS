@@ -115,6 +115,10 @@ class SongsListingViewController: UIViewController {
             tableView.reloadRows(at: [selectedIntexPath], with: .automatic)
             tableView.deselectRow(at: selectedIntexPath, animated: true)
         }
+
+        if songsFetchedResultsController.delegate == nil {
+            songsFetchedResultsController.delegate = self
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -320,17 +324,35 @@ extension SongsListingViewController: UINavigationControllerDelegate {
         if viewController is SongsListingViewController {
             // Reconfigure the search controller.
             configureSearchController()
-            navigationItem.hidesSearchBarWhenScrolling = false
         }
     }
+}
 
-    func navigationController(
-        _ navigationController: UINavigationController,
-        didShow viewController: UIViewController,
-        animated: Bool
+extension SongsListingViewController: NSFetchedResultsControllerDelegate {
+
+    func controller(
+        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+        didChange anObject: Any,
+        at indexPath: IndexPath?,
+        for type: NSFetchedResultsChangeType,
+        newIndexPath: IndexPath?
         ) {
-        if viewController is SongsListingViewController {
-            navigationItem.hidesSearchBarWhenScrolling = true
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+
+        case .move:
+            guard let indexPath = indexPath, let newIndexPath = newIndexPath else { return }
+            tableView.moveRow(at: indexPath, to: newIndexPath)
+
+        case .update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
 }
