@@ -92,6 +92,8 @@ class SongsListingViewController: UIViewController {
         precondition(songStore != nil)
         precondition(songsService != nil)
 
+        navigationController?.delegate = self
+
         navigationController?.view.backgroundColor = .white
         definesPresentationContext = true
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -113,8 +115,6 @@ class SongsListingViewController: UIViewController {
             tableView.reloadRows(at: [selectedIntexPath], with: .automatic)
             tableView.deselectRow(at: selectedIntexPath, animated: true)
         }
-
-        configureSearchController()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -307,5 +307,30 @@ extension SongsListingViewController: UITableViewDataSource, UITableViewDelegate
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 80
+    }
+}
+
+extension SongsListingViewController: UINavigationControllerDelegate {
+
+    func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool
+        ) {
+        if viewController is SongsListingViewController {
+            // Reconfigure the search controller.
+            configureSearchController()
+            navigationItem.hidesSearchBarWhenScrolling = false
+        }
+    }
+
+    func navigationController(
+        _ navigationController: UINavigationController,
+        didShow viewController: UIViewController,
+        animated: Bool
+        ) {
+        if viewController is SongsListingViewController {
+            navigationItem.hidesSearchBarWhenScrolling = true
+        }
     }
 }
