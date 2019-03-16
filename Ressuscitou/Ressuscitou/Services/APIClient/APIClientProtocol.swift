@@ -22,6 +22,16 @@ protocol APIClientProtocol {
 
     // MARK: Imperatives
 
+    /// Makes a configured GET task for the specified resource.
+    /// - Parameters:
+    ///     - url: the url of the file to be retrieved.
+    ///     - handler: the handler called when the task finishes.
+    /// - Returns: the configure GET task.
+    func makeConfiguredGETTask(
+        forResourceAtUrl url: URL,
+        withCompletionHandler handler: @escaping (Data?, URLSessionTask.TaskError?) -> Void
+        ) -> URLSessionDataTask
+
     /// Makes a configured download task for the specified resource.
     /// - Parameters:
     ///     - url: the url of the file to be downloaded.
@@ -40,5 +50,6 @@ extension URLSessionTask {
     enum TaskError: Error {
         case connection
         case serverResponse(statusCode: Int?)
+        case unexpectedDataContent
     }
 }

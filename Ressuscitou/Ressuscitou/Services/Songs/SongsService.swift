@@ -53,6 +53,33 @@ class SongsService: SongsServiceProtocol {
         }
     }
 
+    func requestSongsVersion(withCompletionHandler completionHandler: @escaping (Int?, Error?) -> Void) {
+        guard let versionUrl = getBaseUrl().appendingPathComponent("cantos_versao.txt").appendingQuery("raw=true") else {
+            preconditionFailure("The URL for the songs version file must be set.")
+        }
+        let getTask = apiClient.makeConfiguredGETTask(forResourceAtUrl: versionUrl) { data, error in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+
+            guard error == nil, let data = data else {
+                completionHandler(nil, error!)
+                return
+            }
+
+            guard let versionText = String(data: data, encoding: .utf8), let version = Int(versionText) else {
+                completionHandler(nil, URLSessionTask.TaskError.unexpectedDataContent)
+                return
+            }
+
+            completionHandler(version, nil)
+        }
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+        getTask.resume()
+    }
+
     func downloadAudio(
         fromSong song: SongMO,
         withCompletionHandler handler: @escaping (Bool, SongsServiceError?) -> Void
@@ -67,17 +94,13 @@ class SongsService: SongsServiceProtocol {
             locale: nil
         ).components(separatedBy: .punctuationCharacters).joined()
 
-        guard var audioUrlComponents = URLComponents(
-            url: getBaseUrl().appendingPathComponent("audios/\(songTitle).mp3"),
-            resolvingAgainstBaseURL: true
-            ) else {
+        guard let audioUrl = getBaseUrl()
+            .appendingPathComponent("audios/\(songTitle).mp3")
+            .appendingQuery("raw=true") else {
                 preconditionFailure("The url for audios must be set.")
         }
-        audioUrlComponents.query = "raw=true"
 
-        let downloadTask = apiClient.makeConfiguredDownloadTask(
-            forResourceAtUrl: audioUrlComponents.url!
-        ) { resourceUrl, taskError in
+        let downloadTask = apiClient.makeConfiguredDownloadTask(forResourceAtUrl: audioUrl) { resourceUrl, taskError in
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
@@ -94,6 +117,8 @@ class SongsService: SongsServiceProtocol {
                     } else {
                         error = .resourceNotAvailable
                     }
+                case .unexpectedDataContent:
+                    error = .resourceNotAvailable
                 }
 
                 handler(false, error)

@@ -34,6 +34,10 @@ protocol SongsServiceProtocol {
     ///     - completionHandler: the completion handler called when finished parsing and storing the songs.
     func handleSongsJson(_ jsonData: Data, withCompletionHandler handler: @escaping (Error?) -> Void)
 
+    /// Requests the current version of the songs json.
+    /// - Parameter completionHandler: the completion handler called when the version is retrieved.
+    func requestSongsVersion(withCompletionHandler completionHandler: @escaping (Int?, Error?) -> Void)
+
     /// Downloads the audio related to the passed song entity and persists it using core data.
     /// - Parameters:
     ///     - song: the song related to the sound to be downloaded.

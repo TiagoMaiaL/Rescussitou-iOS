@@ -23,11 +23,30 @@ struct APIClient: APIClientProtocol {
 
     // MARK: Imperatives
 
-    /// Makes a configured download task for the specified resource.
-    /// - Parameters:
-    ///     - url: the url of the file to be downloaded.
-    ///     - handler: the handler called when the task finishes.
-    /// - Returns: the configure download task.
+    func makeConfiguredGETTask(
+        forResourceAtUrl url: URL,
+        withCompletionHandler handler: @escaping (Data?, URLSessionTask.TaskError?) -> Void
+        ) -> URLSessionDataTask {
+        return session.dataTask(with: url) { data, response, error in
+            guard error == nil, data != nil else {
+                handler(nil, .connection)
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                handler(nil, .connection)
+                return
+            }
+
+            guard (200...299).contains(httpResponse.statusCode) else {
+                handler(nil, .serverResponse(statusCode: httpResponse.statusCode))
+                return
+            }
+
+            handler(data!, nil)
+        }
+    }
+
     func makeConfiguredDownloadTask(
         forResourceAtUrl url: URL,
         withCompletionHandler handler: @escaping (URL?, URLSessionTask.TaskError?) -> Void

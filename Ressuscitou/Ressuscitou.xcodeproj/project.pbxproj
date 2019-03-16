@@ -47,6 +47,7 @@
 		4741BF6B221B815B0089C658 /* Notification+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6A221B815B0089C658 /* Notification+Constants.swift */; };
 		4741BF6D221C410D0089C658 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6C221C410D0089C658 /* String+Helpers.swift */; };
 		4741BF6F221C60AC0089C658 /* WarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4741BF6E221C60AC0089C658 /* WarningViewController.swift */; };
+		4744EC5D223C815100F2F66C /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4744EC5C223C815000F2F66C /* URL+Helpers.swift */; };
 		474956B92224741A00EEDCC4 /* EmptySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474956B82224741A00EEDCC4 /* EmptySearchView.swift */; };
 		474956BB2224743000EEDCC4 /* EmptySearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 474956BA2224743000EEDCC4 /* EmptySearchView.xib */; };
 		47829D852229C33500B633C1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47829D842229C33500B633C1 /* AVFoundation.framework */; };
@@ -116,6 +117,7 @@
 		4741BF6A221B815B0089C658 /* Notification+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Constants.swift"; sourceTree = "<group>"; };
 		4741BF6C221C410D0089C658 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		4741BF6E221C60AC0089C658 /* WarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewController.swift; sourceTree = "<group>"; };
+		4744EC5C223C815000F2F66C /* URL+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
 		474956B82224741A00EEDCC4 /* EmptySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySearchView.swift; sourceTree = "<group>"; };
 		474956BA2224743000EEDCC4 /* EmptySearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptySearchView.xib; sourceTree = "<group>"; };
 		47829D842229C33500B633C1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -312,6 +314,7 @@
 				4741BF6A221B815B0089C658 /* Notification+Constants.swift */,
 				4741BF68221B62E50089C658 /* UIApplication+Helpers.swift */,
 				4741BF6C221C410D0089C658 /* String+Helpers.swift */,
+				4744EC5C223C815000F2F66C /* URL+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				470CE64F2214F594005E321F /* DataController.swift in Sources */,
 				470CE6492214F20F005E321F /* SplashViewController.swift in Sources */,
 				470CE65D2216021C005E321F /* Song.swift in Sources */,
+				4744EC5D223C815100F2F66C /* URL+Helpers.swift in Sources */,
 				470CE64D2214F589005E321F /* DataControllerProtocol.swift in Sources */,
 				4741BF6F221C60AC0089C658 /* WarningViewController.swift in Sources */,
 			);
