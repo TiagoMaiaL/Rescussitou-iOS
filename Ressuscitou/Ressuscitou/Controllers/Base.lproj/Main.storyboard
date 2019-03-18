@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1w-gf-mUT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1w-gf-mUT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -84,10 +84,10 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1t-XE-Xis" userLabel="Options popover" customClass="RoundedView" customModule="Ressuscitou" customModuleProvider="target">
-                                <rect key="frame" x="28" y="10" width="319" height="184"/>
+                                <rect key="frame" x="28" y="10" width="319" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6CV-IX-gkm">
-                                        <rect key="frame" x="0.0" y="0.0" width="319" height="184"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYJ-U9-Bbr">
                                                 <rect key="frame" x="16" y="0.0" width="287" height="60"/>
@@ -102,29 +102,29 @@
                                                     <action selector="beginOrCancelAutoScroll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="srr-w9-KSO"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-TS-Cer" userLabel="Separator">
-                                                <rect key="frame" x="0.0" y="60" width="319" height="2"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-TS-Cer" userLabel="Separator">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="2"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="ctF-uj-IKc"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sk0-QR-9eh">
-                                                <rect key="frame" x="16" y="62" width="287" height="60"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sk0-QR-9eh">
+                                                <rect key="frame" x="16" y="0.0" width="287" height="60"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                 <state key="normal" title="Transpor">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSd-N7-UF7" userLabel="Separator">
-                                                <rect key="frame" x="0.0" y="122" width="319" height="2"/>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSd-N7-UF7" userLabel="Separator">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="2"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="o0Y-gS-7cK"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lb-fm-i0e">
-                                                <rect key="frame" x="16" y="124" width="287" height="60"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lb-fm-i0e">
+                                                <rect key="frame" x="16" y="0.0" width="287" height="60"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="18"/>
                                                 <state key="normal" title="Lista de acordes">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,18 +194,22 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="2my-tr-iBy"/>
                                             <constraint firstItem="jS3-Fa-e2T" firstAttribute="height" secondItem="cgg-Cu-WlO" secondAttribute="height" id="dZ4-5y-dPA"/>
                                             <constraint firstItem="jS3-Fa-e2T" firstAttribute="width" secondItem="cgg-Cu-WlO" secondAttribute="width" id="t10-a3-7td"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ONB-sP-F8C" secondAttribute="bottom" id="1Tm-v1-apq"/>
                                     <constraint firstAttribute="trailing" secondItem="ONB-sP-F8C" secondAttribute="trailing" constant="20" symbolic="YES" id="cBL-x0-uMe"/>
                                     <constraint firstItem="ONB-sP-F8C" firstAttribute="top" secondItem="EA6-7C-3Sy" secondAttribute="top" id="gTi-hK-cEK"/>
                                     <constraint firstItem="ONB-sP-F8C" firstAttribute="leading" secondItem="EA6-7C-3Sy" secondAttribute="leading" constant="20" symbolic="YES" id="ilr-5R-lo3"/>
-                                    <constraint firstAttribute="height" constant="60" id="n4O-Hm-VGk"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -241,13 +245,8 @@
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="9dB-mL-Kek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dkG-ko-fGi"/>
-                            <constraint firstItem="EA6-7C-3Sy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tIq-Zo-exF">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="constant">
-                                        <integer key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ONB-sP-F8C" secondAttribute="bottom" id="pwT-BO-n75"/>
+                            <constraint firstItem="EA6-7C-3Sy" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" priority="250" id="tIq-Zo-exF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -278,8 +277,9 @@
                         <outlet property="audioHandlerContainer" destination="9dB-mL-Kek" id="hEn-gg-1OT"/>
                         <outlet property="audioHandlerHeightConstraint" destination="bBG-gL-RUk" id="aDF-Sb-D3W"/>
                         <outlet property="audioHandlerTopConstraint" destination="9RZ-7p-9YI" id="aEK-wU-1y7"/>
-                        <outlet property="autoScrollBottomConstraint" destination="tIq-Zo-exF" id="3Ik-H0-mIt"/>
+                        <outlet property="autoScrollBottomConstraint" destination="pwT-BO-n75" id="Aw1-NJ-bWN"/>
                         <outlet property="autoScrollCloseButton" destination="jS3-Fa-e2T" id="hBq-10-CHT"/>
+                        <outlet property="autoScrollContainer" destination="ONB-sP-F8C" id="Frp-Zk-BwW"/>
                         <outlet property="autoScrollControlButton" destination="cgg-Cu-WlO" id="z4I-HV-aZ4"/>
                         <outlet property="autoScrollSlider" destination="J3y-Zu-Ldr" id="IZu-sL-dCu"/>
                         <outlet property="optionsBarButton" destination="1nJ-e9-caV" id="Dg2-xF-BSX"/>
@@ -701,7 +701,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="BOD-D6-NUD" firstAttribute="bottom" secondItem="Ci1-SY-jp4" secondAttribute="bottom" id="gJi-Il-Bvv"/>
+                            <constraint firstAttribute="bottom" secondItem="Ci1-SY-jp4" secondAttribute="bottom" id="gJi-Il-Bvv"/>
                             <constraint firstItem="Ci1-SY-jp4" firstAttribute="leading" secondItem="BOD-D6-NUD" secondAttribute="leading" id="nWR-Zr-qG7"/>
                             <constraint firstItem="BOD-D6-NUD" firstAttribute="trailing" secondItem="Ci1-SY-jp4" secondAttribute="trailing" id="tP9-8C-vnX"/>
                         </constraints>

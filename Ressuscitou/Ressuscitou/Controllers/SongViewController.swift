@@ -47,6 +47,9 @@ class SongViewController: UIViewController {
     /// The bottom constraint of the autoScroll container.
     @IBOutlet weak var autoScrollBottomConstraint: NSLayoutConstraint!
 
+    /// The container holding the controls in charge of manipulating the auto scroll feature.
+    @IBOutlet weak var autoScrollContainer: UIStackView!
+
     /// The button used to play or pause the auto scroll.
     @IBOutlet weak var autoScrollControlButton: UIButton!
 
@@ -104,6 +107,18 @@ class SongViewController: UIViewController {
             at: headRange.upperBound
         )
         songWebView.loadHTMLString(html, baseURL: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        enableAutoScrollContainer(false)
+        // Hide the container's superView, so it doesn't appear while the content of the webview is being loaded.
+        autoScrollContainer.superview?.isHidden = true
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        autoScrollContainer.superview?.isHidden = false
     }
 
     // MARK: Navigation
@@ -208,9 +223,11 @@ class SongViewController: UIViewController {
 
     /// Displays or hides the auto scroll container view, based on the provided flag.
     private func enableAutoScrollContainer(_ isEnabled: Bool) {
-        autoScrollBottomConstraint.constant = isEnabled ? 0 : 60
+        let safeAreaBottomHeight = UIApplication.shared.keyWindow!.safeAreaInsets.bottom
+        autoScrollBottomConstraint.constant = isEnabled ? 0 : -(60 + safeAreaBottomHeight)
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
+            self.autoScrollContainer.alpha = isEnabled ? 1 : 0
         }
     }
 
