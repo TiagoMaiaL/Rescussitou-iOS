@@ -99,6 +99,8 @@ class SongsListingViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         subscribeToNotification(named: .FilterSongs, usingSelector: #selector(filterSongs(_:)))
+        subscribeToNotification(named: Notification.Name.NSManagedObjectContextDidSave,
+                                usingSelector: #selector(mergeChanges(fromContextDidSaveNotification:)))
 
         do {
             try songsFetchedResultsController.performFetch()
@@ -176,6 +178,11 @@ class SongsListingViewController: UIViewController {
     }
 
     // MARK: Actions
+
+    /// Merges the changes from the other contexts that were saved.
+    @objc private func mergeChanges(fromContextDidSaveNotification notification: Notification) {
+        self.songsFetchedResultsController.managedObjectContext.mergeChanges(fromContextDidSave: notification)
+    }
 
     /// Filters the songs to display.
     @objc private func filterSongs(_ notification: Notification) {

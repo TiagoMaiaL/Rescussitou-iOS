@@ -55,6 +55,9 @@ class SplashViewController: UIViewController {
             if !UserDefaults.wereSongsSeeded {
                 self.seedSongsFromJsonFile()
             } else {
+                // Check for updates once at each launch.
+                self.updateSongsIfNecessary()
+
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                     self.displayNextController()
                 })
@@ -123,6 +126,8 @@ class SplashViewController: UIViewController {
             }
 
             UserDefaults.wereSongsSeeded = true
+            // Make sure the songs are updated, even after the first app launch.
+            self.updateSongsIfNecessary()
             self.displayNextController()
         }
     }
@@ -148,5 +153,12 @@ class SplashViewController: UIViewController {
                 usingContext: dataController.viewContext
         )
         songsController.songsService = songsService
+    }
+
+    /// Updates the songs, only if the version of the songs of the app is lower than the current one.
+    private func updateSongsIfNecessary() {
+        songsService.updateSongsIfNecessary { _ in
+            // Fail silently.
+        }
     }
 }
