@@ -59,7 +59,7 @@ class WarningViewController: UIViewController {
     // MARK: Actions
 
     @IBAction func dismissWarning(_ sender: UIButton) {
-        //            UserDefaults.isFirstLaunch = false
+        UserDefaults.isFirstLaunch = false
         performSegue(withIdentifier: SegueIdentifiers.SongsControllerSegue, sender: self)
     }
 

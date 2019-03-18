@@ -43,12 +43,11 @@ class SongsService: SongsServiceProtocol {
                     try context.save()
                     handler(nil)
                 } catch {
-                    print("Error while saving context.")
+                    context.rollback()
                     handler(error)
                 }
             }
         } catch {
-            print("Error while decoding json.")
             handler(error)
         }
     }
@@ -105,9 +104,14 @@ class SongsService: SongsServiceProtocol {
                             return
                         }
 
+                        // Update the version after the songs were updated.
+                        UserDefaults.currentSongsVersion = version
+
                         completionHandler(nil)
                     }
                 }
+            } else {
+                completionHandler(nil)
             }
         }
     }

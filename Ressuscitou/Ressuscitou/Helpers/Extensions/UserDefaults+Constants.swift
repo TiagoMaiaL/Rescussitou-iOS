@@ -43,7 +43,15 @@ extension UserDefaults {
 
     /// The current version of the songs stored by the app.
     static var currentSongsVersion: Int? {
-        let version = UserDefaults.standard.integer(forKey: Keys.SongsVersion)
-        return version > 0 ? version : nil
+        get {
+            let version = UserDefaults.standard.integer(forKey: Keys.SongsVersion)
+            return version > 0 ? version : nil
+        }
+        set {
+            guard let newVersion = newValue else {
+                return
+            }
+            UserDefaults.standard.set(newVersion, forKey: Keys.SongsVersion)
+        }
     }
 }
