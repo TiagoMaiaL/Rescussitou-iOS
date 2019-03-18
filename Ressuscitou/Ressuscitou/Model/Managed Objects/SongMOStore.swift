@@ -91,7 +91,11 @@ struct SongsMOStore: SongMOStoreProtocol {
     /// - Returns: the added song managed object.
     private func createSongManagedObject(fromJSONSong song: Song,
                                          usingContext context: NSManagedObjectContext) -> SongMO {
-        let songManagedObject = SongMO(context: context)
+        var songManagedObject: SongMO! = fetchSongByNumber(song.number, usingContext: context)
+
+        if songManagedObject == nil {
+            songManagedObject = SongMO(context: context)
+        }
 
         songManagedObject.title = song.title.capitalizingFirstLetterOnly()
         songManagedObject.content = song.content
@@ -117,6 +121,15 @@ struct SongsMOStore: SongMOStoreProtocol {
         songManagedObject.isForVirginMary = song.isForVirginMary
 
         return songManagedObject
+    }
+
+    /// Fetches the song entity by its number.
+    /// - Parameter songNumber: the number used to fetch the song.
+    private func fetchSongByNumber(_ number: String, usingContext context: NSManagedObjectContext) -> SongMO? {
+        let fetchRequest: NSFetchRequest<SongMO> = SongMO.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "number = %@", number)
+
+        return (try? context.fetch(fetchRequest))?.first
     }
 
     /// Makes a fetched results controller using the filter predicate.
