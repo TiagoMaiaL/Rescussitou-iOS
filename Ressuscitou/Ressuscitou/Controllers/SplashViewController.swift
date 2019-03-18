@@ -101,7 +101,7 @@ class SplashViewController: UIViewController {
                 preconditionFailure("Couldn't retrieve the songs json data.")
         }
 
-        songsService.handleSongsJson(songsJsonData) { error in
+        songsService.persistSongsFromJson(songsJsonData) { error in
             guard error == nil else {
                 DispatchQueue.main.async {
                     let errorAlert = self.makeErrorAlertController(

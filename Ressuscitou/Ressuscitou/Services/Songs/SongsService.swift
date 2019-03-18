@@ -31,7 +31,7 @@ class SongsService: SongsServiceProtocol {
 
     // MARK: Imperatives
 
-    func handleSongsJson(_ jsonData: Data, withCompletionHandler handler: @escaping (Error?) -> Void) {
+    func persistSongsFromJson(_ jsonData: Data, usingCompletionHandler handler: @escaping (Error?) -> Void) {
         // Turn the data into the temporary songs structs, then persist them using the store.
         let decoder = JSONDecoder()
 
@@ -77,6 +77,65 @@ class SongsService: SongsServiceProtocol {
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
         }
+        getTask.resume()
+    }
+
+    func updateSongsIfNecessary(withCompletionHandler completionHandler: @escaping (Error?) -> Void) {
+        requestSongsVersion { version, error in
+            guard error == nil, let version = version else {
+                completionHandler(error)
+                return
+            }
+
+            // Check if the returned version is greater than the current one, and update the songs, if necessary.
+            let currentSongsVersion = UserDefaults.currentSongsVersion
+
+            if currentSongsVersion == nil || (currentSongsVersion != nil && currentSongsVersion! < version) {
+                // Update the songs. Begin by requesting the songs json from the server.
+                self.requestSongsJson { data, error in
+                    guard error == nil, let data = data else {
+                        completionHandler(error!)
+                        return
+                    }
+
+                    // Handle and save the returned json.
+                    self.persistSongsFromJson(data) { error in
+                        guard error == nil else {
+                            completionHandler(error!)
+                            return
+                        }
+
+                        completionHandler(nil)
+                    }
+                }
+            }
+        }
+    }
+
+    /// Requests the current songs from the json file in the server.
+    /// - Parameter completionHandler: called when the request has finished, with the json or the error.
+    private func requestSongsJson(withCompletionHandler completionHandler: @escaping (Data?, Error?) -> Void) {
+        guard let songsUrl = getBaseUrl().appendingPathComponent("cantos.json").appendingQuery("raw=true") else {
+            preconditionFailure("The URL for the songs file must be set.")
+        }
+
+        let getTask = apiClient.makeConfiguredGETTask(forResourceAtUrl: songsUrl) { data, error in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+
+            guard error == nil, let data = data else {
+                completionHandler(nil, error!)
+                return
+            }
+
+            completionHandler(data, nil)
+        }
+
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+
         getTask.resume()
     }
 

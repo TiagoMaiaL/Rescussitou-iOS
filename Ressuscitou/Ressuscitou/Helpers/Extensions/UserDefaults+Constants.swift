@@ -16,6 +16,7 @@ extension UserDefaults {
     enum Keys {
         static let WereSongsSeeded = "were_songs_seeded"
         static let WasAppFirstLaunched = "was_launched"
+        static let SongsVersion = "songs_version"
     }
 
     // MARK: Properties
@@ -38,5 +39,11 @@ extension UserDefaults {
         set {
             UserDefaults.standard.set(!newValue, forKey: Keys.WasAppFirstLaunched)
         }
+    }
+
+    /// The current version of the songs stored by the app.
+    static var currentSongsVersion: Int? {
+        let version = UserDefaults.standard.integer(forKey: Keys.SongsVersion)
+        return version > 0 ? version : nil
     }
 }
