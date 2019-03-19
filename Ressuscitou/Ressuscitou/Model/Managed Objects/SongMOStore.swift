@@ -145,7 +145,8 @@ struct SongsMOStore: SongMOStoreProtocol {
                 key: "title",
                 ascending: true,
                 selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
-            )
+            ),
+            NSSortDescriptor(key: "title", ascending: true)
         ]
         request.predicate = filterPredicate
 
