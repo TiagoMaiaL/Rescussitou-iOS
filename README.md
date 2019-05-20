@@ -1,4 +1,4 @@
-# Rescussitou-iOS
+# Ressuscitou-iOS
 
 <img src="images/icon.png" width=250px>
 
